@@ -2,12 +2,12 @@ import re
 import unicodedata
 import pandas as pd
 
-ARQUIVO = "finalizadas_2026-08.csv"
+ARQUIVO = r"data\finalizadas_2026-08.csv"
 
 df = pd.read_csv(
     ARQUIVO,
     sep=";",
-    encoding="utf-8",   # se aparecerem símbolos estranhos, teste "utf-8"
+    encoding="utf-8",  
     decimal=",",
     low_memory=False,
 )
@@ -28,11 +28,9 @@ df.columns = [limpar_nome(c) for c in df.columns]
 print(df["data_finalizacao"].head().tolist())
 df["data_finalizacao"] = pd.to_datetime(df["data_finalizacao"], format="ISO8601")
 
-# tempo_resposta nulo coincide com não respondida?
 print(df["data_finalizacao"].min(), df["data_finalizacao"].max())
 print(df["data_finalizacao"].isna().mean())  
 
-# taxa de resolução entre avaliadas, por segmento (volume mínimo de 500)
 av = df[df["situacao"] == "Finalizada avaliada"]
 seg = (av.groupby("segmento_de_mercado")["avaliacao_reclamacao"]
          .agg(n="size", resolvida=lambda s: (s == "Resolvida").mean()))
