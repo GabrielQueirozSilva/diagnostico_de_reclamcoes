@@ -2,10 +2,10 @@
 
 | Campo | Descrição | Tipo (banco) | Valores / observações | Status |
 |---|---|---|---|---|
-| `regiao` | Região do consumidor | texto | Vimos `N` e `S`; listar os demais | confirmar |
+| `regiao` | Região do consumidor | texto | Visto `N` e `S`; listar os demais | confirmar |
 | `uf` | Estado do consumidor | texto(2) | Sigla | ok |
 | `cidade` | Cidade do consumidor | texto | Sem nulos | ok |
-| `sexo` | Sexo do consumidor | texto | Vimos `M` e `F`; ver se há outros | confirmar |
+| `sexo` | Sexo do consumidor | texto | Visto `M` e `F`; ver se há outros | confirmar |
 | `faixa_etaria` | Faixa de idade do consumidor | texto | Categorias a listar | confirmar |
 | `data_finalizacao` | Data em que a reclamação foi finalizada | data | Formato original ISO (AAAA-MM-DD); em agosto/2026 vai de 01/08 a 31/08 | ok |
 | `tempo_resposta` | Tempo que a empresa levou para responder | número | Nulo = empresa não respondeu; valores de 0 a 11; unidade provavelmente dias | confirmar unidade |
