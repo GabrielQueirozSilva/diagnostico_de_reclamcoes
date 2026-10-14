@@ -8,7 +8,7 @@
 | `sexo` | Sexo do consumidor | texto | `M`, `F` `O` | ok |
 | `faixa_etaria` | Faixa de idade do consumidor | texto | `<=20`, `21-30`, `31-40`, `41-50`, `51-60`, `61-70`, `>70` | ok |
 | `data_finalizacao` | Data em que a reclamação foi finalizada | data | Formato original ISO (AAAA-MM-DD); em agosto/2026 vai de 01/08 a 31/08 | ok |
-| `tempo_resposta` | Tempo que a empresa levou para responder | número | Nulo = empresa não respondeu; valores de 0 a 11; unidade provavelmente dias | confirmar unidade |
+| `tempo_resposta` | Tempo que a empresa levou para responder | número | Nulo = empresa não respondeu; valores de 0 a 11; unidade em dias | ok |
 | `nome_fantasia` | Empresa reclamada | texto | | ok |
 | `segmento_de_mercado` | Setor da empresa | texto | 1º nível da hierarquia | ok |
 | `area` | Área dentro do segmento | texto | 2º nível | ok |

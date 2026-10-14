@@ -3,3 +3,13 @@ Limitações.
 (1) O indicador mede a resolução percebida pelo consumidor, e não uma medida objetiva de desempenho da empresa. 
 (2) A avaliação é opcional, então os resultados descrevem o grupo que avaliou e podem não representar todas as reclamações. 
 (3) A análise cobre apenas [agosto/2026].
+
+
+### Tratamento de `tempo_resposta`
+
+Nos dados carregados, `tempo_resposta` é nulo exatamente quando
+`respondida = 'N'` (23.873 registros, 100% de correspondência; todas as
+reclamações com `respondida = 'S'` têm o tempo preenchido). Por isso, os
+nulos foram mantidos como `NULL` no banco, sem imputação: eles representam
+reclamações sem resposta da empresa, e não tempo zero.
+
