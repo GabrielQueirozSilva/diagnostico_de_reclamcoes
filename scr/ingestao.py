@@ -1,23 +1,37 @@
-import psycopg2
-from psycopg2 import sql, errors
-from psycopg2.extras import execute_values
 from datetime import datetime
-from dotenv import load_dotenv
+import glob
 import os
 import re
 import unicodedata
+from dotenv import load_dotenv
 import pandas as pd
-
+import psycopg2
+from psycopg2 import errors, sql
+from psycopg2.extras import execute_values
 
 load_dotenv()
 
-
 COLUNAS = [
-    "regiao", "uf", "cidade", "sexo", "faixa_etaria", "data_finalizacao",
-    "tempo_resposta", "nome_fantasia", "segmento_de_mercado", "area",
-    "assunto", "grupo_problema", "problema", "como_comprou_contratou",
-    "procurou_empresa", "respondida", "situacao", "avaliacao_reclamacao",
+    "regiao",
+    "uf",
+    "cidade",
+    "sexo",
+    "faixa_etaria",
+    "data_finalizacao",
+    "tempo_resposta",
+    "nome_fantasia",
+    "segmento_de_mercado",
+    "area",
+    "assunto",
+    "grupo_problema",
+    "problema",
+    "como_comprou_contratou",
+    "procurou_empresa",
+    "respondida",
+    "situacao",
+    "avaliacao_reclamacao",
     "nota_do_consumidor",
+    "mes_ano",
 ]
 
 _PARAMS = dict(
@@ -26,30 +40,30 @@ _PARAMS = dict(
     password=os.getenv("DB_PASSWORD"),
 )
 
+
 def create_database_if_not_exists():
-    db = os.getenv("DB_NAME")
-    if not db:
-        raise ValueError("Database name not found in environment variables.")
-    
-    conn = psycopg2.connect(**_PARAMS)
-    try:
-        conn.autocommit = True
-        with conn.cursor() as cur:
-            try:
-                cur.execute(sql.SQL("CREATE DATABASE {}").format(sql.Identifier(db)))
-                print(f"Database '{db}' created successfully.")
-            except errors.DuplicateDatabase:
-                print(f"Database '{db}' already exists.")
-                
-    finally:
-        conn.close()            
-        
-        
+  db = os.getenv("DB_NAME")
+  if not db:
+    raise ValueError("Database name not found in environment variables.")
+
+  conn = psycopg2.connect(**_PARAMS)
+  try:
+    conn.autocommit = True
+    with conn.cursor() as cur:
+      try:
+        cur.execute(sql.SQL("CREATE DATABASE {}").format(sql.Identifier(db)))
+        print(f"Database '{db}' created successfully.")
+      except errors.DuplicateDatabase:
+        print(f"Database '{db}' already exists.")
+  finally:
+    conn.close()
+
+
 def create_table_database_if_not_exists():
-    conn = psycopg2.connect(**_PARAMS, dbname=os.getenv("DB_NAME"))
-    try:
-        with conn.cursor() as cur:
-            cur.execute("""
+  conn = psycopg2.connect(**_PARAMS, dbname=os.getenv("DB_NAME"))
+  try:
+    with conn.cursor() as cur:
+      cur.execute("""
                 CREATE TABLE IF NOT EXISTS ocorrencias (
                     id SERIAL PRIMARY KEY,
                     regiao VARCHAR(2),
@@ -70,56 +84,76 @@ def create_table_database_if_not_exists():
                     respondida VARCHAR(1),
                     situacao VARCHAR(255),
                     avaliacao_reclamacao VARCHAR(255),
-                    nota_do_consumidor INT
+                    nota_do_consumidor INT,
+                    mes_ano VARCHAR(7)
                 )
             """)
-            conn.commit()
-            print("Table 'ocorrencias' created successfully or already exists.")
-    finally:
-        conn.close()
-    
+      conn.commit()
+      print("Table 'ocorrencias' created successfully or already exists.")
+  finally:
+    conn.close()
+
+
 def insert_data_to_database(data, batch_size=10_000):
-    df = data[COLUNAS].copy()
-    df["tempo_resposta"] = df["tempo_resposta"].astype("Int64")
-    df["nota_do_consumidor"] = df["nota_do_consumidor"].astype("Int64")
-    df = df.astype(object).where(df.notna(), None)
-    registros = list(df.itertuples(index=False, name=None))
+  df = data[COLUNAS].copy()
+  df["tempo_resposta"] = (df["tempo_resposta"].astype("str").str.replace(",", ".", regex=False).astype(float).astype("Int64"))
+  df["nota_do_consumidor"] = df["nota_do_consumidor"].astype("str").str.replace(",", ".", regex=False).astype(float).astype("Int64")
+  df = df.astype(object).where(df.notna(), None)
+  registros = list(df.itertuples(index=False, name=None))
 
-    query = sql.SQL("INSERT INTO ocorrencias ({}) VALUES %s").format(
-        sql.SQL(", ").join(map(sql.Identifier, COLUNAS))
-    )
+  query = sql.SQL("INSERT INTO ocorrencias ({}) VALUES %s").format(
+      sql.SQL(", ").join(map(sql.Identifier, COLUNAS))
+  )
 
-    conn = psycopg2.connect(**_PARAMS, dbname=os.getenv("DB_NAME"))
-    try:
-        with conn.cursor() as cur:
-            execute_values(cur, query, registros, page_size=batch_size)
-        conn.commit()
-        print(f"{len(registros)} registros inseridos.")
-    except Exception:
-        conn.rollback()
-        raise
-    finally:
-        conn.close()
-        
-        
+  conn = psycopg2.connect(**_PARAMS, dbname=os.getenv("DB_NAME"))
+  try:
+    with conn.cursor() as cur:
+      execute_values(cur, query, registros, page_size=batch_size)
+    conn.commit()
+    print(f"{len(registros)} registros inseridos.")
+  except Exception:
+    conn.rollback()
+    raise
+  finally:
+    conn.close()
+
+
 if __name__ == "__main__":
-    ARQUIVO = r"data\finalizadas_2026-08.csv"
+  padrao_arquivos = r"data\*.csv"
+  arquivos = glob.glob(padrao_arquivos)
 
-    df = pd.read_csv(
-        ARQUIVO,
-        sep=";",
-        encoding="utf-8",  
-        decimal=",",
-        low_memory=False,
-    )
-
-    def limpar_nome(c):
-        c = unicodedata.normalize("NFKD", c).encode("ascii", "ignore").decode()
-        return re.sub(r"\W+", "_", c.strip().lower()).strip("_")
-
-    df.columns = [limpar_nome(c) for c in df.columns]
-    df['data_finalizacao'] = pd.to_datetime(df['data_finalizacao'], errors='coerce')
-    
+  if not arquivos:
+    print("Nenhum arquivo CSV encontrado na pasta.")
+  else:
     create_database_if_not_exists()
     create_table_database_if_not_exists()
-    insert_data_to_database(df.head(1000))
+
+    def limpar_nome(c):
+      c = unicodedata.normalize("NFKD", c).encode("ascii", "ignore").decode()
+      return re.sub(r"\W+", "_", c.strip().lower()).strip("_")
+
+    for arquivo in arquivos:
+      print(f"\nProcessando arquivo: {arquivo}")
+
+      match_data = re.search(r"(\d{4}-\d{2})", arquivo)
+      if match_data:
+        mes_ano_str = match_data.group(1)
+      else:
+        mes_ano_str = "Desconhecido"
+
+      df = pd.read_csv(
+          arquivo,
+          sep=";",
+          encoding="utf-8",
+          decimal=",",
+          low_memory=False,
+      )
+
+      df.columns = [limpar_nome(c) for c in df.columns]
+      df["data_finalizacao"] = pd.to_datetime(
+          df["data_finalizacao"], errors="coerce"
+      )
+      df["mes_ano"] = mes_ano_str
+      insert_data_to_database(df)
+
+    print("\nProcessamento e inserção de todos os meses concluídos com sucesso!")
