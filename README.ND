@@ -13,3 +13,14 @@ reclamações com `respondida = 'S'` têm o tempo preenchido). Por isso, os
 nulos foram mantidos como `NULL` no banco, sem imputação: eles representam
 reclamações sem resposta da empresa, e não tempo zero.
 
+
+### Validação da ingestão
+
+- Contagem de linhas no Postgres igual ao DataFrame de origem (N registros).
+- `tempo_resposta` nulo exatamente quando `respondida = 'N'` (23.873 registros, 100% de correspondência); nulos mantidos como `NULL`, sem imputação.
+- Nenhum valor excede o tamanho das colunas `VARCHAR`; `cidade` sem nulos.
+- Datas convertidas de texto para `DATE`, sem perda na conversão.
+- Sem a string `'NaN'` gravada em colunas de texto.
+- Agregações (média de `tempo_resposta`, contagem por `uf`) conferidas entre pandas e SQL.
+
+### Decisões de tratamento
