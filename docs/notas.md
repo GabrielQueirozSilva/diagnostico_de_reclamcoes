@@ -28,28 +28,27 @@
 
 ### Pergunta 1: segmentos com maior e menor taxa de resolução (concluída)
 - **Método:** taxa = resolvidas ÷ avaliadas por segmento (24 meses, 1.897.927 avaliadas), com intervalo
-  de 95% de Wilson. Melhores ordenados pelo limite inferior e piores pelo superior (ver D-010).
+  de 95% de Wilson. Melhores ordenados pelo limite inferior e piores pelo superior [ver D-010](decisoes.md).
 - **Gráfico:** `outputs/segmentos_ic_wilson.png`. **Tabela completa:** `outputs/segmentos_wilson.csv`.
 
 **Maiores taxas**
-[colar a tabela dos 5 melhores]
 | segmento_de_mercado                                                     |   avaliadas |   resolvidas |   taxa_pct |   ic_inf_pct |   ic_sup_pct |   largura_pp |
 |:------------------------------------------------------------------------|------------:|-------------:|-----------:|-------------:|-------------:|-------------:|
-| Operadoras de Telecomunicações (Telefonia, Internet, TV por assinatura) |      208706 |       148491 |       71.1 |         71 |         71.3 |          0.3 |
-| Transporte Aéreo                                                        |      115391 |        74616 |       64.7 |         64.4 |         64.9 |          0.5 |
-| Programas de Fidelidade                                                 |       37140 |        23405 |       63   |         62.5 |         63.5 |          1   |
-| Supermercados                                                           |        3746 |         2353 |       62.8 |         61.3 |         64.3 |          3   |
-| Fabricantes - Móveis, Colchões e Acessórios                             |         339 |          219 |       64.6 |         59.4 |         69.5 |         10.1 |
+| Operadoras de Telecomunicações (Telefonia, Internet, TV por assinatura) |      208.706 |       148.491 |       71.1% |         71% |         71.3% |          0.3 |
+| Transporte Aéreo                                                        |      115.391 |        74.616 |       64.7% |         64.4% |         64.9% |          0.5 |
+| Programas de Fidelidade                                                 |       37.140 |        23.405 |       63%   |         62.5% |         63.5% |          1   |
+| Supermercados                                                           |        3.746 |         2.353 |       62.8% |         61.3% |         64.3% |          3   |
+| Fabricantes - Móveis, Colchões e Acessórios                             |         339 |          219 |       64.6% |         59.4% |         69.5% |         10.1 |
 
 **Menores taxas**
 5 piores (ordenados pelo limite superior do intervalo):
 | segmento_de_mercado                                                   |   avaliadas |   resolvidas |   taxa_pct |   ic_inf_pct |   ic_sup_pct |   largura_pp |
 |:----------------------------------------------------------------------|------------:|-------------:|-----------:|-------------:|-------------:|-------------:|
-| Provedores de Conteúdo e Outros Serviços na Internet                  |       83608 |        11677 |       14   |         13.7 |         14.2 |          0.5 |
-| Entidades Sem Fins Lucrativos                                         |         718 |          120 |       16.7 |         14.2 |         19.6 |          5.4 |
-| Fabricantes - Eletroeletrônicos,  Produtos de Telefonia e Informática |       37308 |         7434 |       19.9 |         19.5 |         20.3 |          0.8 |
-| Montadoras, Concessionárias e Prestadores de Serviços Automotivos     |        7037 |         1600 |       22.7 |         21.8 |         23.7 |          1.9 |
-| Empresas de Recuperação de Crédito                                    |       65976 |        16035 |       24.3 |         24   |         24.6 |          0.6 |
+| Provedores de Conteúdo e Outros Serviços na Internet                  |       83.608 |        11.677 |       14%   |         13.7% |         14.2% |          0.5 |
+| Entidades Sem Fins Lucrativos                                         |         718 |          120 |       16.7% |         14.2% |         19.6% |          5.4 |
+| Fabricantes - Eletroeletrônicos,  Produtos de Telefonia e Informática |       37.308 |         7.434 |       19.9% |         19.5% |         20.3% |          0.8 |
+| Montadoras, Concessionárias e Prestadores de Serviços Automotivos     |        7.037 |         1.600 |       22.7% |         21.8% |         23.7% |          1.9 |
+| Empresas de Recuperação de Crédito                                    |       65.976 |        16.035 |       24.3% |         24%   |         24.6% |          0.6 |
 
 - Telecomunicações (71,1%) e Transporte Aéreo (64,7%) lideram sem sobreposição de intervalos.
   Programas de Fidelidade, Supermercados e Móveis/Colchões ficam tecnicamente empatados do 3º ao 5º lugar.
