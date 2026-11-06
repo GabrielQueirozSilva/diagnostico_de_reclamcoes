@@ -1,25 +1,42 @@
-Limitações. 
+# Atendimento ao consumidor: onde falha e o que se associa à resolução
 
-(1) O indicador mede a resolução percebida pelo consumidor, e não uma medida objetiva de desempenho da empresa. 
-(2) A avaliação é opcional, então os resultados descrevem o grupo que avaliou e podem não representar todas as reclamações. 
+Análise de [1,9 milhão de reclamações avaliadas] do Consumidor.gov.br (out/2024 a set/2026),
+para identificar em quais segmentos o atendimento falha e o que está associado a uma
+reclamação ser considerada resolvida pelo consumidor.
 
+> Status: em andamento (perguntas 1 e 5 em análise; 2, 3 e 4 pendentes).
 
-### Tratamento de `tempo_resposta`
+## Perguntas
+| # | Pergunta | Status |
+|---|----------|--------|
+| 1 | Quais segmentos têm menor/maior taxa de resolução? | concluída |
+| 2 | Quando a empresa responde, a resolução é maior? | em andamento |
+| 3 | O tempo de resposta se associa à resolução? | pendente |
+| 4 | Ter procurado a empresa antes muda a chance de resolução? | pendente |
+| 5 | Como a taxa evolui ao longo do tempo? | em andamento |
 
-Nos dados carregados, `tempo_resposta` é nulo exatamente quando
-`respondida = 'N'` (23.873 registros, 100% de correspondência; todas as
-reclamações com `respondida = 'S'` têm o tempo preenchido). Por isso, os
-nulos foram mantidos como `NULL` no banco, sem imputação: eles representam
-reclamações sem resposta da empresa, e não tempo zero.
+## Dados
+- Fonte: dados abertos do Consumidor.gov.br (reclamações finalizadas, um arquivo CSV por mês).
+- Período: 24 meses; [5,9 milhões] de reclamações, das quais [32%] foram avaliadas pelo consumidor.
+- Os CSVs não estão no repositório. Baixe-os da fonte e salve em `data/` como `finalizadas_AAAA-MM.csv`.
 
+## Principais resultados até agora
+- [Uma frase por pergunta concluída, com link para a tabela ou o gráfico.]
 
-### Validação da ingestão
+## Como reproduzir
+1. Python 3.14.3 e PostgreSQL. `pip install -r requirements.txt`.
+2. Copie `.env.example` para `.env` e preencha as credenciais do banco.
+3. Rode a ingestão e depois `python src/pergunta_01_segmentos.py` (e as demais).
 
-- Contagem de linhas no Postgres igual ao DataFrame de origem (N registros).
-- `tempo_resposta` nulo exatamente quando `respondida = 'N'` (23.873 registros, 100% de correspondência); nulos mantidos como `NULL`, sem imputação.
-- Nenhum valor excede o tamanho das colunas `VARCHAR`; `cidade` sem nulos.
-- Datas convertidas de texto para `DATE`, sem perda na conversão.
-- Sem a string `'NaN'` gravada em colunas de texto.
-- Agregações (média de `tempo_resposta`, contagem por `uf`) conferidas entre pandas e SQL.
+## Estrutura
+- `sql/` criação das tabelas, índices, view de análise e queries
+- `src/` ingestão e scripts por pergunta
+- `outputs/` gráficos e tabelas geradas
+- `docs/notas.md` achados e evidências · `docs/decisoes.md` decisões e motivos
 
-### Decisões de tratamento
+## Limitações
+- Só reclamações avaliadas (mede a resolução percebida; difere do índice oficial da plataforma).
+- [Lembrar de botar outras limitações depois (quando terminar tudo).]
+
+## Tecnologias
+Python 3.14.3 (pandas, SQLAlchemy, statsmodels, matplotlib), PostgreSQL, Power BI.
