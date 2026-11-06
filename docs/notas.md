@@ -2,27 +2,68 @@
 
 ## Objetivo e indicador
 
-**Objetivo central:** entender onde o atendimento falha e o que está associado à resolução percebida.
+**Objetivo central:** Descobrir onde o atendimento ao consumidor falha e o que está associado a uma reclamação ser considerada resolvida, usando 24 meses de dados do Consumidor.gov.br (out/2024 a set/2026) 
 
 **Indicador principal:** taxa de resolução percebida = reclamações avaliadas como "Resolvida" ÷ reclamações avaliadas.
 
 ## Escopo e limitações
 
-- Período: out/2024 a set/2026 (24 meses fechados).
-- Apenas reclamações avaliadas pelo consumidor: 32% do total nos 24 meses.
+- Período: out/2024 a set/2026 (24 meses fechados, 5.930.527 dados totais).
+- Apenas reclamações avaliadas pelo consumidor: 32% do total nos 24 meses (1.897.927 dados).
 - Mede a resolução **percebida pelo consumidor**, não o desempenho objetivo da empresa.
 - Difere do índice oficial da plataforma, que conta como resolvida a reclamação não avaliada. Por isso os números aqui não vão bater com os do Perfil do Fornecedor.
-- A análise de tempo de resposta usa só reclamações respondidas (`respondida = 'S'`), porque o campo é nulo nas demais.
+- A análise de tempo de resposta usa só reclamações respondidas (`respondida = 'S'`, 5.679.864 dados totais), porque o campo é nulo nas demais.
 
 ## Perguntas
 
 | # | Pergunta | Status |
 |---|----------|--------|
-| 1 | Quais segmentos têm menor/maior taxa de resolução? | em andamento |
-| 2 | Quando a empresa responde, a resolução é maior? | em andamento |
+| 1 | Quais segmentos têm menor/maior taxa de resolução? | concluida |
+| 2 | Quando a empresa responde, a resolução é maior? | pendente |
 | 3 | O tempo de resposta se associa à resolução? | pendente |
 | 4 | Ter procurado a empresa antes muda a chance de resolução? | pendente |
-| 5 | Como a taxa evolui mês a mês? | pendente |
+| 5 | Como a taxa evolui mês a mês? | em andamento |
+
+## Resultados
+
+### Pergunta 1: segmentos com maior e menor taxa de resolução (concluída)
+- **Método:** taxa = resolvidas ÷ avaliadas por segmento (24 meses, 1.897.927 avaliadas), com intervalo
+  de 95% de Wilson. Melhores ordenados pelo limite inferior e piores pelo superior (ver D-010).
+- **Gráfico:** `outputs/segmentos_ic_wilson.png`. **Tabela completa:** `outputs/segmentos_wilson.csv`.
+
+**Maiores taxas**
+[colar a tabela dos 5 melhores]
+| segmento_de_mercado                                                     |   avaliadas |   resolvidas |   taxa_pct |   ic_inf_pct |   ic_sup_pct |   largura_pp |
+|:------------------------------------------------------------------------|------------:|-------------:|-----------:|-------------:|-------------:|-------------:|
+| Operadoras de Telecomunicações (Telefonia, Internet, TV por assinatura) |      208706 |       148491 |       71.1 |         71 |         71.3 |          0.3 |
+| Transporte Aéreo                                                        |      115391 |        74616 |       64.7 |         64.4 |         64.9 |          0.5 |
+| Programas de Fidelidade                                                 |       37140 |        23405 |       63   |         62.5 |         63.5 |          1   |
+| Supermercados                                                           |        3746 |         2353 |       62.8 |         61.3 |         64.3 |          3   |
+| Fabricantes - Móveis, Colchões e Acessórios                             |         339 |          219 |       64.6 |         59.4 |         69.5 |         10.1 |
+
+**Menores taxas**
+5 piores (ordenados pelo limite superior do intervalo):
+| segmento_de_mercado                                                   |   avaliadas |   resolvidas |   taxa_pct |   ic_inf_pct |   ic_sup_pct |   largura_pp |
+|:----------------------------------------------------------------------|------------:|-------------:|-----------:|-------------:|-------------:|-------------:|
+| Provedores de Conteúdo e Outros Serviços na Internet                  |       83608 |        11677 |       14   |         13.7 |         14.2 |          0.5 |
+| Entidades Sem Fins Lucrativos                                         |         718 |          120 |       16.7 |         14.2 |         19.6 |          5.4 |
+| Fabricantes - Eletroeletrônicos,  Produtos de Telefonia e Informática |       37308 |         7434 |       19.9 |         19.5 |         20.3 |          0.8 |
+| Montadoras, Concessionárias e Prestadores de Serviços Automotivos     |        7037 |         1600 |       22.7 |         21.8 |         23.7 |          1.9 |
+| Empresas de Recuperação de Crédito                                    |       65976 |        16035 |       24.3 |         24   |         24.6 |          0.6 |
+
+- Telecomunicações (71,1%) e Transporte Aéreo (64,7%) lideram sem sobreposição de intervalos.
+  Programas de Fidelidade, Supermercados e Móveis/Colchões ficam tecnicamente empatados do 3º ao 5º lugar.
+- Provedores de Conteúdo (14,0%) é o pior com folga; Entidades Sem Fins Lucrativos (16,7%, n=718) vem
+  em seguida, com intervalo mais largo.
+- Segmentos com poucas avaliações (ex.: Bares, 2 avaliações) ficam sem conclusão.
+- **Limitações:** período agregado (a taxa geral caiu ao longo do tempo, ver pergunta 5); só reclamações
+  avaliadas; os intervalos não consideram que reclamações da mesma empresa são parecidas entre si.
+
+### Pergunta 5: evolução da taxa (em andamento)
+- Taxa geral: 51,9% (out-dez/2024) → 38,2% (jul-set/2026), queda de 13,7 pp.
+- ~63% da queda ocorre dentro dos segmentos e ~37% por mudança de composição.
+- Dez segmentos explicam quase toda a queda (Bancos/Financeiras e Telecomunicações à frente).
+- Pendente: olhar as empresas dentro dos segmentos e o gráfico mês a mês.
 
 ## Qualidade dos dados
 
@@ -44,9 +85,9 @@ O arquivo de 2025/09 veio com 2 colunas a mais: `Interação com Judiciário` e 
 - Impacto: o tempo médio sobe ~1 dia nos meses de pico; a taxa de resolução não muda de forma
   consistente com as janelas.
 
-### Não respondidas com avaliação - em aberto (ver D-008)
+### Não respondidas com avaliação - Decidido. [Ver D-008](decisoes.md)
 
-Entre as reclamações com `respondida = 'N'`: 19.734 não avaliadas, 3.569 "Não Resolvida" e 570 "Resolvida".
+Entre as reclamações com `respondida = 'N'`:  190.732 não avaliadas,  49.310 "Não Resolvida" e  10.621 "Resolvida".
 
 **Hipóteses:** 
 1. Resposta fora do prazo (perde força: o tempo de resposta é nulo em todos os casos).
@@ -54,8 +95,8 @@ Entre as reclamações com `respondida = 'N'`: 19.734 não avaliadas, 3.569 "Nã
 3. Consumidor avalia mesmo sem receber resposta (possível; explicaria as "Não Resolvida").
 4. Significado do campo `Respondida`: [dicionário não especifíca sobre].
 
-**Evidências nas 570 "Resolvida":** 424 foram abertas pela internet; 535 (93,86%) já tinham procurado a empresa antes e 35 (6,14%) não.
-**Cuidado:** o percentual de 94% só distingue algo se for comparado com o mesmo percentual na base geral. [Comparar e anotar.]
+**Evidências nas 570 "Resolvida":** 424 foram abertas pela internet; 535 (93,86%) já tinham procurado a empresa antes e 35 (6,14%) não. [ATUALIZAR ISSO]
+**Cuidado nisso:** o percentual de 94% só distingue algo se for comparado com o mesmo percentual na base geral. [Lembrar de comparar e anotar.]
 
 
 ## Perguntas em aberto

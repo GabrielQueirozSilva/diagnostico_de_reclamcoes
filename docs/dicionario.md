@@ -8,7 +8,7 @@
 | `sexo` | Sexo do consumidor | texto | `M`, `F` `O` | ok |
 | `faixa_etaria` | Faixa de idade do consumidor | texto | `<=20`, `21-30`, `31-40`, e etc | ok |
 | `data_finalizacao` | Data em que a reclamação foi finalizada | data | Formato original ISO (AAAA-MM-DD); em agosto/2026 vai de 01/08 a 31/08 | ok |
-| `tempo_resposta` | Tempo que a empresa levou para responder | número | Nulo = empresa não respondeu; valores de 0 a 11; unidade em dias | ok |
+| `tempo_resposta` | Tempo que a empresa levou para responder | número | Nulo = empresa não respondeu; unidade em dias | ok |
 | `nome_fantasia` | Empresa reclamada | texto | | ok |
 | `segmento_de_mercado` | Setor da empresa | texto | 1º nível da hierarquia | ok |
 | `area` | Área dentro do segmento | texto | 2º nível | ok |
@@ -20,4 +20,4 @@
 | `respondida` | Se a empresa respondeu | texto | `S` / `N` | ok |
 | `situacao` | Situação atual da reclamação no sistema | texto | "Finalizada avaliada" ou "Finalizada não avaliada" | ok |
 | `avaliacao_reclamacao` | Avaliação do consumidor sobre a resolução | texto | "Resolvida", "Não Resolvida" ou "Não Avaliada" | ok |
-| `nota_do_consumidor` | Nota de satisfação dada pelo consumidor | número | Nulo (~69%) quando não avaliada; 1 a 5 | ok |
+| `nota_do_consumidor` | Nota de satisfação dada pelo consumidor | número | Nulo (~68%) quando não avaliada; 1 a 5 | ok |

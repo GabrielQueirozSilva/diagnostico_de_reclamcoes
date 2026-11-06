@@ -1,0 +1,7 @@
+statsmodels
+pandas
+dotenv
+psycopg2
+matplotlib
+sqlalchemy
+tabulate

@@ -2,7 +2,6 @@ Limitações.
 
 (1) O indicador mede a resolução percebida pelo consumidor, e não uma medida objetiva de desempenho da empresa. 
 (2) A avaliação é opcional, então os resultados descrevem o grupo que avaliou e podem não representar todas as reclamações. 
-(3) A análise cobre apenas [agosto/2026].
 
 
 ### Tratamento de `tempo_resposta`
