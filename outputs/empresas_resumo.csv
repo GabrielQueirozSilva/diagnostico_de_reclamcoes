@@ -1,0 +1,4 @@
+segmento,taxa_inicio,taxa_fim,variacao_pp,dentro_pp,mix_pp,entrada_pp,saida_pp,total_pp,n_estaveis,n_entraram,n_sairam
+"Bancos, Financeiras e Administradoras de Cartão",0.3922,0.2754,-11.679,-9.9698,-1.4166,0.0097,-0.3023,-11.679,163,106,10
+"Operadoras de Telecomunicações (Telefonia, Internet, TV por assinatura)",0.7766,0.706,-7.0653,-8.8802,1.8501,-0.0386,0.0035,-7.0653,18,3,1
+Transporte Aéreo,0.7174,0.5889,-12.8522,-10.3469,-2.5157,-0.0309,0.0413,-12.8522,37,4,3

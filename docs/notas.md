@@ -28,7 +28,7 @@
 
 ### Pergunta 1: segmentos com maior e menor taxa de resolução (concluída)
 - **Método:** taxa = resolvidas ÷ avaliadas por segmento (24 meses, 1.897.927 avaliadas), com intervalo
-  de 95% de Wilson. Melhores ordenados pelo limite inferior e piores pelo superior [ver D-010](decisoes.md).
+  de 95% de Wilson. Melhores ordenados pelo limite inferior e piores pelo superior [ver D-009](decisoes.md).
 - **Gráfico:** `outputs/segmentos_ic_wilson.png`. **Tabela completa:** `outputs/segmentos_wilson.csv`.
 
 **Maiores taxas**
@@ -59,10 +59,28 @@
   avaliadas; os intervalos não consideram que reclamações da mesma empresa são parecidas entre si.
 
 ### Pergunta 5: evolução da taxa (em andamento)
-- Taxa geral: 51,9% (out-dez/2024) → 38,2% (jul-set/2026), queda de 13,7 pp.
-- ~63% da queda ocorre dentro dos segmentos e ~37% por mudança de composição.
-- Dez segmentos explicam quase toda a queda (Bancos/Financeiras e Telecomunicações à frente).
-- Pendente: olhar as empresas dentro dos segmentos e o gráfico mês a mês.
+- **Método:** recortes de 3 meses (out-dez/2024 e jul-set/2026), decomposição em dentro, mix, entrada e saída (ver D-010, D-011 e D-012). 
+- **Scripts:** pergunta_05_evolucao.py (segmentos), pergunta_05_empresas.py (empresas dentro dos segmentos) e pergunta_05_mensal.py (mês a mês).
+- **Taxa geral:** 51,9% (out-dez/2024) → 38,2% (jul-set/2026), queda de 13,7 pp.
+- **Segmentos:** ~63% da queda dentro dos segmentos e ~37% por composição (peso do início). Faixa com os dois pesos: [preencher]. Os 10 primeiros segmentos explicam [preencher]% da variação.
+
+**Dentro dos 3 segmentos que mais pesam** (outputs/empresas_*.csv, outputs/empresas_resumo.csv)
+
+
+| Segmento | Variação | Dentro | Mix | Entrada + saída | Concentração |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **Bancos, Financeiras e Adm. Cartão** | 39,2% → 27,5% (−11,7 pp) | −10,0 | −1,4 | −0,3 | 10 de 279 empresas ≈ 63% |
+| **Operadoras de Telecomunicações** | 77,7% → 70,6% (−7,1 pp) | −8,9 | +1,9 | ~0 | Vivo + Tim ≈ 80% |
+| **Transporte Aéreo** | 71,7% → 58,9% (−12,9 pp) | −10,3 | −2,5 | ~0 | Gol ≈ 48%; Gol + Latam ≈ 71% |
+
+
+* Nos três, a queda vem sobretudo de empresas que já existiam e perderam taxa; a entrada de empresas pesa quase nada.
+* Bancos: queda ampla entre os grandes (Santander 34,2% → 16,5%, Caixa 51,5% → 35,7%, BB 42,8% → 29,4%, Nubank 30,6% → 19,7%, Bradesco 31,7% → 22,8%, Itaú 35,5% → 24,6%). Hipótese a testar: algo comum a vários bancos.
+* Telecom: Vivo (83,6% → 71,6%) e Tim (76,3% → 65,0%) concentram a queda; Claro quase estável. A Oi Fixo caiu (72,9% → 45,1%), mas o volume dela encolheu e o mix compensou +1,8 pp.
+* Aéreo: Gol de 80,4% → 49,1%.
+* Mês a mês: [preencher após rodar pergunta_05_mensal.py: queda gradual ou em degrau? % de avaliadas sobre finalizadas mudou entre início e fim?]
+* Cuidados: "dentro" é a taxa percebida de empresas existentes, não prova atendimento pior (pode refletir tipo de reclamação, canal ou quem avalia). As avaliadas cresceram muito em várias empresas (ex.: Nubank 3.207 → 15.759). O início (out-dez/2024) é o começo da série e tem tempo de resposta atípico (ver "Qualidade dos dados").
+* Pendente: conferir o mês a mês; avaliar decompor por assunto/problema dentro das empresas que mais caíram (Gol, Vivo, Santander).
 
 ## Qualidade dos dados
 

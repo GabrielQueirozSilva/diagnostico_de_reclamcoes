@@ -11,8 +11,9 @@
 | D-007 | Tratar os dados negativos em tempo_resposta como NULL | aceita |
 | D-008 | Analisar todas as avaliadas, respondidas ou não | aceita |
 | D-009 | Utilizar o intervalo de Wilson em vez da taxa bruta para a pergunta 1 | aceita |
-| D-010 | Recorte de 3 meses de cada lado dos dados, referenciando o inicio e o fim | aceita |
+| D-010 | Recorte de 3 meses de cada lado da série (início e fim) | aceita |
 | D-011 | Decomposição entre efeito dentro dos segmentos e composição | aceita |
+| D-012 | Tratar entrada e saída de entidades em vez de descartá-las | aceita |
 
 ---
 
@@ -91,20 +92,29 @@
 - **Impacto:** O ranking passa a ser pelo limite inferior (melhores) e superior (piores), e segmentos com poucas avaliações, como Bares com 0 em  2, deixam de aparecer como extremos.
 
 
-## D-010 · ---
-- **Data:**
-- **Contexto:**
-- **Decisão:** 
-- **Alternativas:**
-- **Impacto:**
+## D-010 · Recorte de 3 meses de cada lado da série
+- **Data:** 07/11/2026
+- **Contexto:** Para explicar a queda da taxa geral é preciso comparar o começo e o fim da série, com volume suficiente por segmento.
+- **Decisão:** Comparar out-dez/2024 (início) com jul-set/2026 (fim), definidos em INICIO_ATE e FIM_A_PARTIR.
+- **Alternativas:** 1 mês de cada lado (menos volume por segmento, mais ruído); metades da série (mistura meses muito diferentes); só o gráfico mês a mês (não permite decompor a queda).
+- **Impacto:** Volume suficiente na maioria dos segmentos. O início coincide com o começo da série, onde as notas já registram tempo de resposta atípico; o mês a mês (pergunta_05_mensal.py) confere se o início é representativo.
 
 
-## D-11 · ---
+## D-011 · Decomposição entre efeito dentro dos segmentos e composição
+- **Data:** 07/11/2026
+- **Contexto:** A taxa geral é uma média ponderada. Ela pode cair porque as taxas caíram dentro dos segmentos ou porque o peso migrou para segmentos com taxa menor.
+- **Decisão:** Por segmento, dentro = s0·(r1−r0) e mix = (s1−s0)·(r1−R1) (s = peso, r = taxa do segmento, R1 = taxa geral do fim). As colunas somam a variação total. Como a divisão depende do peso de referência (início ou fim), reportar a faixa obtida com os dois.
+- **Alternativas:** Só a variação por segmento (não separa composição); um único peso de referência (o resultado dependeria da escolha).
+- **Impacto:** [preencher com a faixa de dentro/composição]. Os termos descrevem onde a queda aconteceu, não provam a causa.
+
+
+## D-012 · Tratar entrada e saída de entidades em vez de descartá-las
 - **Data:**
-- **Contexto:**
-- **Decisão:** 
-- **Alternativas:**
-- **Impacto:**
+- **Contexto:** O script original usava dropna() e descartava segmentos ausentes em um dos períodos. Entre empresas isso é comum (nos bancos, 106 entraram e 10 saíram entre os períodos).
+- **Decisão:** Classificar cada entidade como estável, entrou ou saiu, com entrada e saída como termos próprios da decomposição (função decompor em decomposicao.py, usada por segmentos e empresas). Wilson e Newcombe só para estáveis com pelo menos 30 avaliadas nos dois períodos (MIN_AVAL).
+- **Alternativas:** dropna() (a taxa geral passa a considerar só quem existe nos dois períodos); restringir a análise às empresas estáveis.
+- **Impacto:** As contribuições fecham com a variação observada (há um assert no código). Limite: empresa com volume minúsculo no início (ex.: 6 avaliadas) conta como estável, embora na prática seja entrante.
+
 
 
 

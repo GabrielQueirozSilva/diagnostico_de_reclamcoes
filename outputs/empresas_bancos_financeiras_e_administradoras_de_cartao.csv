@@ -1,0 +1,280 @@
+nome_fantasia,status,avaliadas_inicio,avaliadas_fim,taxa_inicio,taxa_fim,contrib_dentro_pp,contrib_mix_pp,contrib_entrada_pp,contrib_saida_pp,contrib_total_pp,leitura
+Caixa Econômica Federal,estavel,2756,7122,0.5152,0.3566,-1.2223,-0.1547,0.0,0.0,-1.377,queda clara
+Banco Santander,estavel,2586,9290,0.3422,0.1646,-1.2847,-0.0375,0.0,0.0,-1.3221,queda clara
+Nubank,estavel,3207,15759,0.3056,0.197,-0.9735,-0.3035,0.0,0.0,-1.277,queda clara
+Banco do Brasil,estavel,2930,10314,0.428,0.2936,-1.1013,0.0038,0.0,0.0,-1.0974,queda clara
+Banco Bradesco,estavel,2042,7905,0.3173,0.2283,-0.5082,-0.0344,0.0,0.0,-0.5426,queda clara
+Banco Itaú Unibanco,estavel,1759,5635,0.3547,0.2465,-0.5325,0.0095,0.0,0.0,-0.523,queda clara
+Midway (Riachuelo),estavel,649,1304,0.51,0.3681,-0.2576,-0.0697,0.0,0.0,-0.3273,queda clara
+Will Bank,estavel,305,1251,0.5279,0.1783,-0.2982,-0.0162,0.0,0.0,-0.3144,queda clara
+Cartões Itaú,estavel,1389,2797,0.3801,0.3236,-0.2197,-0.0773,0.0,0.0,-0.2971,queda clara
+Banco Master (antigo Banco Máxima),estavel,260,3368,0.3154,0.1924,-0.0894,-0.1674,0.0,0.0,-0.2568,queda clara
+Bradesco Cartões,estavel,894,2912,0.3535,0.25,-0.2587,0.0032,0.0,0.0,-0.2554,queda clara
+BrasilCard,estavel,360,1692,0.4722,0.24,-0.2338,-0.0132,0.0,0.0,-0.247,queda clara
+Cartão Carrefour,estavel,410,1093,0.5829,0.3962,-0.2141,-0.0309,0.0,0.0,-0.245,queda clara
+Banco Daycoval,estavel,346,1042,0.6561,0.4232,-0.2253,-0.0175,0.0,0.0,-0.2428,queda clara
+Cartões Renner (Realize CFI),estavel,585,1164,0.4615,0.3479,-0.1858,-0.0499,0.0,0.0,-0.2357,queda clara
+C6 Bank,estavel,934,1703,0.4133,0.3699,-0.1132,-0.1157,0.0,0.0,-0.2289,queda clara
+Porto Seguro Cartões e Financiamentos,estavel,393,1341,0.4809,0.2841,-0.2163,-0.0001,0.0,0.0,-0.2163,queda clara
+Banco BV (antigo Banco Votorantim),estavel,512,1056,0.4863,0.3826,-0.1486,-0.0612,0.0,0.0,-0.2098,queda clara
+Santander Financiamentos (Aymoré),estavel,359,1002,0.3649,0.1617,-0.204,0.0213,0.0,0.0,-0.1827,queda clara
+Banese - Banco do Estado de Sergipe,estavel,106,92,0.8774,0.3043,-0.1699,-0.0064,0.0,0.0,-0.1763,queda clara
+Bradescard,estavel,542,1146,0.441,0.3735,-0.1023,-0.0571,0.0,0.0,-0.1594,queda clara
+Banco Santander Cartões (DESATIVADA ? Atual Banco Santander),saiu,550,0,0.3618,,0.0,0.0,0.0,-0.1329,-0.1329,saiu
+Itaú Consignado,saiu,126,0,0.627,,0.0,0.0,0.0,-0.1239,-0.1239,saiu
+Facta Financeira,estavel,281,1506,0.2883,0.1833,-0.0825,-0.0407,0.0,0.0,-0.1232,queda clara
+BRB - Banco de Brasília,estavel,475,1194,0.3305,0.2295,-0.1342,0.0163,0.0,0.0,-0.1179,queda clara
+Cartão Atacadão,estavel,125,400,0.736,0.415,-0.1122,-0.0033,0.0,0.0,-0.1155,queda clara
+Luizacred,estavel,237,580,0.4051,0.2241,-0.1199,0.0097,0.0,0.0,-0.1102,queda clara
+Picpay Instituição de Pagamento S/A,entrou,0,3111,,0.2347,0.0,0.0,-0.1033,0.0,-0.1033,entrou
+Itauleasing,estavel,152,347,0.5,0.2478,-0.1072,0.0039,0.0,0.0,-0.1033,queda clara
+C&A Pay,estavel,148,139,0.5743,0.5468,-0.0114,-0.0816,0.0,0.0,-0.093,inconclusivo
+Sicredi,estavel,240,688,0.4458,0.3183,-0.0856,-0.0047,0.0,0.0,-0.0903,queda clara
+Ágil,estavel,121,481,0.6116,0.3514,-0.0881,0.0041,0.0,0.0,-0.084,queda clara
+Ourocard,estavel,235,288,0.434,0.3819,-0.0342,-0.045,0.0,0.0,-0.0793,inconclusivo
+Crefisa,estavel,473,1442,0.3277,0.2739,-0.0711,0.0002,0.0,0.0,-0.0709,queda clara
+Banco Crefisa,estavel,54,17,0.7407,0.4118,-0.0497,-0.0187,0.0,0.0,-0.0684,volume baixo
+Banco C6 Consignado (Banco Ficsa),estavel,92,1132,0.3478,0.2235,-0.032,-0.0345,0.0,0.0,-0.0665,queda clara
+Banco Safra,estavel,280,907,0.3643,0.2845,-0.0625,-0.0004,0.0,0.0,-0.0629,queda clara
+BRBCard,estavel,236,187,0.3771,0.3209,-0.0371,-0.0231,0.0,0.0,-0.0602,inconclusivo
+Itaú Unibanco Consignado,estavel,133,974,0.4737,0.2977,-0.0654,0.0094,0.0,0.0,-0.056,queda clara
+Banco Pine,estavel,90,859,0.2889,0.2049,-0.0211,-0.0316,0.0,0.0,-0.0527,inconclusivo
+Parati Financeira,estavel,20,713,0.6,0.2174,-0.0214,-0.0305,0.0,0.0,-0.0519,volume baixo
+Omni Financeira,estavel,107,124,0.4486,0.3145,-0.0401,-0.0078,0.0,0.0,-0.0479,queda clara
+DMCard,estavel,82,213,0.4756,0.2817,-0.0445,-0.0004,0.0,0.0,-0.0448,queda clara
+Bradesco Financiamentos,estavel,175,497,0.3371,0.2455,-0.0449,0.0025,0.0,0.0,-0.0423,queda clara
+Paraná Banco,estavel,118,197,0.4661,0.4061,-0.0198,-0.0221,0.0,0.0,-0.042,inconclusivo
+Creditas,estavel,93,390,0.4301,0.2718,-0.0412,-0.0002,0.0,0.0,-0.0414,queda clara
+Banco Digio,estavel,302,946,0.4238,0.3869,-0.0312,-0.0082,0.0,0.0,-0.0394,inconclusivo
+Banco Sofisa,estavel,75,109,0.56,0.5138,-0.0097,-0.0288,0.0,0.0,-0.0385,inconclusivo
+Itaú Unibanco Crédito Imobiliário,estavel,51,134,0.4706,0.1866,-0.0405,0.003,0.0,0.0,-0.0375,queda clara
+Banco Next,estavel,120,221,0.4333,0.362,-0.0239,-0.0135,0.0,0.0,-0.0374,inconclusivo
+Banpará,estavel,36,190,0.3889,0.1421,-0.0248,-0.0072,0.0,0.0,-0.0321,queda clara
+Senff,estavel,72,300,0.4306,0.2767,-0.031,0.0001,0.0,0.0,-0.0309,queda clara
+Mobilize Financial Services/Credi Nissan (Antigo Banco Renault),estavel,40,91,0.575,0.3187,-0.0287,-0.0016,0.0,0.0,-0.0303,queda clara
+Capital Consig,estavel,32,554,0.1875,0.1913,0.0003,-0.0304,0.0,0.0,-0.0301,inconclusivo
+Banco Sicoob (antigo Bancoob),estavel,27,271,0.3704,0.1734,-0.0149,-0.0148,0.0,0.0,-0.0297,volume baixo
+Banco XP,estavel,180,195,0.3889,0.4513,0.0314,-0.0606,0.0,0.0,-0.0292,inconclusivo
+Banco Volkswagen,estavel,82,396,0.3049,0.2071,-0.0224,-0.0064,0.0,0.0,-0.0288,inconclusivo
+Pagol,estavel,44,67,0.6364,0.597,-0.0048,-0.022,0.0,0.0,-0.0269,inconclusivo
+Banco Alfa,estavel,19,36,0.7895,0.3056,-0.0257,-0.0007,0.0,0.0,-0.0264,volume baixo
+Cartão Caedu (Administradora de Cartão de Crédito Palma),estavel,18,64,0.7222,0.2344,-0.0246,-0.0001,0.0,0.0,-0.0246,volume baixo
+BMP Money Plus,estavel,4,302,0.5,0.1887,-0.0035,-0.0204,0.0,0.0,-0.0238,volume baixo
+InfinitePay,entrou,0,429,,0.2075,0.0,0.0,-0.0237,0.0,-0.0237,entrou
+Banco Olé Consignado (DESATIVADA ? Atual Banco Santander),saiu,76,0,0.3816,,0.0,0.0,0.0,-0.0226,-0.0226,saiu
+Banco Original,estavel,74,199,0.2568,0.1206,-0.0282,0.0069,0.0,0.0,-0.0212,queda clara
+Hipercard,estavel,102,115,0.3333,0.2435,-0.0256,0.0061,0.0,0.0,-0.0195,inconclusivo
+Crefaz,estavel,45,240,0.4222,0.2708,-0.0191,-0.0003,0.0,0.0,-0.0194,queda clara
+Mastercard Brasil,estavel,98,100,0.3673,0.35,-0.0048,-0.0144,0.0,0.0,-0.0191,inconclusivo
+Credz,estavel,96,142,0.3542,0.3028,-0.0138,-0.0042,0.0,0.0,-0.018,inconclusivo
+Via Certa Financiadora,estavel,20,24,0.6,0.3333,-0.0149,-0.0021,0.0,0.0,-0.017,volume baixo
+BaneseCard,estavel,39,85,0.4872,0.3647,-0.0134,-0.0036,0.0,0.0,-0.0169,inconclusivo
+Banco Digimais,estavel,59,295,0.3898,0.2881,-0.0168,0.001,0.0,0.0,-0.0158,inconclusivo
+Losango,estavel,48,108,0.375,0.25,-0.0168,0.0012,0.0,0.0,-0.0156,inconclusivo
+Banco Hyundai Capital Brasil,estavel,24,47,0.4583,0.1915,-0.0179,0.0024,0.0,0.0,-0.0155,volume baixo
+Caixa Pré-Pagos,estavel,10,107,0.8,0.271,-0.0148,-0.0003,0.0,0.0,-0.0151,volume baixo
+Cartão Quero-Quero VerdeCard,estavel,21,50,0.4762,0.2,-0.0162,0.0014,0.0,0.0,-0.0149,volume baixo
+Cresol,estavel,10,109,0.6,0.211,-0.0109,-0.0039,0.0,0.0,-0.0148,volume baixo
+UP.P,estavel,3,125,1.0,0.192,-0.0068,-0.0078,0.0,0.0,-0.0146,volume baixo
+Banco Paulista,estavel,10,17,0.9,0.5294,-0.0104,-0.0036,0.0,0.0,-0.0139,volume baixo
+Trigg,estavel,47,41,0.383,0.2927,-0.0119,-0.0017,0.0,0.0,-0.0136,inconclusivo
+Afinz (Sorocred),estavel,74,256,0.5,0.4336,-0.0137,0.0003,0.0,0.0,-0.0135,inconclusivo
+Banco BNP Paribas,estavel,128,81,0.2969,0.1975,-0.0356,0.0227,0.0,0.0,-0.0128,inconclusivo
+Banco BRP,entrou,0,111,,0.1351,0.0,0.0,-0.0127,0.0,-0.0127,entrou
+Tricard,estavel,25,96,0.56,0.375,-0.0129,0.0008,0.0,0.0,-0.0121,volume baixo
+Financeira Alfa,estavel,15,21,0.6,0.381,-0.0092,-0.0026,0.0,0.0,-0.0118,volume baixo
+GM Financial (Antiga Chevrolet Serviços Financeiros),entrou,0,115,,0.1565,0.0,0.0,-0.0111,0.0,-0.0111,entrou
+Eagle Sociedade de Crédito Direto,saiu,22,0,0.4545,,0.0,0.0,0.0,-0.011,-0.011,saiu
+Chevrolet Serviços Financeiros (Banco GM),saiu,22,0,0.4545,,0.0,0.0,0.0,-0.011,-0.011,saiu
+Banco Bari,estavel,14,50,0.7143,0.44,-0.0107,0.0003,0.0,0.0,-0.0105,volume baixo
+Lecca CFI,estavel,25,57,0.44,0.2982,-0.0099,-0.0005,0.0,0.0,-0.0104,volume baixo
+Banco Seguro,estavel,39,61,0.5128,0.5902,0.0084,-0.0187,0.0,0.0,-0.0102,inconclusivo
+QI Tech,estavel,27,189,0.2963,0.2222,-0.0056,-0.0042,0.0,0.0,-0.0098,volume baixo
+Sisprime do Brasil,estavel,6,3,0.8333,0.3333,-0.0084,-0.0008,0.0,0.0,-0.0092,volume baixo
+Zippi,estavel,14,147,0.7857,0.3673,-0.0164,0.0074,0.0,0.0,-0.009,volume baixo
+Fundação Habitacional do Exército - FHE,estavel,25,27,0.48,0.5185,0.0027,-0.0116,0.0,0.0,-0.009,volume baixo
+Banco Yamaha,estavel,20,94,0.5,0.3298,-0.0095,0.0011,0.0,0.0,-0.0084,volume baixo
+Banco Honda,estavel,54,141,0.4074,0.3759,-0.0048,-0.0036,0.0,0.0,-0.0084,inconclusivo
+Qista,estavel,10,34,0.5,0.2059,-0.0082,0.0,0.0,0.0,-0.0082,volume baixo
+Banco BTG Pactual,estavel,134,426,0.3209,0.3028,-0.0068,-0.0008,0.0,0.0,-0.0075,inconclusivo
+Credicard,estavel,149,132,0.2886,0.2576,-0.0129,0.0055,0.0,0.0,-0.0074,inconclusivo
+Pay4Fun,estavel,5,2,0.8,0.5,-0.0042,-0.0028,0.0,0.0,-0.007,volume baixo
+Bank of China (Brasil) Banco Múltiplo S/A (Antiga China Construction Bank),estavel,10,7,0.6,0.7143,0.0032,-0.0098,0.0,0.0,-0.0066,volume baixo
+Unicred,estavel,11,68,0.5455,0.3088,-0.0073,0.0008,0.0,0.0,-0.0065,volume baixo
+Casa do Crédito,estavel,3,1,1.0,0.0,-0.0084,0.0021,0.0,0.0,-0.0063,volume baixo
+Credipar,estavel,9,32,0.4444,0.2188,-0.0057,-0.0001,0.0,0.0,-0.0057,volume baixo
+Uze,estavel,5,4,0.6,0.0,-0.0084,0.003,0.0,0.0,-0.0054,volume baixo
+Banco Rendimento,estavel,4,3,0.75,0.3333,-0.0047,-0.0005,0.0,0.0,-0.0052,volume baixo
+Revolut SCD,entrou,0,52,,0.1538,0.0,0.0,-0.0052,0.0,-0.0052,entrou
+Cartão Cencosud GBarbosa,estavel,20,4,0.35,0.0,-0.0196,0.0145,0.0,0.0,-0.0051,volume baixo
+Credsystem,estavel,167,611,0.6347,0.6023,-0.0151,0.0101,0.0,0.0,-0.0051,inconclusivo
+Kredilig,estavel,6,11,0.6667,0.4545,-0.0036,-0.0014,0.0,0.0,-0.005,volume baixo
+CB DIGITAL,entrou,0,21,,0.0,0.0,0.0,-0.0047,0.0,-0.0047,entrou
+Portocred Financeira,estavel,29,28,0.3448,0.3214,-0.0019,-0.0027,0.0,0.0,-0.0046,volume baixo
+"BOC Brasil S/A - Crédito, Financiamentos e Investimentos (Antiga CCB Brasil)",estavel,3,4,1.0,0.75,-0.0021,-0.0024,0.0,0.0,-0.0045,volume baixo
+Banestes,estavel,41,140,0.3171,0.2786,-0.0044,-0.0,0.0,0.0,-0.0044,inconclusivo
+Crediare,estavel,10,19,0.6,0.5789,-0.0006,-0.0038,0.0,0.0,-0.0044,volume baixo
+Banco BS2,estavel,24,22,0.375,0.4091,0.0023,-0.0066,0.0,0.0,-0.0043,volume baixo
+Financeira BRB,estavel,33,57,0.3333,0.2982,-0.0032,-0.001,0.0,0.0,-0.0043,inconclusivo
+Cora,estavel,25,70,0.48,0.4571,-0.0016,-0.0023,0.0,0.0,-0.0039,volume baixo
+Banco24Horas (TecBan),estavel,6,15,0.5,0.2667,-0.0039,0.0,0.0,0.0,-0.0039,volume baixo
+Santinvest,estavel,2,2,1.0,0.5,-0.0028,-0.0009,0.0,0.0,-0.0037,volume baixo
+SF3 (Santana Financeira),estavel,3,5,0.6667,0.2,-0.0039,0.0003,0.0,0.0,-0.0036,volume baixo
+Banco da Amazônia,estavel,3,39,0.0,0.1026,0.0009,-0.004,0.0,0.0,-0.0032,volume baixo
+HS Financeira,estavel,12,34,0.4167,0.3529,-0.0021,-0.0005,0.0,0.0,-0.0026,volume baixo
+Hipercard (desativada - atual Itaú Unibanco Holding S.A),entrou,0,33,,0.1818,0.0,0.0,-0.0025,0.0,-0.0025,entrou
+BMS,estavel,1,5,1.0,0.2,-0.0022,-0.0001,0.0,0.0,-0.0023,volume baixo
+Banco Semear,estavel,17,26,0.3529,0.3462,-0.0003,-0.0019,0.0,0.0,-0.0022,volume baixo
+Becker Financeira,estavel,2,6,1.0,0.6667,-0.0019,-0.0003,0.0,0.0,-0.0021,volume baixo
+Numbrs,saiu,1,0,1.0,,0.0,0.0,0.0,-0.002,-0.002,saiu
+Aqbank Pagamentos,estavel,1,7,1.0,0.2857,-0.002,0.0,0.0,0.0,-0.002,volume baixo
+CDC SCD,estavel,1,7,1.0,0.2857,-0.002,0.0,0.0,0.0,-0.002,volume baixo
+Banco Fibra,estavel,1,14,1.0,0.2857,-0.002,0.0001,0.0,0.0,-0.0019,volume baixo
+Credifoz,estavel,2,9,0.5,0.2222,-0.0016,-0.0001,0.0,0.0,-0.0016,volume baixo
+Valor Financiamentos,estavel,7,24,0.2857,0.2083,-0.0015,0.0,0.0,0.0,-0.0015,volume baixo
+Sinosserra Financeira,estavel,2,1,0.5,0.0,-0.0028,0.0013,0.0,0.0,-0.0015,volume baixo
+Credicitrus,estavel,3,8,0.3333,0.125,-0.0017,0.0003,0.0,0.0,-0.0015,volume baixo
+AGIL PROMOTORA,entrou,0,21,,0.1905,0.0,0.0,-0.0015,0.0,-0.0015,entrou
+Banco Arbi,estavel,8,36,0.375,0.3056,-0.0016,0.0002,0.0,0.0,-0.0013,volume baixo
+JBCred,estavel,15,42,0.3333,0.3095,-0.001,-0.0003,0.0,0.0,-0.0013,volume baixo
+Aspecir Sociedade de Crédito,saiu,2,0,0.5,,0.0,0.0,0.0,-0.0013,-0.0013,saiu
+Cartão Sams,estavel,18,68,0.6111,0.5588,-0.0026,0.0014,0.0,0.0,-0.0012,volume baixo
+Z-On ,entrou,0,5,,0.0,0.0,0.0,-0.0011,0.0,-0.0011,entrou
+Transpocred,entrou,0,5,,0.0,0.0,0.0,-0.0011,0.0,-0.0011,entrou
+SICOOB PRIMAVERA,entrou,0,19,,0.2105,0.0,0.0,-0.001,0.0,-0.001,entrou
+Unilos,entrou,0,4,,0.0,0.0,0.0,-0.0009,0.0,-0.0009,entrou
+Socinal,entrou,0,33,,0.2424,0.0,0.0,-0.0009,0.0,-0.0009,entrou
+Peak SEP,entrou,0,22,,0.2273,0.0,0.0,-0.0009,0.0,-0.0009,entrou
+Monbank,entrou,0,7,,0.1429,0.0,0.0,-0.0008,0.0,-0.0008,entrou
+HBI - SCD,entrou,0,3,,0.0,0.0,0.0,-0.0007,0.0,-0.0007,entrou
+BRK Financeira,entrou,0,3,,0.0,0.0,0.0,-0.0007,0.0,-0.0007,entrou
+Cocreuni,entrou,0,3,,0.0,0.0,0.0,-0.0007,0.0,-0.0007,entrou
+Cartão Cencosud Bretas,estavel,2,1,0.5,1.0,0.0028,-0.0035,0.0,0.0,-0.0007,volume baixo
+Zema Financeira,estavel,21,69,0.2857,0.2754,-0.0006,0.0,0.0,0.0,-0.0006,volume baixo
+Kardbank,estavel,3,15,0.3333,0.2667,-0.0006,-0.0,0.0,0.0,-0.0006,volume baixo
+Cartos,entrou,0,13,,0.2308,0.0,0.0,-0.0005,0.0,-0.0005,entrou
+BaruCred,entrou,0,2,,0.0,0.0,0.0,-0.0004,0.0,-0.0004,entrou
+COPERURA LTDA,entrou,0,2,,0.0,0.0,0.0,-0.0004,0.0,-0.0004,entrou
+Global SCM,entrou,0,2,,0.0,0.0,0.0,-0.0004,0.0,-0.0004,entrou
+Coopluiza,entrou,0,2,,0.0,0.0,0.0,-0.0004,0.0,-0.0004,entrou
+Cooperfemsa,entrou,0,2,,0.0,0.0,0.0,-0.0004,0.0,-0.0004,entrou
+Credecom,entrou,0,2,,0.0,0.0,0.0,-0.0004,0.0,-0.0004,entrou
+Uniprime,entrou,0,2,,0.0,0.0,0.0,-0.0004,0.0,-0.0004,entrou
+Urbano Bank,entrou,0,2,,0.0,0.0,0.0,-0.0004,0.0,-0.0004,entrou
+Kanastra SCD,entrou,0,2,,0.0,0.0,0.0,-0.0004,0.0,-0.0004,entrou
+Banco ABC,estavel,3,7,0.3333,0.2857,-0.0004,-0.0,0.0,0.0,-0.0004,volume baixo
+Via Capital,entrou,0,89,,0.2697,0.0,0.0,-0.0004,0.0,-0.0004,entrou
+Giro SCD,entrou,0,9,,0.2222,0.0,0.0,-0.0004,0.0,-0.0004,entrou
+TMB SCD,entrou,0,5,,0.2,0.0,0.0,-0.0003,0.0,-0.0003,entrou
+AL5 AMAGGI (antiga AL5 Bank),entrou,0,5,,0.2,0.0,0.0,-0.0003,0.0,-0.0003,entrou
+Finamax,estavel,6,4,0.3333,0.5,0.0028,-0.003,0.0,0.0,-0.0002,volume baixo
+Magnum SCD,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Fascred Financeira,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Cresal,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Magnun SCD,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+CopeJal,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Cooperativa da Comlurb,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Crediscoop,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Poupecredi,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Cred.UFES,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Trinus,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Social Bank,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+FundCoop,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Independência Cooperativa de Crédito,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+American Express - Amex (DESATIVADA),entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Percapital,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+COMPREVFIN,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Cretovale,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Coopoços,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Coopertel,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Fiducia,entrou,0,1,,0.0,0.0,0.0,-0.0002,0.0,-0.0002,entrou
+Pefisa,estavel,120,511,0.4583,0.4227,-0.012,0.0119,0.0,0.0,-0.0001,inconclusivo
+ZiliCred,entrou,0,29,,0.2759,0.0,0.0,0.0,0.0,0.0,entrou
+Pan Financeira,entrou,0,47,,0.2766,0.0,0.0,0.0,0.0,0.0,entrou
+Dacasa Financeira (DESATIVADA),saiu,11,0,0.2727,,0.0,0.0,0.0,0.0001,0.0001,saiu
+Gazincred,entrou,0,3,,0.3333,0.0,0.0,0.0001,0.0,0.0001,entrou
+Atlanta Sociedade de Crédito,entrou,0,32,,0.2812,0.0,0.0,0.0002,0.0,0.0002,entrou
+Acentra,estavel,1,2,0.0,0.0,0.0,0.0003,0.0,0.0,0.0003,volume baixo
+Cooperativa de Crédito Tenaris do Brasil,entrou,0,2,,0.5,0.0,0.0,0.0004,0.0,0.0004,entrou
+CoopCargill,entrou,0,2,,0.5,0.0,0.0,0.0004,0.0,0.0004,entrou
+BVR,entrou,0,2,,0.5,0.0,0.0,0.0004,0.0,0.0004,entrou
+CREDES,entrou,0,2,,0.5,0.0,0.0,0.0004,0.0,0.0004,entrou
+Fomento Paraná - Agência de Fomento do Paraná,entrou,0,2,,0.5,0.0,0.0,0.0004,0.0,0.0004,entrou
+Fidem Cred,entrou,0,2,,0.5,0.0,0.0,0.0004,0.0,0.0004,entrou
+Cooperforte,entrou,0,49,,0.2857,0.0,0.0,0.0004,0.0,0.0004,entrou
+CredCrea,estavel,2,5,0.0,0.0,0.0,0.0004,0.0,0.0,0.0004,volume baixo
+Cooperata,entrou,0,5,,0.4,0.0,0.0,0.0005,0.0,0.0005,entrou
+Sicoob Coopacredi,entrou,0,12,,0.3333,0.0,0.0,0.0006,0.0,0.0006,entrou
+GPAtiva,entrou,0,1,,1.0,0.0,0.0,0.0006,0.0,0.0006,entrou
+Alfa Arrendamento Mercantil,entrou,0,1,,1.0,0.0,0.0,0.0006,0.0,0.0006,entrou
+Crevisc,entrou,0,1,,1.0,0.0,0.0,0.0006,0.0,0.0006,entrou
+Multicred SCD,entrou,0,1,,1.0,0.0,0.0,0.0006,0.0,0.0006,entrou
+Credicomin,entrou,0,1,,1.0,0.0,0.0,0.0006,0.0,0.0006,entrou
+Credfisp,entrou,0,1,,1.0,0.0,0.0,0.0006,0.0,0.0006,entrou
+Credelesc,entrou,0,1,,1.0,0.0,0.0,0.0006,0.0,0.0006,entrou
+CooperJohnson,entrou,0,1,,1.0,0.0,0.0,0.0006,0.0,0.0006,entrou
+Segue Financeira,entrou,0,1,,1.0,0.0,0.0,0.0006,0.0,0.0006,entrou
+Cooperativa Atlas,entrou,0,1,,1.0,0.0,0.0,0.0006,0.0,0.0006,entrou
+Banco Toyota,estavel,23,43,0.2174,0.186,-0.002,0.0026,0.0,0.0,0.0006,volume baixo
+BEMCARTOES,entrou,0,8,,0.375,0.0,0.0,0.0006,0.0,0.0006,entrou
+OnCred SCD,entrou,0,8,,0.375,0.0,0.0,0.0006,0.0,0.0006,entrou
+Cresol Transamazônica ,entrou,0,4,,0.5,0.0,0.0,0.0007,0.0,0.0007,entrou
+Delfinance (antiga Delbank),saiu,1,0,0.0,,0.0,0.0,0.0,0.0008,0.0008,saiu
+Sudacred,estavel,7,10,0.2857,0.4,0.0022,-0.0014,0.0,0.0,0.0008,volume baixo
+Eagle Instituição de Pagamento,entrou,0,29,,0.3103,0.0,0.0,0.0008,0.0,0.0008,entrou
+Evolua,estavel,1,7,0.0,0.2857,0.0008,0.0,0.0,0.0,0.0008,volume baixo
+Creditaqui Financeira (Antiga Mercantil do Brasil Financeira),estavel,1,7,0.0,0.2857,0.0008,0.0,0.0,0.0,0.0008,volume baixo
+Emcash,entrou,0,7,,0.4286,0.0,0.0,0.0009,0.0,0.0009,entrou
+Bahamas Cred,estavel,4,8,0.25,0.375,0.0014,-0.0005,0.0,0.0,0.0009,volume baixo
+Konect,entrou,0,3,,0.6667,0.0,0.0,0.001,0.0,0.001,entrou
+Larca SCD,entrou,0,21,,0.3333,0.0,0.0,0.001,0.0,0.001,entrou
+SETHI SCD,entrou,0,6,,0.5,0.0,0.0,0.0011,0.0,0.0011,entrou
+Banco Alfa de Investimento,entrou,0,2,,1.0,0.0,0.0,0.0012,0.0,0.0012,entrou
+BRCard,entrou,0,2,,1.0,0.0,0.0,0.0012,0.0,0.0012,entrou
+Rappipay,estavel,6,6,0.1667,0.1667,0.0,0.0013,0.0,0.0,0.0013,volume baixo
+Presença ,entrou,0,16,,0.375,0.0,0.0,0.0013,0.0,0.0013,entrou
+Banco Letsbank,estavel,2,1,0.0,0.0,0.0,0.0013,0.0,0.0,0.0013,volume baixo
+Banco do Nordeste,estavel,64,158,0.2656,0.2722,0.0012,0.0002,0.0,0.0,0.0013,inconclusivo
+Tribanco,estavel,1,1,0.0,1.0,0.0028,-0.0014,0.0,0.0,0.0014,volume baixo
+Banco Topázio,estavel,4,6,0.25,0.5,0.0028,-0.0014,0.0,0.0,0.0014,volume baixo
+Vórtx,entrou,0,8,,0.5,0.0,0.0,0.0015,0.0,0.0015,entrou
+Agibank Financeira,saiu,2,0,0.0,,0.0,0.0,0.0,0.0015,0.0015,saiu
+Banco Traton Brasil,entrou,0,4,,0.75,0.0,0.0,0.0015,0.0,0.0015,entrou
+Banco Bmg,estavel,333,1434,0.5345,0.4833,-0.0477,0.0493,0.0,0.0,0.0016,inconclusivo
+J17 Sociedade de Crédito Direto,entrou,0,22,,0.3636,0.0,0.0,0.0016,0.0,0.0016,entrou
+Civia,estavel,3,14,0.0,0.2143,0.0018,-0.0002,0.0,0.0,0.0016,volume baixo
+Banrisul,estavel,177,614,0.2881,0.2915,0.0017,0.0001,0.0,0.0,0.0018,inconclusivo
+Banco Rodobens,estavel,1,6,0.0,0.5,0.0014,0.0005,0.0,0.0,0.0019,volume baixo
+Acredicoop,estavel,2,5,0.0,0.4,0.0022,-0.0002,0.0,0.0,0.002,volume baixo
+Vivo Pay,entrou,0,5,,0.8,0.0,0.0,0.0021,0.0,0.0021,entrou
+Viacredi Alto Vale,estavel,6,9,0.1667,0.3333,0.0028,-0.0005,0.0,0.0,0.0022,volume baixo
+Delta Global Bank,entrou,0,7,,0.7143,0.0,0.0,0.0025,0.0,0.0025,entrou
+ DM Sociedade de Credito,entrou,0,36,,0.3611,0.0,0.0,0.0025,0.0,0.0025,entrou
+Poupex,estavel,2,6,0.0,0.5,0.0028,-0.0002,0.0,0.0,0.0026,volume baixo
+Banco Modal,estavel,11,4,0.1818,0.25,0.0021,0.0007,0.0,0.0,0.0028,volume baixo
+Vuon SDC,entrou,0,29,,0.4138,0.0,0.0,0.0033,0.0,0.0033,entrou
+UY3 Sociedade de Crédito Direto,entrou,0,86,,0.3256,0.0,0.0,0.0035,0.0,0.0035,entrou
+ Itaú Consignado (DESATIVADO - Atual Itaú Unibanco Consignado),entrou,0,23,,0.4783,0.0,0.0,0.0038,0.0,0.0038,entrou
+NBC Bank,estavel,7,36,0.1429,0.3333,0.0037,0.0006,0.0,0.0,0.0043,volume baixo
+Omni Banco(Omni Financeira),entrou,0,89,,0.3371,0.0,0.0,0.0045,0.0,0.0045,entrou
+Efí Bank,entrou,0,30,,0.4667,0.0,0.0,0.0047,0.0,0.0047,entrou
+Casas Bahia Pay (antigo BanQI),entrou,0,19,,0.5789,0.0,0.0,0.0047,0.0,0.0047,entrou
+Banco Industrial do Brasil (BIB),estavel,30,78,0.2333,0.2949,0.0052,-0.0004,0.0,0.0,0.0048,inconclusivo
+Viacredi,estavel,35,106,0.3143,0.3868,0.0071,-0.0013,0.0,0.0,0.0058,inconclusivo
+Stellantis Financiamentos (Antigo Banco PSA),estavel,14,151,0.3571,0.351,-0.0002,0.0063,0.0,0.0,0.0061,volume baixo
+Somapay,entrou,0,48,,0.4375,0.0,0.0,0.0063,0.0,0.0063,entrou
+Omni Banco(Antiga Omni Financeira),entrou,0,96,,0.375,0.0,0.0,0.0078,0.0,0.0078,entrou
+MOVA,entrou,0,84,,0.3929,0.0,0.0,0.008,0.0,0.008,entrou
+FUTURO SOCIEDADE DE CRÉDITO (Antiga Eagle Sociedade de Crédito Direto),entrou,0,132,,0.3636,0.0,0.0,0.0095,0.0,0.0095,entrou
+Credifit,entrou,0,58,,0.5,0.0,0.0,0.0106,0.0,0.0106,entrou
+Fortbrasil,estavel,45,67,0.2,0.3134,0.0143,-0.0027,0.0,0.0,0.0116,inconclusivo
+NEON Financeira,estavel,43,933,0.4884,0.329,-0.0192,0.0343,0.0,0.0,0.0152,queda clara
+FACIO PAGAMENTOS,entrou,0,60,,0.7,0.0,0.0,0.0208,0.0,0.0208,entrou
+ShopeePay,entrou,0,664,,0.3178,0.0,0.0,0.0229,0.0,0.0229,entrou
+Pernambucanas Cartões,estavel,134,461,0.3657,0.4469,0.0304,0.0002,0.0,0.0,0.0306,inconclusivo
+Banco Inter (Banco Intermedium),estavel,1393,2554,0.29,0.3187,0.1118,-0.0786,0.0,0.0,0.0332,inconclusivo
+Cartões Itaú (atual Itaú Unibanco Holding S.A),entrou,0,844,,0.3495,0.0,0.0,0.051,0.0,0.051,entrou
+Banco Inbursa,estavel,108,164,0.213,0.5244,0.0941,-0.0419,0.0,0.0,0.0521,alta clara
+Banco Pan ,estavel,1194,2860,0.2127,0.2315,0.0626,0.0443,0.0,0.0,0.1069,inconclusivo
+Banco Agibank (Agiplan),estavel,412,2042,0.2184,0.428,0.2415,0.0781,0.0,0.0,0.3196,alta clara
+Banco Mercantil do Brasil,estavel,358,2321,0.3436,0.5088,0.1654,0.2078,0.0,0.0,0.3732,alta clara
