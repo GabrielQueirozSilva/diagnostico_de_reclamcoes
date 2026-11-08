@@ -97,7 +97,7 @@
 - **Contexto:** Para explicar a queda da taxa geral é preciso comparar o começo e o fim da série, com volume suficiente por segmento.
 - **Decisão:** Comparar out-dez/2024 (início) com jul-set/2026 (fim), definidos em INICIO_ATE e FIM_A_PARTIR.
 - **Alternativas:** 1 mês de cada lado (menos volume por segmento, mais ruído); metades da série (mistura meses muito diferentes); só o gráfico mês a mês (não permite decompor a queda).
-- **Impacto:** Volume suficiente na maioria dos segmentos. O início coincide com o começo da série, onde as notas já registram tempo de resposta atípico; o mês a mês (pergunta_05_mensal.py) confere se o início é representativo.
+- **Impacto:** Volume suficiente na maioria dos segmentos. O início coincide com o começo da série, onde as notas já registram tempo de resposta atípico. A variação total depende do recorte (de −8,3 a −16,1 pp nos 6 recortes testados com --sensibilidade), então o −13,7 pp é um valor do recorte padrão, e não da trajetória toda; a parcela dentro dos segmentos, ao contrário, é estável (62% a 76%).
 
 
 ## D-011 · Decomposição entre efeito dentro dos segmentos e composição
@@ -105,7 +105,7 @@
 - **Contexto:** A taxa geral é uma média ponderada. Ela pode cair porque as taxas caíram dentro dos segmentos ou porque o peso migrou para segmentos com taxa menor.
 - **Decisão:** Por segmento, dentro = s0·(r1−r0) e mix = (s1−s0)·(r1−R1) (s = peso, r = taxa do segmento, R1 = taxa geral do fim). As colunas somam a variação total. Como a divisão depende do peso de referência (início ou fim), reportar a faixa obtida com os dois.
 - **Alternativas:** Só a variação por segmento (não separa composição); um único peso de referência (o resultado dependeria da escolha).
-- **Impacto:** [preencher com a faixa de dentro/composição]. Os termos descrevem onde a queda aconteceu, não provam a causa.
+- **Impacto:** O efeito dentro dos segmentos é de −8,8 a −9,8 pp conforme o peso de referência, isto é, 64% a 71% da queda de −13,7 pp no recorte padrão, e de 62% a 76% nos 6 recortes testados. Os termos descrevem onde a queda aconteceu, não provam a causa.
 
 
 ## D-012 · Tratar entrada e saída de entidades em vez de descartá-las
