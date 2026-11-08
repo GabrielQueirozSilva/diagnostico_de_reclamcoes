@@ -22,7 +22,7 @@
 | 2 | Quando a empresa responde, a resolução é maior? | pendente |
 | 3 | O tempo de resposta se associa à resolução? | pendente |
 | 4 | Ter procurado a empresa antes muda a chance de resolução? | pendente |
-| 5 | Como a taxa evolui mês a mês? | em andamento |
+| 5 | Como a taxa evolui mês a mês? | concluida | |
 
 ## Resultados
 
