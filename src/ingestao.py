@@ -33,7 +33,7 @@ COLUNAS = [
     "situacao",
     "avaliacao_reclamacao",
     "nota_do_consumidor",
-    "mes_ano",
+    "ano_mes",
 ]
 
 _PARAMS = dict(
@@ -87,9 +87,33 @@ def create_table_database_if_not_exists():
                     situacao VARCHAR(255),
                     avaliacao_reclamacao VARCHAR(255),
                     nota_do_consumidor INT,
-                    mes_ano VARCHAR(7)
+                    ano_mes VARCHAR(7)
                 )
             """)
+      cur.execute("""
+        SELECT
+          EXISTS (
+            SELECT 1 FROM information_schema.columns
+            WHERE table_schema = current_schema()
+              AND table_name = 'ocorrencias'
+              AND column_name = 'mes_ano'
+          ),
+          EXISTS (
+            SELECT 1 FROM information_schema.columns
+            WHERE table_schema = current_schema()
+              AND table_name = 'ocorrencias'
+              AND column_name = 'ano_mes'
+          )
+      """)
+      has_mes_ano, has_ano_mes = cur.fetchone()
+      if has_mes_ano and has_ano_mes:
+        raise RuntimeError(
+            "The 'ocorrencias' table contains both 'mes_ano' and 'ano_mes'."
+        )
+      if has_mes_ano:
+        cur.execute(
+            "ALTER TABLE ocorrencias RENAME COLUMN mes_ano TO ano_mes"
+        )
       conn.commit()
       print("Table 'ocorrencias' created successfully or already exists.")
   finally:
@@ -139,9 +163,9 @@ if __name__ == "__main__":
 
       match_data = re.search(r"(\d{4}-\d{2})", arquivo)
       if match_data:
-        mes_ano_str = match_data.group(1)
+        ano_mes_str = match_data.group(1)
       else:
-        mes_ano_str = "Desconhecido"
+        ano_mes_str = "Desconhecido"
 
       df = pd.read_csv(
           arquivo,
@@ -155,7 +179,7 @@ if __name__ == "__main__":
       df["data_finalizacao"] = pd.to_datetime(
           df["data_finalizacao"], errors="coerce"
       )
-      df["mes_ano"] = mes_ano_str
+      df["ano_mes"] = ano_mes_str
       insert_data_to_database(df)
 
     print("\nProcessamento e inserção de todos os meses concluídos com sucesso!")

@@ -29,6 +29,7 @@ reclamação ser considerada resolvida pelo consumidor.
 3. Na raiz do projeto, rode `python -m src.ingestao` para carregar os dados.
 4. Execute as análises como módulos, por exemplo:
    - `python -m src.pergunta_01.segmentos`
+   - `python -m src.pergunta_02.taxa_resolucao`
    - `python -m src.pergunta_05.evolucao`
    - `python -m src.pergunta_05.empresas`
    - `python -m src.pergunta_05.mensal`

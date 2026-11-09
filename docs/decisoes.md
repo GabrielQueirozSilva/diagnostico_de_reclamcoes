@@ -56,7 +56,7 @@
 - **Decisão:** Criar índices para acelerar esse processo.
 - **Alternativas:** Continuar sem índices.
 - **Impacto:** As buscas ficaram mais rápidas, mas a inserção provavelmente ficou mais lenta.
-
+ 
 
 ## D-006 · Flag para o período de prazo estendido
 - **Data:** 02/11/2026

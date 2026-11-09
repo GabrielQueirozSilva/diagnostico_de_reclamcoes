@@ -129,7 +129,7 @@ Entre as reclamações com `respondida = 'N'`:  190.732 não avaliadas,  49.310 
 3. Consumidor avalia mesmo sem receber resposta (possível; explicaria as "Não Resolvida").
 4. Significado do campo `Respondida`: [dicionário não especifíca sobre].
 
-**Evidências nas 570 "Resolvida":** 424 foram abertas pela internet; 535 (93,86%) já tinham procurado a empresa antes e 35 (6,14%) não. [ATUALIZAR ISSO]
+**Evidências nas 10.621 "Resolvida":** 424 foram abertas pela internet; 535 (93,86%) já tinham procurado a empresa antes e 35 (6,14%) não. [ATUALIZAR ISSO]
 **Cuidado nisso:** o percentual de 94% só distingue algo se for comparado com o mesmo percentual na base geral. [Lembrar de comparar e anotar.]
 
 
