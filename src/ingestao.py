@@ -3,13 +3,15 @@ import glob
 import os
 import re
 import unicodedata
+from pathlib import Path
 from dotenv import load_dotenv
 import pandas as pd
 import psycopg2
 from psycopg2 import errors, sql
 from psycopg2.extras import execute_values
 
-load_dotenv()
+ROOT = Path(__file__).resolve().parents[1]
+load_dotenv(dotenv_path=ROOT / ".env")
 
 COLUNAS = [
     "regiao",
@@ -119,7 +121,7 @@ def insert_data_to_database(data, batch_size=10_000):
 
 
 if __name__ == "__main__":
-  padrao_arquivos = r"data\*.csv"
+  padrao_arquivos = str(ROOT / "data" / "*.csv")
   arquivos = glob.glob(padrao_arquivos)
 
   if not arquivos:

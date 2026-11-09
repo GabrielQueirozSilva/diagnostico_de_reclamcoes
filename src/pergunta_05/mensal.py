@@ -10,19 +10,19 @@ Gera, para a base toda e para os segmentos que mais pesam na queda:
     volume de avaliadas e % de avaliadas sobre as finalizadas
 
 Com --empresas, também mostra a série mensal das empresas que mais puxaram a queda dentro de
-cada segmento (mesmo ranking do pergunta_05_empresas.py), para ver se a queda é de várias empresas
+cada segmento (mesmo ranking do empresas.py), para ver se a queda é de várias empresas
 ao mesmo tempo (algo comum ao segmento) ou de uma só.
 
 As janelas início/fim usadas na comparação aparecem sombreadas.
 
 Uso:
-    python scr/pergunta_05_mensal.py                      # base toda + 3 segmentos que mais pesam
-    python scr/pergunta_05_mensal.py --top 5
-    python scr/pergunta_05_mensal.py -s "Nome exato do segmento"
-    python scr/pergunta_05_mensal.py --empresas           # + as 6 empresas que mais puxaram a queda em cada segmento
-    python scr/pergunta_05_mensal.py --empresas --n-empresas 8
+    python -m src.pergunta_05.mensal                      # base toda + 3 segmentos que mais pesam
+    python -m src.pergunta_05.mensal --top 5
+    python -m src.pergunta_05.mensal -s "Nome exato do segmento"
+    python -m src.pergunta_05.mensal --empresas           # + as 6 empresas que mais puxaram a queda em cada segmento
+    python -m src.pergunta_05.mensal --empresas --n-empresas 8
 
-Saídas (em outputs/):
+Saídas (em outputs/pergunta_05/):
     mensal_geral.png, mensal_segmentos.png, mensal_geral.csv, mensal_segmentos.csv
     com --empresas: mensal_empresas_<segmento>.png e mensal_empresas.csv
 """
@@ -35,12 +35,12 @@ import pandas as pd
 from sqlalchemy import text
 from statsmodels.stats.proportion import proportion_confint
 
-from db import get_engine
-from pergunta_05_empresas import analisar_segmento, segmentos_padrao, slug
-from pergunta_05_evolucao import FIM_A_PARTIR, INICIO_ATE
+from src.db import get_engine
+from src.pergunta_05.empresas import analisar_segmento, segmentos_padrao, slug
+from src.pergunta_05.evolucao import FIM_A_PARTIR, INICIO_ATE
 
-OUT = Path(__file__).resolve().parent.parent / "outputs"
-OUT.mkdir(exist_ok=True)
+OUT = Path(__file__).resolve().parents[2] / "outputs" / "pergunta_05"
+OUT.mkdir(parents=True, exist_ok=True)
 
 COR = "#2E75B6"
 MIN_AVAL_MES = 30  # nos gráficos por empresa, meses com menos avaliadas que isso não são desenhados (ruído)

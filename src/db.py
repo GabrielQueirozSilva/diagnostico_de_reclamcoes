@@ -1,12 +1,13 @@
 """ Script resposável pela conexão com o PostgreSQL.
 """
 import os
+from pathlib import Path
  
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
  
-load_dotenv()
+load_dotenv(dotenv_path=Path(__file__).resolve().parents[1] / ".env")
  
  
 def get_engine():

@@ -25,13 +25,19 @@ reclamação ser considerada resolvida pelo consumidor.
 
 ## Como reproduzir
 1. Python 3.14.3 e PostgreSQL. `pip install -r requirements.txt`.
-2. Copie `.env.example` para `.env` e preencha as credenciais do banco.
-3. Rode a ingestão e depois `python src/pergunta_01_segmentos.py` (e as demais).
+2. Copie `.env.exemple` para `.env` e preencha as credenciais do banco.
+3. Na raiz do projeto, rode `python -m src.ingestao` para carregar os dados.
+4. Execute as análises como módulos, por exemplo:
+   - `python -m src.pergunta_01.segmentos`
+   - `python -m src.pergunta_05.evolucao`
+   - `python -m src.pergunta_05.empresas`
+   - `python -m src.pergunta_05.mensal`
+   - `python -m src.tempo_resposta.graficos_tempo_resposta`
 
 ## Estrutura
 - `sql/` criação das tabelas, índices, view de análise e queries
-- `src/` ingestão e scripts por pergunta
-- `outputs/` gráficos e tabelas geradas
+- `src/` scripts compartilhados e análises organizadas por pergunta/tema
+- `outputs/` gráficos e tabelas separados por pergunta/tema
 - `docs/notas.md` achados e evidências · `docs/decisoes.md` decisões e motivos
 
 ## Limitações

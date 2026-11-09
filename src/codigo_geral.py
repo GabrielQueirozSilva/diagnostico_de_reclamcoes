@@ -1,8 +1,9 @@
 import re
 import unicodedata
+from pathlib import Path
 import pandas as pd
 
-ARQUIVO = r"data\finalizadas_2026-08.csv"
+ARQUIVO = Path(__file__).resolve().parents[1] / "data" / "finalizadas_2026-08.csv"
 
 df = pd.read_csv(
     ARQUIVO,
@@ -149,5 +150,4 @@ print(df["avaliacao_reclamacao"].value_counts())
 # df.to_csv(caminho_arquivo, sep=";", index=False, encoding="utf-8")
 
 # print("Colunas removidas e arquivo salvo com sucesso!")
-
 

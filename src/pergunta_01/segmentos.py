@@ -5,8 +5,8 @@ A taxa bruta engana em segmentos com poucas avaliações (ex.: 100% com 1 avalia
 o intervalo de Wilson mostra a faixa de valores plausíveis.
 
 Saídas:
-    outputs/segmentos_ic_wilson.png
-    outputs/segmentos_wilson.csv
+    outputs/pergunta_01/segmentos_ic_wilson.png
+    outputs/pergunta_01/segmentos_wilson.csv
 """
 from pathlib import Path
 
@@ -15,10 +15,10 @@ import pandas as pd
 from sqlalchemy import text
 from statsmodels.stats.proportion import proportion_confint
 
-from db import get_engine
+from src.db import get_engine
 
-OUT = Path(__file__).resolve().parent.parent / "outputs"
-OUT.mkdir(exist_ok=True)
+OUT = Path(__file__).resolve().parents[2] / "outputs" / "pergunta_01"
+OUT.mkdir(parents=True, exist_ok=True)
 
 engine = get_engine()
 

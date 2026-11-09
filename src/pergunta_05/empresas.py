@@ -1,6 +1,6 @@
 """Pergunta 5 (parte 2): dentro dos segmentos que mais pesam na queda, o que aconteceu com as empresas?
 
-Mesmos recortes do pergunta_05_evolucao.py (início = até 2024-12, fim = a partir de 2026-07).
+Mesmos recortes de evolucao.py (início = até 2024-12, fim = a partir de 2026-07).
 Para cada segmento, separa a variação da taxa em:
     dentro   -> empresas que já existiam e mudaram a própria taxa (piora/melhora real)
     mix      -> empresas que existiam e mudaram de peso dentro do segmento
@@ -8,14 +8,14 @@ Para cada segmento, separa a variação da taxa em:
     saida    -> empresas que só aparecem no início
 
 Uso:
-    python scr/pergunta_05_empresas.py                       # 3 segmentos que mais pesam na queda
-    python scr/pergunta_05_empresas.py --top 5               # 5 segmentos
-    python scr/pergunta_05_empresas.py -s "Nome exato do segmento"   # segmento específico
-    python scr/pergunta_05_empresas.py --min-aval 50         # volume mínimo p/ Wilson/Newcombe
+    python -m src.pergunta_05.empresas                       # 3 segmentos que mais pesam na queda
+    python -m src.pergunta_05.empresas --top 5               # 5 segmentos
+    python -m src.pergunta_05.empresas -s "Nome exato do segmento"   # segmento específico
+    python -m src.pergunta_05.empresas --min-aval 50         # volume mínimo p/ Wilson/Newcombe
 
 Saídas:
-    outputs/empresas_<segmento>.csv     tabela completa por empresa
-    outputs/empresas_resumo.csv         uma linha por segmento (dentro / mix / entrada / saída)
+    outputs/pergunta_05/empresas_<segmento>.csv     tabela completa por empresa
+    outputs/pergunta_05/empresas_resumo.csv         uma linha por segmento (dentro / mix / entrada / saída)
 """
 import argparse
 import re
@@ -25,11 +25,11 @@ from pathlib import Path
 import pandas as pd
 from sqlalchemy import text
 
-from db import get_engine
-from decomposicao import decompor
+from src.db import get_engine
+from src.pergunta_05.decomposicao import decompor
 
-OUT = Path(__file__).resolve().parent.parent / "outputs"
-OUT.mkdir(exist_ok=True)
+OUT = Path(__file__).resolve().parents[2] / "outputs" / "pergunta_05"
+OUT.mkdir(parents=True, exist_ok=True)
 
 INICIO_ATE = "2024-12"
 FIM_A_PARTIR = "2026-07"
@@ -61,10 +61,10 @@ def slug(s):
 
 
 def segmentos_padrao(top):
-    """Segmentos com maior contribuição negativa, lidos do CSV gerado pelo pergunta_05_evolucao.py."""
+    """Segmentos com maior contribuição negativa, lidos do CSV gerado por evolucao.py."""
     caminho = OUT / "segmentos_inicio_fim.csv"
     if not caminho.exists():
-        raise SystemExit(f"{caminho} não existe. Rode pergunta_05_evolucao.py antes ou use -s.")
+        raise SystemExit(f"{caminho} não existe. Rode evolucao.py antes ou use -s.")
     seg = pd.read_csv(caminho, index_col=0)  # já ordenado por contrib_total_pp (mais negativo primeiro)
     return seg.head(top).index.tolist()
 

@@ -2,21 +2,21 @@
 
 Compara dois recortes de meses, por segmento. Recorte padrão:
     inicio = até dez/2024 (a série começa em out/2024)      fim = a partir de jul/2026
-Etapas (a conta está em decomposicao.py, compartilhada com pergunta_05_empresas.py):
+Etapas (a conta está em decomposicao.py, compartilhada com empresas.py):
     1. taxa de cada segmento em cada período
     2. diferença (fim - início) com intervalo de Newcombe -> queda clara / alta clara / inconclusivo
     3. decomposição da queda geral: efeito DENTRO dos segmentos vs. efeito de COMPOSIÇÃO (mix),
        com entrada/saída de segmentos tratada à parte (em vez de descartá-los)
 
 Uso:
-    python scr/pergunta_05_evolucao.py                   # recorte padrão; grava outputs/segmentos_inicio_fim.csv
-    python scr/pergunta_05_evolucao.py --sensibilidade   # repete a decomposição em vários recortes e compara
-    python scr/pergunta_05_evolucao.py --inicio-de 2024-11 --inicio-ate 2025-01 --fim-de 2026-07
+    python -m src.pergunta_05.evolucao                   # recorte padrão; grava outputs/pergunta_05/segmentos_inicio_fim.csv
+    python -m src.pergunta_05.evolucao --sensibilidade   # repete a decomposição em vários recortes e compara
+    python -m src.pergunta_05.evolucao --inicio-de 2024-11 --inicio-ate 2025-01 --fim-de 2026-07
         recorte avulso (qualquer um dos 4 limites, formato AAAA-MM): grava em
-        outputs/segmentos_inicio_fim_<recorte>.csv e NÃO sobrescreve o CSV padrão, que é o que
-        pergunta_05_empresas.py e pergunta_05_mensal.py leem.
+        outputs/pergunta_05/segmentos_inicio_fim_<recorte>.csv e NÃO sobrescreve o CSV padrão, que é o que
+        empresas.py e mensal.py leem.
 
-Saídas (em outputs/):
+Saídas (em outputs/pergunta_05/):
     segmentos_inicio_fim.csv        (recorte padrão)
     sensibilidade_recortes.csv      (com --sensibilidade)
 """
@@ -26,11 +26,11 @@ from pathlib import Path
 import pandas as pd
 from sqlalchemy import text
 
-from db import get_engine
-from decomposicao import decompor
+from src.db import get_engine
+from src.pergunta_05.decomposicao import decompor
 
-OUT = Path(__file__).resolve().parent.parent / "outputs"
-OUT.mkdir(exist_ok=True)
+OUT = Path(__file__).resolve().parents[2] / "outputs" / "pergunta_05"
+OUT.mkdir(parents=True, exist_ok=True)
 
 # Limites dos recortes (AAAA-MM, inclusive). Outros scripts importam INICIO_ATE e FIM_A_PARTIR daqui.
 INICIO_DE = "0000-00"      # sem limite inferior: começa no primeiro mês da base

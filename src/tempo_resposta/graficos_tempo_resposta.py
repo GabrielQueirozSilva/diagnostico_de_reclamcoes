@@ -1,17 +1,20 @@
 """Gráficos do tempo de resposta (> 10 dias) a partir do PostgreSQL.
 
 Requisitos: pip install pandas matplotlib sqlalchemy psycopg2-binary
-Ajuste a CONEXAO e, se necessário, os nomes de tabela/coluna.
-Gera 3 PNGs na mesma pasta.
+Grava os gráficos em outputs/tempo_resposta/.
 """
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 import pandas as pd
 import matplotlib.pyplot as plt
 from sqlalchemy import create_engine, text
 
-load_dotenv()
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / "outputs" / "tempo_resposta"
+OUT.mkdir(parents=True, exist_ok=True)
+load_dotenv(dotenv_path=ROOT / ".env")
 
 
 _PARAMS = dict(
@@ -60,7 +63,7 @@ def consulta(sql):
 # ax.set_title(f"Top {TOP_N} empresas por % de < 10 dias (mín. {MIN_RESPONDIDAS} respondidas)")
 # ax.set_xlim(0, top["pct_acima_10"].max() * 1.3)
 # plt.tight_layout()
-# plt.savefig("grafico_empresas_taxa.png", dpi=150)
+# plt.savefig(OUT / "grafico_empresas_taxa.png", dpi=150)
 # plt.close()
 
 # # ---------- 2) Dispersão: volume x taxa ----------
@@ -74,7 +77,7 @@ def consulta(sql):
 #     ax.annotate(r["nome_fantasia"], (r["respondidas"], r["pct_acima_10"]), fontsize=8,
 #                 xytext=(4, 4), textcoords="offset points")
 # plt.tight_layout()
-# plt.savefig("grafico_dispersao.png", dpi=150)
+# plt.savefig(OUT / "grafico_dispersao.png", dpi=150)
 # plt.close()
 
 # # ---------- 3) Taxa por mês ----------
@@ -95,7 +98,7 @@ def consulta(sql):
 # ax.set_title("% de respostas acima de 10 dias, por mês")
 # plt.xticks(rotation=60, ha="right")
 # plt.tight_layout()
-# plt.savefig("grafico_por_mes.png", dpi=150)
+# plt.savefig(OUT / "grafico_por_mes.png", dpi=150)
 # plt.close()
 
 
@@ -117,7 +120,7 @@ ax.set_ylabel("% acima de 10 dias")
 ax.set_title("% de respostas acima de 10 dias, por dia")
 plt.xticks(rotation=60, ha="right")
 plt.tight_layout()
-plt.savefig("grafico_por_dia.png", dpi=150)
+plt.savefig(OUT / "grafico_por_dia.png", dpi=150)
 plt.close()
 
-print("Gerados: grafico_empresas_taxa.png, grafico_dispersao.png, grafico_por_mes.png, grafico_por_dia.png")
+print(f"Gerados em {OUT}: grafico_empresas_taxa.png, grafico_dispersao.png, grafico_por_mes.png, grafico_por_dia.png")

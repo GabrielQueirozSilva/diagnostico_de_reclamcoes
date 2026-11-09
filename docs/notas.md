@@ -29,7 +29,7 @@
 ### Pergunta 1: segmentos com maior e menor taxa de resolução (concluída)
 - **Método:** taxa = resolvidas ÷ avaliadas por segmento (24 meses, 1.897.927 avaliadas), com intervalo
   de 95% de Wilson. Melhores ordenados pelo limite inferior e piores pelo superior [ver D-009](decisoes.md).
-- **Gráfico:** `outputs/segmentos_ic_wilson.png`. **Tabela completa:** `outputs/segmentos_wilson.csv`.
+- **Gráfico:** `outputs/pergunta_01/segmentos_ic_wilson.png`. **Tabela completa:** `outputs/pergunta_01/segmentos_wilson.csv`.
 
 **Maiores taxas**
 | segmento_de_mercado                                                     |   avaliadas |   resolvidas |   taxa_pct |   ic_inf_pct |   ic_sup_pct |   largura_pp |
@@ -60,13 +60,13 @@
 
 ### Pergunta 5: evolução da taxa (concluído)
 - **Método:** recortes de 3 meses (out-dez/2024 e jul-set/2026), decomposição em dentro, mix, entrada e saída (ver D-010, D-011 e D-012). 
-- **Scripts:** pergunta_05_evolucao.py (segmentos), pergunta_05_empresas.py (empresas dentro dos segmentos) e pergunta_05_mensal.py (mês a mês).
+- **Scripts:** `src/pergunta_05/evolucao.py` (segmentos), `src/pergunta_05/empresas.py` (empresas dentro dos segmentos) e `src/pergunta_05/mensal.py` (mês a mês).
 - **Taxa geral:** 51,9% (out-dez/2024) → 38,2% (jul-set/2026), queda de 13,7 pp.
 - **Segmentos:** o efeito dentro dos segmentos é de −8,8 pp (peso do início) a −9,8 pp (peso do fim), ou seja, 64% a 71% da queda de −13,7 pp; o restante (29% a 36%) é composição. Os 10 primeiros segmentos explicam 99% da variação. 42 segmentos existem nos dois períodos, 2 só no fim e 1 só no início, sem efeito material (entrada e saída ≈ 0).
 
 - No nível geral, Telecom pesa mais por composição (mix −1,95 pp) do que por queda própria (dentro −1,09 pp): é um segmento de taxa alta (70,6%) que perdeu peso no total. Bancos é o contrário (dentro −3,16 pp, mix −0,71 pp).
 
-**Dentro dos 3 segmentos que mais pesam** (outputs/empresas_*.csv, outputs/empresas_resumo.csv)
+**Dentro dos 3 segmentos que mais pesam** (`outputs/pergunta_05/empresas_*.csv`, `outputs/pergunta_05/empresas_resumo.csv`)
 
 
 | Segmento | Variação | Dentro | Mix | Entrada + saída | Concentração |
@@ -80,15 +80,15 @@
 * Bancos: queda ampla entre os grandes (Santander 34,2% → 16,5%, Caixa 51,5% → 35,7%, BB 42,8% → 29,4%, Nubank 30,6% → 19,7%, Bradesco 31,7% → 22,8%, Itaú 35,5% → 24,6%). Hipótese a testar: algo comum a vários bancos.
 * Telecom: Vivo (83,6% → 71,6%) e Tim (76,3% → 65,0%) concentram a queda; Claro quase estável. A Oi Fixo caiu (72,9% → 45,1%), mas o volume dela encolheu e o mix compensou +1,8 pp.
 * Aéreo: Gol de 80,4% → 49,1%.
-* **Mês a mês: (outputs/mensal_*.png):** a taxa geral cai de 54,9% (out/2024) para um piso de 35,6% (abr/2026), com recuperação parcial para cerca de 38% em jul-set/2026. Não há degrau único: a maior variação mensal é de 3,5 pp. O fim da comparação (38,2%) já está 2 a 3 pp acima do piso, e o início (51,9%) mistura out/2024 (54,9%) com dez/2024 (49,8%); os 13,7 pp dependem das janelas escolhidas. O % de avaliadas sobre finalizadas oscilou entre cerca de 29% e 38% (início 33,4%, fim 30,7%), com queda atípica em dez/2025 (23,9%) e jan/2026 (25,4%). As finalizadas passaram de 118 mil (out/2024) para 432 mil (jul/2026). Os segmentos caem em momentos diferentes: bancos com degrau em ago/2025, telecom com queda gradual até abr/2026 e aéreo com queda já dentro da janela inicial.
+* **Mês a mês: (`outputs/pergunta_05/mensal_*.png`):** a taxa geral cai de 54,9% (out/2024) para um piso de 35,6% (abr/2026), com recuperação parcial para cerca de 38% em jul-set/2026. Não há degrau único: a maior variação mensal é de 3,5 pp. O fim da comparação (38,2%) já está 2 a 3 pp acima do piso, e o início (51,9%) mistura out/2024 (54,9%) com dez/2024 (49,8%); os 13,7 pp dependem das janelas escolhidas. O % de avaliadas sobre finalizadas oscilou entre cerca de 29% e 38% (início 33,4%, fim 30,7%), com queda atípica em dez/2025 (23,9%) e jan/2026 (25,4%). As finalizadas passaram de 118 mil (out/2024) para 432 mil (jul/2026). Os segmentos caem em momentos diferentes: bancos com degrau em ago/2025, telecom com queda gradual até abr/2026 e aéreo com queda já dentro da janela inicial.
 * O volume menor de 2025-11 (192.038 finalizadas) confere com o CSV e com o banco, então vem da fonte e não da ingestão.
 * **Cuidados:** "dentro" é a taxa percebida de empresas existentes, não prova atendimento pior (pode refletir tipo de reclamação, canal ou quem avalia). As avaliadas cresceram muito em várias empresas (ex.: Nubank 3.207 → 15.759). O início (out-dez/2024) é o começo da série e tem tempo de resposta atípico (ver "Qualidade dos dados").
-* **Empresas mês a mês (outputs/mensal_empresas_*.png;*** valores lidos nos gráficos, aproximados):
+* **Empresas mês a mês** (`outputs/pergunta_05/mensal_empresas_*.png`; valores lidos nos gráficos, aproximados):
   * Bancos: a queda é ampla entre as seis maiores, mas em momentos diferentes. Itaú cai cerca de 9 pp em abr/2025; Nubank vai de ~32% (abr/2025) para ~12% (ago/2025); Santander, Bradesco e Caixa caem em ago/2025. As seis caem de novo em nov/2025 (mês de menor volume e de queda de 3,5 pp na taxa geral).
   * Telecom: Claro Celular fica estável (73% a 80%); a queda está em Vivo (82% a 85% no início, ~75% a 80% em 2025, ~63% em abr-jun/2026, 70% a 72% no fim) e em Tim (~75% em 2025 para ~62% a 65% desde fev/2026). Oi Fixo cai, mas com bandas largas.
   * Aéreo: a queda se concentra na Gol (~70% a 81% em 2025, ~44% em mar/2026, 56% em set/2026). Latam e Azul ficam praticamente estáveis (~70% a 80%).
   * Out/2024 é o ponto mais alto de quase todas as séries (Caixa ~55%, Santander ~39%, BB ~47%, Itaú ~39%, Gol ~88%, Latam ~83%, Vivo ~85%), coerente com o tempo de resposta atípico registrado para esse mês. A janela "início" pode estar inflada por ele.
-* **Sensibilidade ao recorte (--sensibilidade, outputs/sensibilidade_recortes.csv):** em 6 recortes (início sem out/24, início jan-mar/25, fim no piso, sem as pontas e 12 meses contra 12 meses), a variação total vai de −8,3 a −16,1 pp, mas a parcela dentro dos segmentos fica entre 62% e 76% (padrão: 64% a 71%). Ano contra ano (12 x 12 meses): 46,2% → 37,9% (−8,3 pp), com 70% a 76% dentro dos segmentos. A conclusão "cerca de dois terços dentro dos segmentos e um terço por composição" é robusta ao recorte; o valor de −13,7 pp não é.
+* **Sensibilidade ao recorte (`--sensibilidade`, `outputs/pergunta_05/sensibilidade_recortes.csv`):** em 6 recortes (início sem out/24, início jan-mar/25, fim no piso, sem as pontas e 12 meses contra 12 meses), a variação total vai de −8,3 a −16,1 pp, mas a parcela dentro dos segmentos fica entre 62% e 76% (padrão: 64% a 71%). Ano contra ano (12 x 12 meses): 46,2% → 37,9% (−8,3 pp), com 70% a 76% dentro dos segmentos. A conclusão "cerca de dois terços dentro dos segmentos e um terço por composição" é robusta ao recorte; o valor de −13,7 pp não é.
 * **Nov/2025 nas seis maiores empresas de bancos** (consulta no pgAdmin, out-dez/2024 e set-dez/2025):
   * A taxa cai em todas em nov/2025 (de 4 a 8 pp em relação a out/2025) e recupera em dez em 5 das 6.
   * As finalizadas caem de 12% a 32% em relação a out/2025 e, em dez/2025, sobem de 47% a 96% em relação a nov, com o % de avaliadas caindo nas seis (ex.: Nubank 11%,  BB 15%). 
