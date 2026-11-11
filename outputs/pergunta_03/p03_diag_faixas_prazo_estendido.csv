@@ -1,0 +1,9 @@
+grupo,faixa,avaliadas,taxa_pct,ic_inf_pct,ic_sup_pct,OR_ajust_seg_mes,or_inf,or_sup
+fora do prazo estendido,0-2,327490,36.8262,36.6611,36.9915,1.0,1.0,1.0
+fora do prazo estendido,3-5,254507,44.508,44.315,44.7012,1.1705,1.1571,1.1839
+fora do prazo estendido,6-10,884733,44.0784,43.975,44.1819,1.0204,1.0108,1.03
+fora do prazo estendido,11-15,3552,35.839,34.2781,37.4305,1.0022,0.93,1.0801
+dentro do prazo estendido,0-2,87764,32.2125,31.9042,32.5225,1.0,1.0,1.0
+dentro do prazo estendido,3-5,57815,40.1937,39.7947,40.594,1.1001,1.0737,1.1271
+dentro do prazo estendido,6-10,159194,42.9099,42.6669,43.1532,1.0775,1.056,1.0994
+dentro do prazo estendido,11-15,61083,33.6771,33.3034,34.0529,0.9384,0.9155,0.962

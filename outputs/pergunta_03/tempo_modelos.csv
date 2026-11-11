@@ -1,0 +1,7 @@
+cenario,ajuste,n,OR_por_dia,ic_inf,ic_sup
+todos,bruto,1837076,1.0181,1.0172,1.0189
+todos,ajustado seg+mês,1837076,0.9885,0.9875,0.9894
+sem prazo estendido,bruto,1471209,1.0235,1.0225,1.0246
+sem prazo estendido,ajustado seg+mês,1471209,0.9869,0.9857,0.988
+só tempo <= 10,bruto,1771503,1.0301,1.0292,1.0311
+só tempo <= 10,ajustado seg+mês,1771503,0.9893,0.9883,0.9904

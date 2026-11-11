@@ -1,0 +1,33 @@
+seg,faixa,avaliadas,taxa_pct,ic_inf_pct,ic_sup_pct,OR_ajust_mes,or_inf,or_sup
+"Bancos, Financeiras e Administradoras de Cartão",0-2,135620,22.6124,22.3906,22.8359,1.0,1.0,1.0
+"Bancos, Financeiras e Administradoras de Cartão",3-5,115876,30.0701,29.8067,30.3348,1.4142,1.3889,1.4399
+"Bancos, Financeiras e Administradoras de Cartão",6-10,340899,31.414,31.2584,31.57,1.4845,1.4626,1.5066
+"Bancos, Financeiras e Administradoras de Cartão",11-15,22828,28.1365,27.5569,28.7235,1.473,1.4241,1.5236
+"Operadoras de Telecomunicações (Telefonia, Internet, TV por assinatura)",0-2,11031,80.4007,79.6494,81.1308,1.0,1.0,1.0
+"Operadoras de Telecomunicações (Telefonia, Internet, TV por assinatura)",3-5,23959,79.2061,78.6876,79.7153,0.8973,0.8479,0.9496
+"Operadoras de Telecomunicações (Telefonia, Internet, TV por assinatura)",6-10,170162,69.7095,69.4907,69.9273,0.5395,0.514,0.5662
+"Operadoras de Telecomunicações (Telefonia, Internet, TV por assinatura)",11-15,2771,61.7467,59.922,63.5388,0.4095,0.3733,0.4492
+Transporte Aéreo,0-2,34419,70.5599,70.0761,71.0391,1.0,1.0,1.0
+Transporte Aéreo,3-5,25687,68.1629,67.5905,68.7298,0.908,0.8764,0.9408
+Transporte Aéreo,6-10,53257,60.7695,60.354,61.1834,0.5823,0.5651,0.6
+Transporte Aéreo,11-15,993,31.9235,29.0984,34.8879,0.1997,0.1739,0.2293
+Bancos de Dados e Cadastros de Consumidores,0-2,67366,32.6559,32.3028,33.011,1.0,1.0,1.0
+Bancos de Dados e Cadastros de Consumidores,3-5,12353,33.0041,32.1803,33.8385,1.0527,1.0082,1.0991
+Bancos de Dados e Cadastros de Consumidores,6-10,15617,33.6364,32.8995,34.3814,1.0129,0.9735,1.0538
+Bancos de Dados e Cadastros de Consumidores,11-15,1835,31.7166,29.6274,33.8822,0.9943,0.8888,1.1123
+Comércio Eletrônico,0-2,9289,48.0999,47.0848,49.1165,1.0,1.0,1.0
+Comércio Eletrônico,3-5,11654,60.4599,59.5689,61.344,1.6811,1.59,1.7774
+Comércio Eletrônico,6-10,66819,53.9547,53.5766,54.3324,1.3484,1.2898,1.4096
+Comércio Eletrônico,11-15,7682,47.7089,46.5934,48.8267,0.9637,0.8994,1.0326
+Empresas de Intermediação de Serviços / Negócios,0-2,10494,51.2197,50.2631,52.1755,1.0,1.0,1.0
+Empresas de Intermediação de Serviços / Negócios,3-5,17596,50.5967,49.858,51.3352,0.9758,0.9295,1.0244
+Empresas de Intermediação de Serviços / Negócios,6-10,60055,58.7545,58.3602,59.1476,1.345,1.2887,1.4037
+Empresas de Intermediação de Serviços / Negócios,11-15,1982,53.0272,50.8263,55.2165,0.9621,0.8678,1.0666
+Provedores de Conteúdo e Outros Serviços na Internet,0-2,36978,8.908,8.6219,9.2026,1.0,1.0,1.0
+Provedores de Conteúdo e Outros Serviços na Internet,3-5,11350,18.0264,17.3301,18.7444,1.6981,1.595,1.8079
+Provedores de Conteúdo e Outros Serviços na Internet,6-10,27538,20.2774,19.8067,20.7564,1.8763,1.7822,1.9753
+Provedores de Conteúdo e Outros Serviços na Internet,11-15,3458,15.616,14.4443,16.8639,1.9037,1.6986,2.1336
+Energia Elétrica,0-2,18474,83.631,83.0905,84.1576,1.0,1.0,1.0
+Energia Elétrica,3-5,9214,63.6531,62.6655,64.6294,0.3484,0.3288,0.3691
+Energia Elétrica,6-10,41442,45.6349,45.1557,46.1148,0.1674,0.1602,0.1749
+Energia Elétrica,11-15,2063,41.7353,39.6247,43.8767,0.1477,0.1333,0.1637

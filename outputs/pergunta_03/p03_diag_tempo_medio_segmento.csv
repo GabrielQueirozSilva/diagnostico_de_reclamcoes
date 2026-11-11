@@ -1,0 +1,40 @@
+seg,avaliadas,resolvidas,tempo_medio,taxa
+Bancos de Dados e Cadastros de Consumidores,97174,31912,2.6493,0.3284
+Entretenimento,2567,1264,4.0814,0.4924
+Fabricantes - Produtos Alimentícios,1427,685,4.0953,0.48
+Provedores de Conteúdo e Outros Serviços na Internet,79332,11467,4.4441,0.1445
+Transporte Aéreo,114361,74480,4.9233,0.6513
+"Empresas de Apostas, Loterias e Promoções Comerciais",9029,2695,4.9417,0.2985
+Empresas de Serviços Postais e Logística,15160,6887,4.9452,0.4543
+Empresas de Recuperação de Crédito,64728,15960,4.9758,0.2466
+Programas de Fidelidade,36986,23374,5.1724,0.632
+Entidades Sem Fins Lucrativos,503,106,5.2465,0.2107
+"Material de Construção, Acabamento e Ferramentas",2135,1162,5.2759,0.5443
+Transporte Terrestre,6804,3070,5.4755,0.4512
+Fabricantes - Eletroportáteis e Artigos de Uso Doméstico e Pessoal,4597,2135,5.8695,0.4644
+Energia Elétrica,71212,41097,6.0039,0.5771
+Corretoras e Distribuidoras de Títulos e Investimentos,2031,783,6.0862,0.3855
+"Bancos, Financeiras e Administradoras de Cartão",615284,179045,6.1316,0.291
+Agua e Saneamento,15082,5469,6.2316,0.3626
+Serviços Esportivos,3728,1794,6.3168,0.4812
+"Vestuário, Calçados e Acessórios",14078,6860,6.358,0.4873
+Varejo,14659,6296,6.5943,0.4295
+"Montadoras, Concessionárias e Prestadores de Serviços Automotivos",5842,1416,6.6505,0.2424
+Distribuidoras de Combustíveis / Gás,2981,1280,6.689,0.4294
+Operadoras de Planos de Saúde e Administradoras de Benefícios,22237,8410,6.6911,0.3782
+Empresas de Intermediação de Serviços / Negócios,90251,50666,6.7284,0.5614
+"Seguros, Capitalização e Previdência",48540,19354,6.7321,0.3987
+Editoras e Veículos de Imprensa,1365,787,6.7912,0.5766
+"Viagens, Turismo e Hospedagem",29456,10110,6.834,0.3432
+Estabelecimentos de Ensino,16861,4946,6.8791,0.2933
+Farmácias,7776,4665,6.9016,0.5999
+Empresas de Pagamento Eletrônico,64524,25174,6.963,0.3901
+"Perfumaria, Cosméticos e Higiene Pessoal",8143,4852,7.0109,0.5958
+"Construtoras, Incorporadoras e Imobiliárias",6294,2062,7.0688,0.3276
+Fabricantes - Linha Branca,6480,2567,7.0826,0.3961
+"Fabricantes - Eletroeletrônicos,  Produtos de Telefonia e Informática",36876,7336,7.11,0.1989
+Supermercados,3695,2338,7.1499,0.6327
+Administradoras de Consórcios,5799,1621,7.1849,0.2795
+Aluguel de Carros,5225,2184,7.2968,0.418
+"Operadoras de Telecomunicações (Telefonia, Internet, TV por assinatura)",207924,148177,7.7269,0.7126
+Comércio Eletrônico,95930,51601,7.7882,0.5379

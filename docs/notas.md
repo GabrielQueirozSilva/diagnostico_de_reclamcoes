@@ -59,7 +59,7 @@
   avaliadas; os intervalos não consideram que reclamações da mesma empresa são parecidas entre si.
 
 
-### P2 – Quando a empresa responde, a resolução é maior? (concluída)  
+### Pergunta 02 – Quando a empresa responde, a resolução é maior? (concluída)  
 
 * **Método:** Comparação entre a taxa de resolução (resolvidas / avaliadas) entre respondida = 'S' e 'N'.
 
