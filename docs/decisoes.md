@@ -109,13 +109,18 @@
 
 
 ## D-012 · Tratar entrada e saída de entidades em vez de descartá-las
-- **Data:**
+- **Data:** 07/11/2026
 - **Contexto:** O script original usava dropna() e descartava segmentos ausentes em um dos períodos. Entre empresas isso é comum (nos bancos, 106 entraram e 10 saíram entre os períodos).
 - **Decisão:** Classificar cada entidade como estável, entrou ou saiu, com entrada e saída como termos próprios da decomposição (função decompor em decomposicao.py, usada por segmentos e empresas). Wilson e Newcombe só para estáveis com pelo menos 30 avaliadas nos dois períodos (MIN_AVAL).
 - **Alternativas:** dropna() (a taxa geral passa a considerar só quem existe nos dois períodos); restringir a análise às empresas estáveis.
 - **Impacto:** As contribuições fecham com a variação observada (há um assert no código). Limite: empresa com volume minúsculo no início (ex.: 6 avaliadas) conta como estável, embora na prática seja entrante.
 
-
+## D-013 · Comparar respondidas e não respondidas dentro de estratos
+- **Data:** 11/11/2026
+- **Contexto:** Os casos N (3,2% das avaliadas) se concentram em segmentos e empresas com resolução mais baixa, então a diferença bruta (+24,0 pp) mistura efeito da resposta com composição. Também era preciso saber se a queda da taxa geral vem do aumento dos casos N.
+- **Decisão:** Reportar a diferença bruta (Wilson e Newcombe) e comparar dentro de estratos (segmento, mês, segmento × mês, empresa), com odds ratio de Mantel-Haenszel e diferença padronizada pelos pesos dos casos N. Entram só estratos com pelo menos 30 avaliadas em cada grupo (MIN_POR_GRUPO), o que cobre 87% dos casos N no nível empresa. Para a queda, reaproveitar decompor da P5 com a entidade sendo respondida = S ou N, nos mesmos recortes da D-010.
+- **Alternativas:** apenas a diferença bruta; regressão logística com efeitos fixos.
+- **Impacto:** A diferença cai de 24,0 para 18,5 pp (empresa) e o odds ratio fica entre 2,75 e 3,24. Na queda de −13,7 pp, o peso de N explica só 4% (1,5% a 4,4% nos 6 recortes); ~95% vem de dentro dos casos respondidos. A conclusão é uma associação, não causal, e a heterogeneidade entre estratos é grande (de ~9 a ~52 pp por segmento).
 
 
 ## D-00 · ---

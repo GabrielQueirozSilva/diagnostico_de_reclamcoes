@@ -1,0 +1,7 @@
+janela,taxa_inicio_%,taxa_fim_%,variacao_pp,peso_N_inicio_%,peso_N_fim_%,dentro_S_pp,dentro_N_pp,mix_peso_inicio_pp,mix_peso_fim_pp,mix_%_da_variacao_min,mix_%_da_variacao_max
+padrão: out-dez/24 -> jul-set/26,51.92,38.21,-13.71,1.28,3.53,-13.02,-0.14,-0.55,-0.6,4.01,4.35
+início sem out/24: nov/24-jan/25 -> jul-set/26,49.78,38.21,-11.57,2.33,3.53,-10.97,-0.3,-0.29,-0.27,2.35,2.53
+início jan-mar/25 -> jul-set/26,47.22,38.21,-9.01,2.82,3.53,-8.49,-0.34,-0.17,-0.15,1.67,1.93
+fim no piso: out-dez/24 -> abr-jun/26,51.92,35.86,-16.07,1.28,3.33,-15.49,-0.14,-0.44,-0.54,2.74,3.39
+sem as pontas: nov/24-jan/25 -> abr-jun/26,49.78,35.86,-13.92,2.33,3.33,-13.42,-0.29,-0.21,-0.23,1.54,1.63
+12 meses x 12 meses: out/24-set/25 -> out/25-set/26,46.19,37.9,-8.29,2.52,3.53,-7.94,-0.12,-0.23,-0.26,2.73,3.13

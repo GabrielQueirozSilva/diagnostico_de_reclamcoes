@@ -19,7 +19,7 @@
 | # | Pergunta | Status |
 |---|----------|--------|
 | 1 | Quais segmentos têm menor/maior taxa de resolução? | concluida |
-| 2 | Quando a empresa responde, a resolução é maior? | pendente |
+| 2 | Quando a empresa responde, a resolução é maior? | concluida |
 | 3 | O tempo de resposta se associa à resolução? | pendente |
 | 4 | Ter procurado a empresa antes muda a chance de resolução? | pendente |
 | 5 | Como a taxa evolui mês a mês? | concluida | |
@@ -57,6 +57,37 @@
 - Segmentos com poucas avaliações (ex.: Bares, 2 avaliações) ficam sem conclusão.
 - **Limitações:** período agregado (a taxa geral caiu ao longo do tempo, ver pergunta 5); só reclamações
   avaliadas; os intervalos não consideram que reclamações da mesma empresa são parecidas entre si.
+
+
+### P2 – Quando a empresa responde, a resolução é maior? (concluída)  
+
+* **Método:** Comparação entre a taxa de resolução (resolvidas / avaliadas) entre respondida = 'S' e 'N'.
+
+* **Gráficos:** `outputs/pergunta_02/p02_dif_por_segmento.png` e `outputs/pergunta_02/p02_taxa_por_mes.png`. 
+
+* **Tabelas** `outputs/pergunta_02/p02_decomposicao.csv`, `outputs/pergunta_02/p02_meses.csv` e `outputs/pergunta_02/p02_segmentos.csv`
+
+| Nível de controle | Diferença S − N | Odds ratio (MH) | Cobertura de N |
+| :--- | :---: | :---: | :---: |
+| Bruto | +24,0 pp (23,7 a 24,3) | n/a | 100% | 
+| Por mês | +23,2 pp | 3,24 | 100% |
+| Por segmento | +21,6 pp (−12,9 pp) | 3,17 | 99,9% |
+| segmento x mês | +20,6 pp (−12,9 pp) | 3,10 | 89% |
+| Por empresa | +18,5 pp | 2,75 (2,68 a 2,83) | 87,4% |
+
+* **Taxas brutas:** 41,7% de resolução quando respondida e 17,7% quando não respondida. As duas faixas de IC ficam bem longe uma da outra.
+* **Composição:** a diferença cai de 24,0 para 18,5 pp quando se compara dentro da mesma empresa. Ou seja, cerca de um quarto do gap bruto vem de os casos N estarem concentrados em empresas e segmentos com resolução mais baixa. Os ~18 pp restantes, e um odds ratio de ~2,8 a 3,2, não são explicados por isso.
+* **Tempo:** controlar por mês quase não muda nada (23,2 pp), o que confirma que a tendência de queda não explica a diferença.
+* **Cobertura:** o nível empresa cobre 87% dos casos N, porque exige no mínimo 30 casos em cada grupo. Vale dizer isso ao reportar os 18,5 pp.
+* **Heterogeneidade:** o p = 0 do Breslow-Day não surpreende com esse volume, e deve ser lido como p < 0,001. O que importa é que o efeito varia muito: de ~9 a ~52 pp por segmento. Em segmento × mês e em empresa, 68 e 54 estratos ficam inconclusivos, em sua maioria por pouco volume. Apenas 1 e 2 estratos têm N maior, o que reforça a consistência.
+Frase para o relatório: o odds ratio comum (~3) é uma média. Não deve ser lido como um efeito igual para todos.
+
+
+* **Resultado:** Entre as avaliadas, 41,7% dos casos respondidos foram resolvidos contra 17,7% dos não respondidos (+24,0 pp; IC 95% +23,7 a +24,3). Os casos N são 3,2% das avaliadas (59.931). Ao comparar dentro de estratos, a diferença se mantém: +23,2 pp por mês, +21,6 por segmento, +20,6 por segmento × mês e +18,5 por empresa (odds ratio de Mantel-Haenszel entre 2,75 e 3,24). Cerca de um quarto do gap bruto se deve à composição (N concentrado em empresas com resolução mais baixa). A diferença foi positiva em todos os 23 meses e em 38 dos 40 segmentos; as exceções foram Eletroeletrônicos (inconclusivo) e Químicos/Farmacêuticos (n pequeno). Há heterogeneidade importante (de ~9 a ~52 pp por segmento). 
+
+* **Limitação:** é uma associação, não um efeito causal, e o grupo N pode diferir em tipo de problema e perfil da empresa.
+
+* **OBS:** A queda geral da resolução (−13,7 pp no recorte padrão) não decorre do aumento do peso de N (de 1,3% para 3,5% das avaliadas): esse efeito explica ~4% da queda (1,5% a 4,4% nos 6 recortes), e ~95% ocorre dentro dos casos respondidos.
 
 ### Pergunta 5: evolução da taxa (concluído)
 - **Método:** recortes de 3 meses (out-dez/2024 e jul-set/2026), decomposição em dentro, mix, entrada e saída (ver D-010, D-011 e D-012). 

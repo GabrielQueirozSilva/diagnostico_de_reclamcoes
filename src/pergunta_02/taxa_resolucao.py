@@ -9,11 +9,16 @@ Etapas:
        Para cada estrato: odds ratio de Mantel-Haenszel, teste CMH, teste de
        heterogeneidade (Breslow-Day) e diferença padronizada em pontos percentuais
        (pesos = distribuição dos casos 'N': "se os N tivessem sido respondidos")
-    3. Gráficos: diferença por segmento e taxa S x N por mês
+    3. Decomposição da queda geral (mesmos recortes da pergunta 5, D-010): a taxa geral é
+       (1 - w) * taxa_S + w * taxa_N, com w = peso de N. Usa `decompor` da pergunta 5 com a
+       "entidade" sendo respondida = S ou N: o efeito DENTRO de cada grupo (a taxa do próprio
+       grupo mudou) vs. o MIX (o peso de N mudou). Reporta o mix com o peso do início e do fim.
+    4. Gráficos: diferença por segmento e taxa S x N por mês
 
 Saídas:
     outputs/pergunta_02/p02_segmentos.csv
     outputs/pergunta_02/p02_meses.csv
+    outputs/pergunta_02/p02_decomposicao.csv
     outputs/pergunta_02/p02_dif_por_segmento.png
     outputs/pergunta_02/p02_taxa_por_mes.png
 
@@ -30,6 +35,8 @@ from statsmodels.stats.contingency_tables import StratifiedTable
 from statsmodels.stats.proportion import proportion_confint
 
 from src.db import get_engine
+from src.pergunta_05.decomposicao import decompor
+from src.pergunta_05.evolucao import FIM_ATE, FIM_A_PARTIR, INICIO_ATE, INICIO_DE, JANELAS, inverter
 
 OUT = Path(__file__).resolve().parents[2] / "outputs" / "pergunta_02"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -152,8 +159,54 @@ share_n["pct_N_das_avaliadas"] = (
 print("\n% de avaliadas que são 'N', por mês:")
 print(share_n["pct_N_das_avaliadas"].to_string())
 
+# ---------- 3) decomposição da queda geral: peso de N x taxa de cada grupo ----------
+def decompor_por_grupo(base, inicio_de, inicio_ate, fim_de, fim_ate):
+    """Mesma conta da pergunta 5 (`decompor`), com a entidade sendo respondida = S ou N.
+    dentro = mudança da taxa do próprio grupo; mix = mudança do peso de N na base."""
+    periodo = np.where(
+        base.ano_mes.between(inicio_de, inicio_ate), "inicio",
+        np.where(base.ano_mes.between(fim_de, fim_ate), "fim", ""),
+    )
+    b = base.assign(periodo=periodo)
+    g = (b[b.periodo != ""].groupby(["respondida", "periodo"])[["avaliadas", "resolvidas"]]
+         .sum().unstack("periodo", fill_value=0))
+    g.columns = [f"{a}_{p}" for a, p in g.columns]
+    w = g[["avaliadas_inicio", "resolvidas_inicio", "avaliadas_fim", "resolvidas_fim"]].astype(int)
+    t, r = decompor(w)
+    _, r_inv = decompor(inverter(w))  # inverte início e fim: repete a conta com o peso do fim
+    return w, t, r, r_inv
+
+
+linhas = []
+for nome, a, b, c, d in JANELAS:
+    w, t, r, r_inv = decompor_por_grupo(df, a, b, c, d)
+    v = r["variacao_pp"]
+    mix_ini, mix_fim = r["mix_pp"], -r_inv["mix_pp"]
+    linhas.append({
+        "janela": nome,
+        "taxa_inicio_%": r["taxa_inicio"] * 100,
+        "taxa_fim_%": r["taxa_fim"] * 100,
+        "variacao_pp": v,
+        "peso_N_inicio_%": w.loc["N", "avaliadas_inicio"] / w.avaliadas_inicio.sum() * 100,
+        "peso_N_fim_%": w.loc["N", "avaliadas_fim"] / w.avaliadas_fim.sum() * 100,
+        "dentro_S_pp": t.loc["S", "contrib_dentro_pp"],
+        "dentro_N_pp": t.loc["N", "contrib_dentro_pp"],
+        "mix_peso_inicio_pp": mix_ini,
+        "mix_peso_fim_pp": mix_fim,
+        "mix_%_da_variacao_min": min(mix_ini / v, mix_fim / v) * 100,
+        "mix_%_da_variacao_max": max(mix_ini / v, mix_fim / v) * 100,
+    })
+decomp = pd.DataFrame(linhas).round(2)
+pd.set_option("display.max_columns", None)
+pd.set_option("display.width", 250)
+pd.set_option("display.max_colwidth", 60)
+print("\nDecomposição da queda geral: efeito do peso de N (mix) vs. efeito dentro de S e de N")
+print("(dentro_S e dentro_N com o peso do início; mix com o peso do início e do fim)")
+print(decomp.to_string(index=False))
+
 # ---------- saídas ----------
-cols = ["avaliadas_S", "avaliadas_N", "taxa_S", "taxa_N", "dif_pp", "dif_inf", "dif_sup", "leitura"]
+decomp.to_csv(OUT / "p02_decomposicao.csv", index=False)
+cols =["avaliadas_S", "avaliadas_N", "taxa_S", "taxa_N", "dif_pp", "dif_inf", "dif_sup", "leitura"]
 seg.sort_values("dif_pp")[cols].round(4).to_csv(OUT / "p02_segmentos.csv")
 mes[cols].round(4).to_csv(OUT / "p02_meses.csv")
 
@@ -168,17 +221,18 @@ ax.errorbar(
 ax.axvline(0, linestyle="--", color="gray")
 ax.set_yticks(g1.index)
 ax.set_yticklabels(
-    [f"{s} (n_N={n:,})".replace(",", ".") for s, n in zip(g1["segmento_de_mercado"], g1["avaliadas_N"])],
+    [f"{s} (n_N={format(n, ',d').replace(',', '.')})" for s, n in zip(g1["segmento_de_mercado"], g1["avaliadas_N"])],
     fontsize=8,
 )
 ax.set_ylim(-1, len(g1))
-ax.set_xlabel("Taxa de resolução: respondida (S) menos não respondida (N), em pp, IC 95% (Newcombe)")
+ax.set_xlabel("Diferença na taxa de resolução, S − N (pp, IC 95%)")
 plt.tight_layout()
 plt.savefig(OUT / "p02_dif_por_segmento.png", dpi=150)
 plt.close()
 
 # ---------- gráfico 2: taxa S x N por mês ----------
 m = agrupar(df, ["ano_mes"])
+m = m[(m.avaliadas_S >= MIN_POR_GRUPO) & (m.avaliadas_N >= MIN_POR_GRUPO)]  # mesmo filtro do CSV (tira 2024-10)
 fig, ax = plt.subplots(figsize=(11, 5))
 ax.plot(m.index, m.resolvidas_S / m.avaliadas_S * 100, marker="o", label="Respondida (S)")
 ax.plot(m.index, m.resolvidas_N / m.avaliadas_N * 100, marker="o", label="Não respondida (N)")
@@ -190,4 +244,4 @@ plt.tight_layout()
 plt.savefig(OUT / "p02_taxa_por_mes.png", dpi=150)
 plt.close()
 
-print("\nGerados: p02_segmentos.csv, p02_meses.csv, p02_dif_por_segmento.png, p02_taxa_por_mes.png")
+print("\nGerados: p02_segmentos.csv, p02_meses.csv, p02_decomposicao.csv, p02_dif_por_segmento.png, p02_taxa_por_mes.png")
