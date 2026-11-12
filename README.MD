@@ -4,14 +4,14 @@ Análise de [1,9 milhão de reclamações avaliadas] do Consumidor.gov.br (out/2
 para identificar em quais segmentos o atendimento falha e o que está associado a uma
 reclamação ser considerada resolvida pelo consumidor.
 
-> Status: em andamento (perguntas 1 e 5 em análise; 2, 3 e 4 pendentes).
+> Status: em andamento (perguntas 3 e 5 em análise; 4 pendente).
 
 ## Perguntas
 | # | Pergunta | Status |
 |---|----------|--------|
 | 1 | Quais segmentos têm menor/maior taxa de resolução? | concluída |
-| 2 | Quando a empresa responde, a resolução é maior? | em andamento |
-| 3 | O tempo de resposta se associa à resolução? | pendente |
+| 2 | Quando a empresa responde, a resolução é maior? | concluída |
+| 3 | O tempo de resposta se associa à resolução? | em andamento |
 | 4 | Ter procurado a empresa antes muda a chance de resolução? | pendente |
 | 5 | Como a taxa evolui ao longo do tempo? | em andamento |
 
@@ -23,6 +23,8 @@ reclamação ser considerada resolvida pelo consumidor.
 ## Principais resultados até agora
 - [Uma frase por pergunta concluída, com link para a tabela ou o gráfico.]
 
+P3: o tempo de resposta tem associação pequena e que muda de sinal conforme o segmento (queda clara em 20 de 39, alta em 8; I² ≈ 100%); ver outputs/pergunta_03/p03_seg_floresta.png.
+
 ## Como reproduzir
 1. Python 3.14.3 e PostgreSQL. `pip install -r requirements.txt`.
 2. Copie `.env.exemple` para `.env` e preencha as credenciais do banco.
@@ -30,6 +32,9 @@ reclamação ser considerada resolvida pelo consumidor.
 4. Execute as análises como módulos, por exemplo:
    - `python -m src.pergunta_01.segmentos`
    - `python -m src.pergunta_02.taxa_resolucao`
+   - `python -m src.pergunta_03.associacao`
+   - `python -m src.pergunta_03.diagnostico`
+   - `python -m src.pergunta_03.por_segmento`
    - `python -m src.pergunta_05.evolucao`
    - `python -m src.pergunta_05.empresas`
    - `python -m src.pergunta_05.mensal`

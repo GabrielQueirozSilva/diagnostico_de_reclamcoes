@@ -14,6 +14,8 @@
 | D-010 | Recorte de 3 meses de cada lado da série (início e fim) | aceita |
 | D-011 | Decomposição entre efeito dentro dos segmentos e composição | aceita |
 | D-012 | Tratar entrada e saída de entidades em vez de descartá-las | aceita |
+| D-013 | Comparar respondidas e não respondidas dentro de estratos | aceita |
+| D-014 | Reportar a pergunta 3 por faixa e por segmento, com efeito fixo de mês | aceita |
 
 ---
 
@@ -121,6 +123,13 @@
 - **Decisão:** Reportar a diferença bruta (Wilson e Newcombe) e comparar dentro de estratos (segmento, mês, segmento × mês, empresa), com odds ratio de Mantel-Haenszel e diferença padronizada pelos pesos dos casos N. Entram só estratos com pelo menos 30 avaliadas em cada grupo (MIN_POR_GRUPO), o que cobre 87% dos casos N no nível empresa. Para a queda, reaproveitar decompor da P5 com a entidade sendo respondida = S ou N, nos mesmos recortes da D-010.
 - **Alternativas:** apenas a diferença bruta; regressão logística com efeitos fixos.
 - **Impacto:** A diferença cai de 24,0 para 18,5 pp (empresa) e o odds ratio fica entre 2,75 e 3,24. Na queda de −13,7 pp, o peso de N explica só 4% (1,5% a 4,4% nos 6 recortes); ~95% vem de dentro dos casos respondidos. A conclusão é uma associação, não causal, e a heterogeneidade entre estratos é grande (de ~9 a ~52 pp por segmento).
+
+## D-014 · Reportar a pergunta 3 por faixa e por segmento, com efeito fixo de mês
+Data: 12/11/2026
+Contexto: O OR bruto por dia de espera (1,018) inverte para 0,9885 ao controlar por segmento, e a taxa por faixa tem forma de U invertido no agregado. Em modelos sequenciais, só o segmento (e não o mês nem o prazo estendido) provoca a inversão, e o formato da curva e o sinal diferem entre segmentos.
+Decisão: Reportar (1) a taxa por faixa de tempo, com Wilson, e o OR por faixa ajustado por segmento e mês; (2) o OR por dia dentro de cada segmento, ajustado por mês, com heterogeneidade (interação por razão de verossimilhança, Q, I², tau e intervalo de predição); (3) sensibilidade ao prazo estendido (D-006) em cada cenário. Só entram segmentos com pelo menos 500 avaliadas (MIN_AVALIADAS_SEG) e o tempo tem teto de 15 dias no termo linear (TETO_DIAS).
+Alternativas: um único OR por dia (esconde a mudança de sinal entre segmentos); curva suave por spline (mais flexível, mas difícil de explicar no relatório); controlar por empresa em vez de segmento (mais fiel, mas muito mais lento e com mais estratos pequenos; fica como próximo passo).
+Impacto: A conclusão deixa de ser um número e passa a ser "o efeito depende do segmento": 20 de 39 segmentos com queda clara (41% das avaliadas), 8 com alta (50%, puxado por Bancos) e 11 inconclusivos; intervalo de predição do OR por dia de 0,84 a 1,13. Limites: associação, não causal; ICs sem correção para agrupamento por empresa; faixa 11-15 confundida com o prazo estendido.
 
 
 ## D-00 · ---

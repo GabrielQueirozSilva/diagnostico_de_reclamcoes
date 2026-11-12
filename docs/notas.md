@@ -89,6 +89,52 @@ Frase para o relatório: o odds ratio comum (~3) é uma média. Não deve ser li
 
 * **OBS:** A queda geral da resolução (−13,7 pp no recorte padrão) não decorre do aumento do peso de N (de 1,3% para 3,5% das avaliadas): esse efeito explica ~4% da queda (1,5% a 4,4% nos 6 recortes), e ~95% ocorre dentro dos casos respondidos.
 
+
+### Pergunta 3: O tempo de resposta se associa à resolução? (em andamento)
+
+- **Método:** só avaliadas e respondidas com tempo válido (1.837.995; 1.837.076 nos 39 segmentos com pelo menos 500 avaliadas, que entram nos modelos). Taxa por faixa de tempo (0-2, 3-5, 6-10, 11-15, 16+ dias) com Wilson; regressão logística binomial com efeito fixo de segmento e de mês; sensibilidade ao prazo estendido (D-006); diagnóstico da inversão do sinal; OR por dia dentro de cada segmento, com teste de heterogeneidade (ver D-014). No termo linear o tempo tem teto de 15 dias.
+
+- **Scripts:** `src/pergunta_03/associacao.py`, `diagnostico.py` e `por_segmento.py` (código compartilhado em base.py).
+
+- **Saídas:** `outputs/pergunta_03/p03_*.csv` e `p03_*.png.`
+
+- **Visão Geral (Bruta)**
+
+| Faixa (dias) | Avaliadas | Taxa de resolução (IC 95%) | OR ajustado por segmento e mês (ref. 0-2) |
+| :--- | :---: | :--------: | :---: |
+| 0-2 | 415.451 | 35,9% (35,7 a 36,0) | 1 | 
+| 3-5 | 312.560 | 43,7% (43,6 a 43,9) | 1,16 |
+| 6-10 | 1.044.380 | 43,9% (43,8 a 44,0) | 1,03 |
+| 11-15 | 64.657 | 33,8% (33,4 a 34,2) | 0,93 |
+| 16+ | 947 | 60,6% (57,5 a 63,7) | 1,20 (sem conclusão) |
+ 
+* **Tempo médio:** 6,26 dias nas resolvidas e 6,04 nas não resolvidas. A diferença (0,22 dia) é pequena.
+* **OR por dia de espera:** bruto 1,018 (1,024 sem prazo estendido; 1,030 só com tempo ≤ 10). Ajustado por segmento e mês, inverte: 0,9885 (0,9869 sem prazo estendido; 0,9893 só ≤ 10). A inversão se repete nos três cenários.
+* **De onde vem a inversão (resposta à pergunta em aberto):** acrescentando um controle de cada vez, o OR vai a 0,9875 com segmento, fica em 1,0186 só com mês e em 0,9885 com os dois; o prazo estendido não altera. O que inverte é o segmento, não o período. Entre segmentos, tempo médio e taxa têm correlação de +0,39 (ex.: Telecom, 7,7 dias e 71,3%; Bancos de Dados, 2,6 dias e 32,8%); entre meses, −0,01.
+* **Formato por faixa:** o agregado tem forma de U invertido, mas ele é uma média de padrões diferentes por segmento (taxa cai com o tempo em Telecom, Aéreo e Energia Elétrica; sobe em Bancos e Provedores de Conteúdo; arco em Comércio Eletrônico; quase plano em Bancos de Dados).
+* **Faixa 11-15:** 94,5% das respostas dessa faixa caem nos dias de prazo estendido. Fora deles são só 3.552 casos e o OR contra 0-2 é 1,00 (0,93 a 1,08); dentro, 0,94 (0,92 a 0,96). O efeito de "demorar" em 11-15 não se separa do efeito do período. A faixa 16+ (947 casos, cauda de 2024) não permite conclusão.
+
+- **Dentro de cada segmento** (p03_seg_or_por_dia.csv, p03_seg_floresta.png; OR por dia, ajustado por mês)
+
+| Leitura | Segmentos | Peso nas avaliadas	 | OExemplos (OR por dia) |
+| :--- | :---: | :---: | :-------------------------------------: |
+| Queda clara (OR < 1) | 20 | 41% | Energia Elétrica 0,815; Combustíveis/Gás 0,868; Telecom 0,897; Transporte Aéreo 0,899; Recuperação de Crédito 0,908 | 
+| Alta clara (OR > 1) | 8 | 50% | Eletroeletrônicos 1,069; Montadoras 1,063; Provedores de Conteúdo 1,060; Intermediação 1,038; Bancos 1,033 |
+| Inconclusivo | 11 | 9% | Bancos de Dados 1,001; Vestuário 0,998 |
+
+* **Heterogeneidade:** interação segmento × tempo, χ² = 19.078 (38 gl), p < 0,001; Q de Cochran = 16.591, I² ≈ 100%, tau = 0,074. OR de efeitos aleatórios 0,972 (0,950 a 0,995). Intervalo de predição 0,840 a 1,125: o OR por dia de um segmento novo pode cair de uma queda de ~16% a uma alta de ~12% na chance de resolução, por dia de espera. O p-valor sozinho não informa com este volume; o I² e o intervalo de predição mostram que a diferença entre segmentos é grande na prática.
+
+* **O sinal "alta clara" pesa 50% só por causa de Bancos** (615.284 avaliadas, 33% da base, OR 1,033). Sem ele, os segmentos com queda clara dominam.
+
+* **Resultado:** a associação é pequena no agregado e muda de sinal conforme o segmento: em 20 de 39 segmentos cada dia a mais vem com menos chance de resolução (OR 0,82 a 0,98), em 8 com mais (1,01 a 1,07) e em 11 não há conclusão. Nenhum valor único de "efeito do tempo" descreve a base; reportar por segmento.
+
+* **Limitações:** é associação, não causa. Tempos longos podem refletir reclamações mais complexas, e isso afetaria a resolução por outra via (hipótese não testada); respostas muito rápidas podem ser respostas padronizadas. Os ICs não consideram que reclamações da mesma empresa são parecidas entre si, então estão otimistas, principalmente para efeitos pequenos e segmentos pequenos (ex.: Entidades Sem Fins Lucrativos, n = 503, IC 0,84 a 0,98, e Apostas, IC 1,001 a 1,028, são limítrofes e não devem ser lidos isoladamente). O OR por dia é linear; em segmentos com curva em arco (ex.: Comércio Eletrônico) ele resume só a tendência média. O período de prazo estendido e a faixa 11-15 se confundem (ver acima).
+
+* **[PENDENTE]** python -m src.pergunta_03.por_segmento --sem-prazo-estendido: conferir se a contagem de segmentos (20/11/8) e os sinais dos maiores se mantêm sem os dias de prazo estendido (D-006).
+
+* **[PENDENTE]** Bancos tem sinal positivo, ao contrário de Telecom, Aéreo e Energia. Hipótese a testar: composição por empresa dentro do segmento (empresas mais rápidas com taxa menor, e vice-versa). Teste natural: OR por dia com efeito fixo de empresa dentro de Bancos, Telecom e Aéreo.
+
+
 ### Pergunta 5: evolução da taxa (concluído)
 - **Método:** recortes de 3 meses (out-dez/2024 e jul-set/2026), decomposição em dentro, mix, entrada e saída (ver D-010, D-011 e D-012). 
 - **Scripts:** `src/pergunta_05/evolucao.py` (segmentos), `src/pergunta_05/empresas.py` (empresas dentro dos segmentos) e `src/pergunta_05/mensal.py` (mês a mês).
@@ -166,7 +212,10 @@ Entre as reclamações com `respondida = 'N'`:  190.732 não avaliadas,  49.310 
 
 ## Perguntas em aberto
 
-- Por que o tempo de resposta é maior nas resolvidas? Testar dentro de cada segmento **e dentro de cada mês**: se o prazo de resposta mudou ao longo do tempo e a taxa de resolução também, o período pode estar afetando as duas variáveis ao mesmo tempo.
+- P: Por que o tempo de resposta é maior nas resolvidas? Testar dentro de cada segmento **e dentro de cada mês**: se o prazo de resposta mudou ao longo do tempo e a taxa de resolução também, o período pode estar afetando as duas variáveis ao mesmo tempo.
+
+-R: Respondido na P3: a diferença bruta vem do segmento (Telecom é lento e tem taxa alta; correlação +0,39 entre segmentos), e não do mês (−0,01). Dentro do segmento o sinal muda de segmento para segmento.
+
 - As empresas do topo do ranking de respostas acima de 10 dias continuam lá quando se excluem os meses de pico?
 - Por que a taxa de resolução cai de ~55% para ~38% ao longo dos 24 meses? Testar composição por segmento.
 - Conferir o volume menor em 2025-11.
