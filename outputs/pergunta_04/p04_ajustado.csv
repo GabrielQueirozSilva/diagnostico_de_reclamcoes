@@ -1,0 +1,5 @@
+estrato,n_estratos,cobertura_N_%,dif_padronizada_pp,dif_inf,dif_sup,OR_MH,or_inf,or_sup,p_CMH,p_Breslow_Day,S_maior,N_maior,inconclusivo
+por segmento,40,99.9883,-4.8387,-5.0297,-4.6477,0.8112,0.8042,0.8183,0.0,0.0,4,19,17
+por mês,24,100.0,1.0281,0.8442,1.2119,1.0428,1.0348,1.0509,0.0,0.0,11,9,4
+por segmento x mês,532,98.385,-4.9558,-5.1473,-4.7642,0.805,0.7979,0.8122,0.0,0.0,46,174,312
+por empresa,461,98.0029,-5.1075,-5.2973,-4.9177,0.7906,0.7835,0.7979,0.0,0.0,36,147,278

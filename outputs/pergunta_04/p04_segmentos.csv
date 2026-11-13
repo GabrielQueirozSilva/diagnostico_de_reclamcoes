@@ -1,0 +1,41 @@
+segmento_de_mercado,avaliadas_S,avaliadas_N,taxa_S,taxa_N,dif_pp,dif_inf,dif_sup,leitura
+"Seguros, Capitalização e Previdência",41788,7644,0.3694,0.5347,-16.5232,-17.731,-15.3112,N maior
+Empresas de Serviços Postais e Logística,14514,1912,0.4227,0.5628,-14.0066,-16.3562,-11.632,N maior
+Serviços Esportivos,3462,270,0.4726,0.5926,-12.0033,-17.9314,-5.8239,N maior
+Energia Elétrica,63824,7719,0.5628,0.6822,-11.9431,-13.0422,-10.8272,N maior
+Distribuidoras de Combustíveis / Gás,2905,286,0.4079,0.521,-11.3062,-17.2982,-5.2539,N maior
+Corretoras e Distribuidoras de Títulos e Investimentos,1799,260,0.368,0.4808,-11.2787,-17.722,-4.8684,N maior
+Aluguel de Carros,5113,451,0.3964,0.4967,-10.0234,-14.8103,-5.2375,N maior
+Bancos de Dados e Cadastros de Consumidores,43413,54652,0.2833,0.3625,-7.9219,-8.506,-7.3363,N maior
+"Empresas de Apostas, Loterias e Promoções Comerciais",8659,917,0.2857,0.349,-6.325,-9.6053,-3.1594,N maior
+Programas de Fidelidade,33946,3194,0.6249,0.6866,-6.1725,-7.84,-4.4632,N maior
+Empresas de Recuperação de Crédito,32169,33807,0.2132,0.2714,-5.8205,-6.472,-5.1681,N maior
+Fabricantes - Linha Branca,7265,329,0.3584,0.4073,-4.8864,-10.3831,0.4038,inconclusivo
+Administradoras de Consórcios,5609,443,0.2713,0.3183,-4.6935,-9.3162,-0.3643,N maior
+"Bancos, Financeiras e Administradoras de Cartão",502258,127653,0.278,0.324,-4.5967,-4.8822,-4.3121,N maior
+Entidades Sem Fins Lucrativos,504,214,0.1548,0.1963,-4.15,-10.6655,1.7144,inconclusivo
+"Construtoras, Incorporadoras e Imobiliárias",6218,301,0.322,0.3621,-4.0158,-9.705,1.3383,inconclusivo
+"Viagens, Turismo e Hospedagem",30513,1387,0.3204,0.3598,-3.9348,-6.5486,-1.396,N maior
+Transporte Terrestre,6757,931,0.4122,0.4468,-3.4666,-6.8816,-0.0892,N maior
+Empresas de Pagamento Eletrônico,55094,10002,0.3828,0.4167,-3.3898,-4.4403,-2.3446,N maior
+Agua e Saneamento,16096,1325,0.3444,0.3736,-2.9214,-5.6584,-0.2527,N maior
+"Material de Construção, Acabamento e Ferramentas",2133,91,0.5331,0.5604,-2.7388,-12.7141,7.7131,inconclusivo
+"Operadoras de Telecomunicações (Telefonia, Internet, TV por assinatura)",180967,27739,0.7084,0.7318,-2.3413,-2.9003,-1.7767,N maior
+Operadoras de Planos de Saúde e Administradoras de Benefícios,22990,1364,0.3638,0.3812,-1.7421,-4.4222,0.8741,inconclusivo
+"Montadoras, Concessionárias e Prestadores de Serviços Automotivos",6801,236,0.2269,0.2415,-1.4647,-7.3928,3.6546,inconclusivo
+Transporte Aéreo,102121,13270,0.6453,0.6573,-1.2018,-2.0568,-0.3386,N maior
+Estabelecimentos de Ensino,17129,1874,0.2684,0.2801,-1.1716,-3.35,0.9246,inconclusivo
+Editoras e Veículos de Imprensa,2096,171,0.4523,0.462,-0.9698,-8.7386,6.6433,inconclusivo
+Fabricantes - Eletroportáteis e Artigos de Uso Doméstico e Pessoal,4622,362,0.4472,0.453,-0.583,-5.9278,4.6693,inconclusivo
+Provedores de Conteúdo e Outros Serviços na Internet,76760,6848,0.1393,0.1437,-0.4387,-1.3236,0.4088,inconclusivo
+Varejo,14056,1896,0.4074,0.4056,0.1851,-2.1846,2.5207,inconclusivo
+Comércio Eletrônico,99307,5747,0.5128,0.51,0.2758,-1.0524,1.6053,inconclusivo
+Supermercados,3281,465,0.6288,0.6237,0.5116,-4.0865,5.2887,inconclusivo
+"Fabricantes - Eletroeletrônicos,  Produtos de Telefonia e Informática",33688,3620,0.1999,0.1934,0.6523,-0.7329,1.9779,inconclusivo
+Entretenimento,2407,405,0.4699,0.4222,4.7657,-0.4861,9.8863,inconclusivo
+Fabricantes - Produtos Alimentícios,1300,205,0.4785,0.4293,4.9193,-2.4403,12.0424,inconclusivo
+Farmácias,7650,397,0.5928,0.534,5.8805,0.9052,10.9174,S maior
+Cartões de Descontos,1604,92,0.4638,0.3913,7.2536,-3.2473,16.9133,inconclusivo
+"Perfumaria, Cosméticos e Higiene Pessoal",8135,1087,0.5657,0.4729,9.2843,6.1218,12.4266,S maior
+Empresas de Intermediação de Serviços / Negócios,88225,3627,0.5604,0.4673,9.3068,7.6478,10.959,S maior
+"Vestuário, Calçados e Acessórios",15406,1546,0.4474,0.3357,11.1718,8.6545,13.6126,S maior

@@ -21,7 +21,7 @@
 | 1 | Quais segmentos têm menor/maior taxa de resolução? | concluida |
 | 2 | Quando a empresa responde, a resolução é maior? | concluida |
 | 3 | O tempo de resposta se associa à resolução? | concluida |
-| 4 | Ter procurado a empresa antes muda a chance de resolução? | pendente |
+| 4 | Ter procurado a empresa antes muda a chance de resolução? | concluida |
 | 5 | Como a taxa evolui mês a mês? | concluida | |
 
 ## Resultados
@@ -134,6 +134,14 @@ Frase para o relatório: o odds ratio comum (~3) é uma média. Não deve ser li
 * **Mas "perto de 1" não é "sem efeito":** a média mistura sinais opostos entre empresas. Das 29 empresas grandes, 16 têm queda clara (44% das avaliadas delas), 6 têm alta clara (41%) e 7 são inconclusivas. As seis empresas grandes de Bancos com alta clara (p03_emp_por_empresa.csv) são: Nubank (77.892 avaliadas; OR por dia 1,199), Banco do Brasil (51.860; 1,034), Banco Santander (50.660; 1,077), PicPay (8.029; 1,100), Midway/Riachuelo (7.458; 1,076) e Santander Financiamentos/Aymoré (5.754; 1,069).
 * **Telecom e Aéreo:** o sinal negativo se mantém dentro da empresa e todas as empresas grandes (7 e 3) têm queda clara. Em Telecom o efeito fica mais forte dentro da empresa (0,897 → 0,867), porque as empresas mais lentas também têm taxa maior (+0,44) e isso o atenuava no nível do segmento. Poucas empresas (14 e 12): o IC robusto é pouco confiável, mas exclui 1 com folga.
 * **IC e agrupamento por empresa:** em Bancos o IC do modelo é 1,005 a 1,009, e o robusto é 0,975 a 1,039. Nos três segmentos o IC do modelo é de 4 a 16 vezes mais estreito que o robusto. Os ICs por segmento (tabela acima) estão otimistas; a leitura "clara" de efeitos pequenos (|OR − 1| abaixo de ~0,03) é indicativa, e a de efeitos grandes (Energia, Telecom, Aéreo, Recuperação de Crédito) é a mais segura.
+
+### Pergunta 04: ter procurado a empresa antes (concluída)
+- **Método:** taxa de resolução em S e N, diferença com Newcombe, OR de Mantel-Haenszel e diferença padronizada em estratos (segmento, mês, segmento × mês, empresa); ver D-015. Script: `src/pergunta_04/procurou_empresa.py`; saídas em `outputs/pergunta_04/`.
+- **Resultado:** no bruto, S 41,2% e N 39,8% (+1,4 pp, OR 1,06). Dentro de segmento ou empresa a diferença é de −4,8 a −5,1 pp (OR 0,79 a 0,81): quem já tinha procurado a empresa resolve menos. A inversão vem do segmento (por mês: +1,0 pp), como na P3.
+- **Heterogeneidade:** por segmento, 19 com N maior, 4 com S maior, 17 inconclusivos; por empresa (461), 147 / 36 / 278. O OR único é uma média.
+- **Queda geral:** o peso de N subiu de 14,0% para 17,1%, mas o mix explica ~0% da queda de −13,7 pp (−0,5% a +1,0% nos 6 recortes). A queda ocorre dentro de S (−11,4 pp) e de N (−2,3 pp).
+- **D-008 (resolvida):** entre as 10.621 "Resolvida" não respondidas, 90,9% já tinham procurado a empresa, contra 82,9% na base geral e 89,1% nas "Não Resolvida" não respondidas. O percentual alto é característica do grupo de não respondidas, não da resolução. Substitui o 93,86% da amostra parcial.
+- **Limitações:** associação, não causa. Hipótese não testada para o sinal negativo: quem procura a empresa antes e ainda reclama pode ser quem não resolveu no primeiro contato. Quem resolve de primeira nem chega à plataforma. ICs não consideram o agrupamento por empresa.
 
 ### Pergunta 05: evolução da taxa (concluído)
 - **Método:** recortes de 3 meses (out-dez/2024 e jul-set/2026), decomposição em dentro, mix, entrada e saída (ver D-010, D-011 e D-012). 

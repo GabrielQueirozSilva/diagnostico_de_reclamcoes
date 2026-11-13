@@ -16,6 +16,7 @@
 | D-012 | Tratar entrada e saída de entidades em vez de descartá-las | aceita |
 | D-013 | Comparar respondidas e não respondidas dentro de estratos | aceita |
 | D-014 | Reportar a pergunta 3 por faixa e por segmento, com efeito fixo de mês | aceita |
+| D-015 | Reportar a pergunta 4 dentro de estratos, como na pergunta 2 | aceita |
 
 ---
 
@@ -130,6 +131,14 @@
 - **Decisão:** Reportar (1) a taxa por faixa de tempo, com Wilson, e o OR por faixa ajustado por segmento e mês; (2) o OR por dia dentro de cada segmento, ajustado por mês, com heterogeneidade (interação por razão de verossimilhança, Q, I², tau e intervalo de predição); (3) sensibilidade ao prazo estendido (D-006) em cada cenário; (4) nos três maiores segmentos (Bancos, Telecom, Aéreo), OR por dia dentro da empresa (efeito fixo de empresa) com IC robusto a agrupamento por empresa. Só entram segmentos com pelo menos 500 avaliadas (MIN_AVALIADAS_SEG) e o tempo tem teto de 15 dias no termo linear (TETO_DIAS).
 - **Alternativas:** um único OR por dia (esconde a mudança de sinal entre segmentos); curva suave por spline (mais flexível, mas difícil de explicar no relatório); controlar por empresa em vez de segmento (mais fiel, mas muito mais lento e com mais estratos pequenos; feito só nos três maiores segmentos).
 - **Impacto:** A conclusão deixa de ser um número e passa a ser "o efeito depende do segmento": 17 a 20 dos 38 a 39 segmentos com queda clara (36% a 41% das avaliadas), 7 a 8 com alta (47% a 50%, puxado por Bancos), o resto inconclusivo, com e sem os dias de prazo estendido; intervalo de predição do OR por dia de 0,84 a 1,13. A contagem muda um pouco entre os cenários (segmentos de efeito perto de zero), os maiores mantêm o sinal. No teste por empresa, ~80% do sinal positivo de Bancos vem de composição entre empresas, e a queda em Telecom e Aéreo se mantém dentro da empresa. Limites: associação, não causal; ICs sem correção para agrupamento por empresa; faixa 11-15 confundida com o prazo estendido.
+
+
+## D-015 · Reportar a pergunta 4 dentro de estratos, como na pergunta 2
+- **Data:** 13/11/2026
+- **Contexto:** A diferença bruta entre quem procurou a empresa (S) e quem não procurou (N) é pequena (+1,4 pp, OR 1,06), mas segmento e mês afetam tanto a taxa de resolução quanto o hábito de procurar (os casos N são 17,1% das avaliadas, de 13,6% a 19,2% por mês).
+- **Decisão:** Reaproveitar a estrutura da D-013: diferença bruta (Wilson e Newcombe) e comparação dentro de estratos (segmento, mês, segmento × mês, empresa), com OR de Mantel-Haenszel e diferença padronizada pelos pesos dos casos N (MIN_POR_GRUPO = 30). Decompor a queda geral com `decompor` da P5, com a entidade sendo procurou_empresa. Resolver a pendência da D-008 comparando com a base geral e com as não respondidas "Não Resolvida".
+- **Alternativas:** apenas a diferença bruta (daria +1,4 pp e escondia a inversão); regressão logística com efeitos fixos.
+- **Impacto:** O sinal inverte: +1,4 pp no bruto, de −4,8 a −5,1 pp dentro de segmento ou empresa (OR 0,79 a 0,81). A inversão vem do segmento (por mês: +1,0 pp). O efeito difere entre segmentos e empresas (Breslow-Day p = 0; 19 segmentos N maior, 4 S maior, 17 inconclusivos). O peso de N explica ~0% da queda geral. Limites: associação, não causa; ICs sem correção para agrupamento por empresa; procurou_empresa é informado pelo consumidor.
 
 
 ## D-00 · ---
