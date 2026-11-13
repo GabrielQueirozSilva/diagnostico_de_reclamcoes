@@ -1,0 +1,39 @@
+seg,avaliadas,taxa_pct,tempo_medio,OR_por_dia,or_inf,or_sup,leitura
+Energia Elétrica,58008,57.6593,5.8839,0.8084,0.804,0.8128,queda clara
+Distribuidoras de Combustíveis / Gás,2493,42.3586,6.6125,0.839,0.8157,0.8629,queda clara
+"Operadoras de Telecomunicações (Telefonia, Internet, TV por assinatura)",171755,71.7965,7.7053,0.8818,0.8775,0.8863,queda clara
+Empresas de Recuperação de Crédito,46512,26.0406,4.1321,0.891,0.8842,0.8978,queda clara
+Transporte Aéreo,94253,65.5746,4.9844,0.906,0.9017,0.9103,queda clara
+Farmácias,6386,61.259,6.3221,0.9153,0.8984,0.9324,queda clara
+Estabelecimentos de Ensino,14087,28.6647,6.4308,0.9343,0.9226,0.946,queda clara
+Programas de Fidelidade,30875,62.8534,5.1508,0.9447,0.9363,0.9531,queda clara
+"Seguros, Capitalização e Previdência",40855,40.5507,6.6779,0.9569,0.9497,0.9641,queda clara
+"Perfumaria, Cosméticos e Higiene Pessoal",6534,59.9633,6.3846,0.9576,0.9428,0.9725,queda clara
+Corretoras e Distribuidoras de Títulos e Investimentos,1680,39.0476,5.8595,0.959,0.9275,0.9916,queda clara
+Fabricantes - Linha Branca,5446,38.8358,6.6085,0.9599,0.9409,0.9793,queda clara
+"Construtoras, Incorporadoras e Imobiliárias",5014,33.9848,6.8899,0.9627,0.9445,0.9812,queda clara
+Aluguel de Carros,4329,41.4414,6.9002,0.963,0.9425,0.984,queda clara
+Supermercados,3034,63.151,6.8375,0.9687,0.9441,0.9939,queda clara
+"Material de Construção, Acabamento e Ferramentas",1809,54.0077,4.9077,0.9708,0.9382,1.0045,inconclusivo
+Operadoras de Planos de Saúde e Administradoras de Benefícios,18975,37.9183,6.5418,0.9721,0.9625,0.9819,queda clara
+Administradoras de Consórcios,4572,28.8276,6.8327,0.9799,0.9593,1.0008,inconclusivo
+Fabricantes - Eletroportáteis e Artigos de Uso Doméstico e Pessoal,3758,47.7648,5.384,0.9817,0.961,1.0028,inconclusivo
+Agua e Saneamento,12147,36.3711,5.776,0.9841,0.9723,0.996,queda clara
+Serviços Esportivos,3002,48.8674,6.2971,0.9892,0.9619,1.0173,inconclusivo
+Fabricantes - Produtos Alimentícios,1180,47.4576,4.0297,0.9908,0.9502,1.0332,inconclusivo
+"Vestuário, Calçados e Acessórios",11733,48.3593,6.1465,0.9932,0.9822,1.0043,inconclusivo
+Empresas de Serviços Postais e Logística,12458,45.3845,4.7995,0.9973,0.9834,1.0115,inconclusivo
+Bancos de Dados e Cadastros de Consumidores,73818,33.5392,2.5426,0.9979,0.9922,1.0036,inconclusivo
+Empresas de Pagamento Eletrônico,52452,39.4837,6.728,0.9983,0.9919,1.0047,inconclusivo
+Comércio Eletrônico,76575,54.446,7.3452,1.0012,0.9961,1.0063,inconclusivo
+Editoras e Veículos de Imprensa,1061,59.3779,6.5184,1.0021,0.9548,1.0517,inconclusivo
+"Viagens, Turismo e Hospedagem",24693,33.7262,6.5397,1.011,1.0016,1.0204,alta clara
+Transporte Terrestre,5448,46.6043,5.2896,1.0128,0.9957,1.03,inconclusivo
+"Empresas de Apostas, Loterias e Promoções Comerciais",6940,30.7061,4.7231,1.0156,0.9995,1.0319,inconclusivo
+Entretenimento,2077,48.9649,4.1805,1.0243,0.9966,1.0528,inconclusivo
+Varejo,11953,43.5623,6.3997,1.0299,1.0182,1.0418,alta clara
+Empresas de Intermediação de Serviços / Negócios,71155,55.4297,6.4488,1.0331,1.0276,1.0388,alta clara
+"Bancos, Financeiras e Administradoras de Cartão",488655,29.7871,5.9878,1.0333,1.0312,1.0353,alta clara
+Provedores de Conteúdo e Outros Serviços na Internet,59871,15.7372,4.4804,1.0577,1.0502,1.0652,alta clara
+"Montadoras, Concessionárias e Prestadores de Serviços Automotivos",4827,24.4873,6.3443,1.0683,1.0452,1.0919,alta clara
+"Fabricantes - Eletroeletrônicos,  Produtos de Telefonia e Informática",30295,20.3169,6.9546,1.0761,1.0635,1.0889,alta clara

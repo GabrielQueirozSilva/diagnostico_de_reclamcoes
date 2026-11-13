@@ -20,7 +20,7 @@
 |---|----------|--------|
 | 1 | Quais segmentos têm menor/maior taxa de resolução? | concluida |
 | 2 | Quando a empresa responde, a resolução é maior? | concluida |
-| 3 | O tempo de resposta se associa à resolução? | pendente |
+| 3 | O tempo de resposta se associa à resolução? | concluida |
 | 4 | Ter procurado a empresa antes muda a chance de resolução? | pendente |
 | 5 | Como a taxa evolui mês a mês? | concluida | |
 
@@ -94,7 +94,7 @@ Frase para o relatório: o odds ratio comum (~3) é uma média. Não deve ser li
 
 - **Método:** só avaliadas e respondidas com tempo válido (1.837.995; 1.837.076 nos 39 segmentos com pelo menos 500 avaliadas, que entram nos modelos). Taxa por faixa de tempo (0-2, 3-5, 6-10, 11-15, 16+ dias) com Wilson; regressão logística binomial com efeito fixo de segmento e de mês; sensibilidade ao prazo estendido (D-006); diagnóstico da inversão do sinal; OR por dia dentro de cada segmento, com teste de heterogeneidade (ver D-014). No termo linear o tempo tem teto de 15 dias.
 
-- **Scripts:** `src/pergunta_03/associacao.py`, `diagnostico.py` e `por_segmento.py` (código compartilhado em base.py).
+- **Scripts:** `src/pergunta_03/associacao.py`, `diagnostico.py`, `por_segmento.py` (código compartilhado em base.py) e `por_empresa`.
 
 - **Saídas:** `outputs/pergunta_03/p03_*.csv` e `p03_*.png.`
 
@@ -126,14 +126,31 @@ Frase para o relatório: o odds ratio comum (~3) é uma média. Não deve ser li
 
 * **O sinal "alta clara" pesa 50% só por causa de Bancos** (615.284 avaliadas, 33% da base, OR 1,033). Sem ele, os segmentos com queda clara dominam.
 
-* **Resultado:** a associação é pequena no agregado e muda de sinal conforme o segmento: em 20 de 39 segmentos cada dia a mais vem com menos chance de resolução (OR 0,82 a 0,98), em 8 com mais (1,01 a 1,07) e em 11 não há conclusão. Nenhum valor único de "efeito do tempo" descreve a base; reportar por segmento.
+* **Sensibilidade ao prazo estendido** (--sem-prazo-estendido, arquivos *_sem_estendido): 1.470.715 avaliadas em 38 segmentos (Entidades Sem Fins Lucrativos sai por ficar abaixo de 500). Contagem: 17 queda clara, 14 inconclusivos, 7 alta clara (36%, 17% e 47% das avaliadas). Heterogeneidade praticamente igual: tau = 0,077, I² ≈ 100%, OR de efeitos aleatórios 0,974 (0,950 a 0,998), intervalo de predição 0,835 a 1,135.
 
-* **Limitações:** é associação, não causa. Tempos longos podem refletir reclamações mais complexas, e isso afetaria a resolução por outra via (hipótese não testada); respostas muito rápidas podem ser respostas padronizadas. Os ICs não consideram que reclamações da mesma empresa são parecidas entre si, então estão otimistas, principalmente para efeitos pequenos e segmentos pequenos (ex.: Entidades Sem Fins Lucrativos, n = 503, IC 0,84 a 0,98, e Apostas, IC 1,001 a 1,028, são limítrofes e não devem ser lidos isoladamente). O OR por dia é linear; em segmentos com curva em arco (ex.: Comércio Eletrônico) ele resume só a tendência média. O período de prazo estendido e a faixa 11-15 se confundem (ver acima).
+ * **Os maiores mantêm o sinal e a ordem de grandeza:** Energia 0,808, Telecom 0,882, Recuperação de Crédito 0,891, Aéreo 0,906; Bancos 1,033 (idêntico), Provedores 1,058, Eletroeletrônicos 1,076, Intermediação 1,033.
 
-* **[PENDENTE]** python -m src.pergunta_03.por_segmento --sem-prazo-estendido: conferir se a contagem de segmentos (20/11/8) e os sinais dos maiores se mantêm sem os dias de prazo estendido (D-006).
+ * **Mudam de leitura os segmentos com efeito perto de zero:** Comércio Eletrônico (0,985 → 1,001), Serviços Postais (0,984 → 0,997), Pagamento Eletrônico (1,018 → 0,998) e Apostas (1,014 → 1,016, limite inferior 1,000) viram inconclusivos; Viagens (0,996 → 1,011) vira alta clara. Por isso a contagem exata (20/11/8 ou 17/14/7) não é estável e deve ser reportada como faixa. O que é robusto são os segmentos de efeito grande.
 
-* **[PENDENTE]** Bancos tem sinal positivo, ao contrário de Telecom, Aéreo e Energia. Hipótese a testar: composição por empresa dentro do segmento (empresas mais rápidas com taxa menor, e vice-versa). Teste natural: OR por dia com efeito fixo de empresa dentro de Bancos, Telecom e Aéreo.
+* **Resultado:** a associação é pequena no agregado e muda de sinal conforme o segmento. Em 17 a 20 dos 38 a 39 segmentos (36% a 41% das avaliadas), cada dia a mais vem com menos chance de resolução (OR de 0,81 a 0,99); em 7 a 8 (47% a 50%, puxado por Bancos) com mais chance (1,01 a 1,08); no resto não há conclusão. A leitura vale para os segmentos grandes com efeito claro e não muda sem os dias de prazo estendido. Em Bancos, a alta vem em boa parte de composição entre empresas (teste por empresa abaixo); em Telecom e Aéreo a queda se mantém dentro da empresa. Nenhum valor único de "efeito do tempo" descreve a base; reportar por segmento.
 
+* **Limitações:** é associação, não causa. Tempos longos podem refletir reclamações mais complexas, e isso afetaria a resolução por outra via (hipótese não testada); respostas muito rápidas podem ser respostas padronizadas. Os ICs por segmento não consideram que reclamações da mesma empresa são parecidas entre si e estão otimistas (no teste por empresa, o IC robusto é de 4 a 16 vezes mais largo), principalmente para efeitos pequenos e segmentos pequenos (ex.: Entidades Sem Fins Lucrativos, n = 503, IC 0,84 a 0,98, e Apostas, IC 1,001 a 1,028, são limítrofes e não devem ser lidos isoladamente). O OR por dia é linear; em segmentos com curva em arco (ex.: Comércio Eletrônico) ele resume só a tendência média. O período de prazo estendido e a faixa 11-15 se confundem (ver acima).
+
+* **Teste por empresa (src/pergunta_03/por_empresa.py, outputs/pergunta_03/p03_emp_*):** Bancos tem sinal positivo, ao contrário de Telecom, Aéreo e Energia. Hipótese: composição entre empresas dentro do segmento (empresas mais lentas já teriam taxa maior). O script compara o OR por dia no nível do segmento com o OR dentro da empresa (efeito fixo de empresa, IC robusto a agrupamento por empresa), a correlação entre empresas (tempo médio x taxa) e o OR de cada empresa grande. Só entram empresas com pelo menos 500 avaliadas no segmento.
+
+| Segmento | Empresas no modelo (cobertura) | OR por dia no segmento | OR por dia dentro da empresa (IC robusto) | Correlação entre empresas | Empresas grandes: queda / inconclusivo / alta |
+| :---: | :---: | :----: | :----: | :-------: | :------: |
+| Bancos, Financeiras e Adm. Cartão | 87 de 312 (97,0%) | 1,035 (1,034 a 1,037) | 1,007 (0,975 a 1,039) | +0,50 | 16 / 7 / 6 (de 29) |
+| Operadoras de Telecomunicações | 14 de 22 (99,5%) | 0,897 (0,893 a 0,901) | 0,867 (0,819 a 0,919) | +0,44 | 7 / 0 / 0 (de 7) |
+| Transporte Aéreo | 12 de 42 (94,8%) | 0,890 (0,886 a 0,894) | 0,881 (0,860 a 0,903) | −0,24 | 3 / 0 / 0 (de 3) | 
+
+* **Bancos:** cerca de 80% do efeito (em escala de log-OR) some ao comparar dentro da empresa, e o IC robusto passa a incluir 1. O sinal positivo do segmento vem, em boa parte, de diferenças entre empresas: as mais lentas já têm taxa maior (correlação +0,50).
+
+* **Mas "perto de 1" não é "sem efeito":** a média mistura sinais opostos entre empresas. Das 29 empresas grandes, 16 têm queda clara (44% das avaliadas delas), 6 têm alta clara (41%) e 7 são inconclusivas. [PENDENTE: citar quais são as 6 com alta clara, em p03_emp_por_empresa.csv.]
+
+* **Telecom e Aéreo:** o sinal negativo se mantém dentro da empresa e todas as empresas grandes (7 e 3) têm queda clara. Em Telecom o efeito fica mais forte dentro da empresa (0,897 → 0,867), porque as empresas mais lentas também têm taxa maior (+0,44) e isso o atenuava no nível do segmento. Poucas empresas (14 e 12): o IC robusto é pouco confiável, mas exclui 1 com folga.
+
+* **IC e agrupamento por empresa:** em Bancos o IC do modelo é 1,005 a 1,009, e o robusto é 0,975 a 1,039. Nos três segmentos o IC do modelo é de 4 a 16 vezes mais estreito que o robusto. Os ICs por segmento (tabela acima) estão otimistas; a leitura "clara" de efeitos pequenos (|OR − 1| abaixo de ~0,03) é indicativa, e a de efeitos grandes (Energia, Telecom, Aéreo, Recuperação de Crédito) é a mais segura.
 
 ### Pergunta 5: evolução da taxa (concluído)
 - **Método:** recortes de 3 meses (out-dez/2024 e jul-set/2026), decomposição em dentro, mix, entrada e saída (ver D-010, D-011 e D-012). 
@@ -212,9 +229,7 @@ Entre as reclamações com `respondida = 'N'`:  190.732 não avaliadas,  49.310 
 
 ## Perguntas em aberto
 
-- P: Por que o tempo de resposta é maior nas resolvidas? Testar dentro de cada segmento **e dentro de cada mês**: se o prazo de resposta mudou ao longo do tempo e a taxa de resolução também, o período pode estar afetando as duas variáveis ao mesmo tempo.
-
--R: Respondido na P3: a diferença bruta vem do segmento (Telecom é lento e tem taxa alta; correlação +0,39 entre segmentos), e não do mês (−0,01). Dentro do segmento o sinal muda de segmento para segmento.
+Por que o tempo de resposta é maior nas resolvidas? Respondido na P3: a diferença bruta vem do segmento (Telecom é lento e tem taxa alta; correlação +0,39 entre segmentos), e não do mês (−0,01). Dentro do segmento o sinal muda de segmento para segmento.
 
 - As empresas do topo do ranking de respostas acima de 10 dias continuam lá quando se excluem os meses de pico?
 - Por que a taxa de resolução cai de ~55% para ~38% ao longo dos 24 meses? Testar composição por segmento.

@@ -1,0 +1,4 @@
+seg,avaliadas,empresas,cobertura_%,OR_segmento,seg_inf,seg_sup,OR_dentro_empresa,emp_inf,emp_sup,emp_inf_robusto,emp_sup_robusto,corr_entre_empresas,empresas_queda,empresas_alta,empresas_inconclusivo,leitura
+"Bancos, Financeiras e Administradoras de Cartão",596747,87,97.0,1.0352,1.0335,1.037,1.0069,1.0049,1.0089,0.9753,1.0395,0.5041,16,6,7,"dentro da empresa o efeito some (IC robusto inclui 1): o sinal do segmento vem, ao menos em parte, de diferenças entre empresas"
+"Operadoras de Telecomunicações (Telefonia, Internet, TV por assinatura)",206835,14,99.5,0.8969,0.8931,0.9007,0.8675,0.8635,0.8715,0.8187,0.9191,0.4406,7,0,0,o sinal (queda clara) se mantém dentro da empresa: não é só composição entre empresas
+Transporte Aéreo,108376,12,94.8,0.8903,0.8863,0.8942,0.8813,0.8765,0.8862,0.8603,0.9029,-0.2411,3,0,0,o sinal (queda clara) se mantém dentro da empresa: não é só composição entre empresas

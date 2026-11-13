@@ -4,7 +4,7 @@ Análise de [1,9 milhão de reclamações avaliadas] do Consumidor.gov.br (out/2
 para identificar em quais segmentos o atendimento falha e o que está associado a uma
 reclamação ser considerada resolvida pelo consumidor.
 
-> Status: em andamento (perguntas 3 e 5 em análise; 4 pendente).
+> Status: em andamento (pergunta 5 em análise; 4 pendente).
 
 ## Perguntas
 | # | Pergunta | Status |
@@ -23,7 +23,7 @@ reclamação ser considerada resolvida pelo consumidor.
 ## Principais resultados até agora
 - [Uma frase por pergunta concluída, com link para a tabela ou o gráfico.]
 
-P3: o tempo de resposta tem associação pequena e que muda de sinal conforme o segmento (queda clara em 20 de 39, alta em 8; I² ≈ 100%); ver outputs/pergunta_03/p03_seg_floresta.png.
+P3: o tempo de resposta tem associação pequena e que muda de sinal conforme o segmento (queda clara em 17 a 20 dos 38 a 39 segmentos, alta em 7 a 8; I² ≈ 100%; resultado igual sem o prazo estendido nos maiores segmentos); ver outputs/pergunta_03/p03_seg_floresta.png.
 
 ## Como reproduzir
 1. Python 3.14.3 e PostgreSQL. `pip install -r requirements.txt`.
@@ -35,6 +35,7 @@ P3: o tempo de resposta tem associação pequena e que muda de sinal conforme o 
    - `python -m src.pergunta_03.associacao`
    - `python -m src.pergunta_03.diagnostico`
    - `python -m src.pergunta_03.por_segmento`
+   - `python -m src.pergunta_03.por_empresa`
    - `python -m src.pergunta_05.evolucao`
    - `python -m src.pergunta_05.empresas`
    - `python -m src.pergunta_05.mensal`
