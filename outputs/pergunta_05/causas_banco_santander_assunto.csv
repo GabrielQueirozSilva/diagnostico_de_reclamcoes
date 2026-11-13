@@ -1,0 +1,25 @@
+item,status,avaliadas_inicio,avaliadas_fim,taxa_inicio,taxa_fim,contrib_dentro_pp,contrib_mix_pp,contrib_entrada_pp,contrib_saida_pp,contrib_total_pp,leitura
+Cartão de Crédito / Cartão de Débito / Cartão de Loja,estavel,677,3100,0.3235,0.171,-3.9928,0.0459,0.0,0.0,-3.947,queda clara
+Conta corrente / Salário / Poupança /Conta Aposentadoria,estavel,427,1287,0.3981,0.1772,-3.6487,-0.0334,0.0,0.0,-3.6821,queda clara
+Crédito Pessoal e Demais Empréstimos (exceto financiamento de imóveis e veículos),estavel,500,1577,0.294,0.1725,-2.3496,-0.0186,0.0,0.0,-2.3682,queda clara
+Crédito Consignado (para servidores públicos ou trabalhadores do setor privado),estavel,244,786,0.3689,0.1145,-2.3999,0.0488,0.0,0.0,-2.3511,queda clara
+Atendimento Bancário,estavel,288,786,0.3403,0.1743,-1.8485,-0.026,0.0,0.0,-1.8745,queda clara
+Crédito Consignado / Cartão de Crédito Consignado / RMC (para beneficiários do INSS),estavel,126,404,0.3175,0.1114,-1.0041,0.0279,0.0,0.0,-0.9762,queda clara
+Financiamentos de Veículos / Leasing,estavel,101,536,0.3663,0.1567,-0.8187,-0.0147,0.0,0.0,-0.8334,queda clara
+Demais Seguros,estavel,33,115,0.5758,0.1391,-0.5572,0.001,0.0,0.0,-0.5562,queda clara
+Seguro Prestamista,estavel,24,116,0.5417,0.2672,-0.2547,0.0329,0.0,0.0,-0.2218,volume baixo
+Financiamento de Imóveis,estavel,33,126,0.2727,0.119,-0.1961,-0.0037,0.0,0.0,-0.1998,queda clara
+Serviço de pagamento online/ via celular/ maquininha,estavel,50,137,0.26,0.1606,-0.1922,0.0018,0.0,0.0,-0.1904,inconclusivo
+Consórcios (exceto imóveis),estavel,17,28,0.4706,0.25,-0.145,-0.0304,0.0,0.0,-0.1754,volume baixo
+Seguro de Vida,estavel,18,63,0.3333,0.1429,-0.1326,0.0004,0.0,0.0,-0.1322,volume baixo
+Seguros de Veículos,estavel,5,17,0.6,0.1176,-0.0933,0.0005,0.0,0.0,-0.0928,volume baixo
+Investimentos / Aplicações / Câmbio / Previdência Privada,estavel,23,120,0.3913,0.25,-0.1257,0.0344,0.0,0.0,-0.0913,volume baixo
+Seguro de Acidentes Pessoais,estavel,2,26,0.5,0.0385,-0.0357,-0.0255,0.0,0.0,-0.0612,volume baixo
+Seguro Residencial / Condomínio,estavel,6,14,0.3333,0.1429,-0.0442,0.0018,0.0,0.0,-0.0424,volume baixo
+Seguro Garantia Estendida,estavel,1,4,1.0,0.0,-0.0387,-0.0007,0.0,0.0,-0.0394,volume baixo
+Seguro Funeral,entrou,0,4,,0.0,0.0,0.0,-0.0071,0.0,-0.0071,entrou
+Crédito Rural,entrou,0,5,,0.2,0.0,0.0,0.0019,0.0,0.0019,entrou
+Seguro Viagem,estavel,1,2,0.0,0.0,0.0,0.0028,0.0,0.0,0.0028,volume baixo
+Consórcio de Imóveis,estavel,2,9,0.0,0.1111,0.0086,-0.001,0.0,0.0,0.0075,volume baixo
+Seguro Desemprego / Perda de renda,estavel,4,22,0.0,0.1364,0.0211,-0.0023,0.0,0.0,0.0188,volume baixo
+"Seguro Habitacional (financiamento para aquisição, reforma ou construção de imóvel)",estavel,4,6,0.0,0.5,0.0773,-0.0302,0.0,0.0,0.0471,volume baixo

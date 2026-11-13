@@ -90,7 +90,7 @@ Frase para o relatório: o odds ratio comum (~3) é uma média. Não deve ser li
 * **OBS:** A queda geral da resolução (−13,7 pp no recorte padrão) não decorre do aumento do peso de N (de 1,3% para 3,5% das avaliadas): esse efeito explica ~4% da queda (1,5% a 4,4% nos 6 recortes), e ~95% ocorre dentro dos casos respondidos.
 
 
-### Pergunta 3: O tempo de resposta se associa à resolução? (em andamento)
+### Pergunta 03: O tempo de resposta se associa à resolução? (concluído)
 
 - **Método:** só avaliadas e respondidas com tempo válido (1.837.995; 1.837.076 nos 39 segmentos com pelo menos 500 avaliadas, que entram nos modelos). Taxa por faixa de tempo (0-2, 3-5, 6-10, 11-15, 16+ dias) com Wilson; regressão logística binomial com efeito fixo de segmento e de mês; sensibilidade ao prazo estendido (D-006); diagnóstico da inversão do sinal; OR por dia dentro de cada segmento, com teste de heterogeneidade (ver D-014). No termo linear o tempo tem teto de 15 dias.
 
@@ -146,7 +146,7 @@ Frase para o relatório: o odds ratio comum (~3) é uma média. Não deve ser li
 
 * **Bancos:** cerca de 80% do efeito (em escala de log-OR) some ao comparar dentro da empresa, e o IC robusto passa a incluir 1. O sinal positivo do segmento vem, em boa parte, de diferenças entre empresas: as mais lentas já têm taxa maior (correlação +0,50).
 
-* **Mas "perto de 1" não é "sem efeito":** a média mistura sinais opostos entre empresas. Das 29 empresas grandes, 16 têm queda clara (44% das avaliadas delas), 6 têm alta clara (41%) e 7 são inconclusivas. [PENDENTE: citar quais são as 6 com alta clara, em p03_emp_por_empresa.csv.]
+* **Mas "perto de 1" não é "sem efeito":** a média mistura sinais opostos entre empresas. Das 29 empresas grandes, 16 têm queda clara (44% das avaliadas delas), 6 têm alta clara (41%) e 7 são inconclusivas. As seis empresas grandes de Bancos com alta clara (p03_emp_por_empresa.csv) são: Nubank (77.892 avaliadas; OR por dia 1,199), Banco do Brasil (51.860; 1,034), Banco Santander (50.660; 1,077), PicPay (8.029; 1,100), Midway/Riachuelo (7.458; 1,076) e Santander Financiamentos/Aymoré (5.754; 1,069).
 
 * **Telecom e Aéreo:** o sinal negativo se mantém dentro da empresa e todas as empresas grandes (7 e 3) têm queda clara. Em Telecom o efeito fica mais forte dentro da empresa (0,897 → 0,867), porque as empresas mais lentas também têm taxa maior (+0,44) e isso o atenuava no nível do segmento. Poucas empresas (14 e 12): o IC robusto é pouco confiável, mas exclui 1 com folga.
 
@@ -190,8 +190,22 @@ Frase para o relatório: o odds ratio comum (~3) é uma média. Não deve ser li
   * Nov/2024 tem padrão parecido na taxa (cai em relação a out/2024 em 5 das 6 e recupera em dez em 4 das 6), mas com volume subindo de 51% a 100% em relação a out/2024.
   * Compatível com sazonalidade em novembro, mas só há dois novembros; sem explicação definitiva nos dados disponíveis.
 * **Volume:** de out-dez/2024 para set-dez/2025, as finalizadas dos cinco bancos tradicionais cresceram cerca de 1,5 a 2,1 vezes e as do Nubank cerca de 4 vezes, enquanto a taxa caiu em todos. Mais reclamações e menor resolução percebida andam juntas, mas isso não indica causa. O tipo de reclamação (assunto e problema) é o corte seguinte natural.
-* **Conclusão da pergunta 5:** a taxa de resolução percebida cai de ~55% (out/2024) para um piso de ~36% (abr/2026) e recupera parcialmente (~38% no fim). Cerca de dois terços da queda (62% a 76%, conforme o recorte) ocorrem dentro dos segmentos; o restante é mudança de composição. Dez segmentos explicam quase toda a queda (99% no recorte padrão) e, dentro deles, poucas empresas concentram o efeito (Gol no aéreo, Vivo e Tim no telecom, as seis maiores nos bancos). Os dados descrevem onde e quando a taxa caiu, não por quê.
-* **Pendente (ligado às perguntas 2 e 3):** decompor por assunto, tempo de resposta e "empresa respondeu" nas empresas que mais caíram (Gol, Nubank, Santander).
+* **Ligação com as perguntas 2 e 3 (o que acompanha a queda?)**:
+ * **Empresa respondeu (P2):** os casos N passaram de 1,3% para 3,5% das avaliadas e explicam ~4% da queda (1,5% a 4,4% nos 6 recortes). A taxa caiu quase igual nos dois grupos (respondidas: 51,1% → 39,1%; não respondidas: 25,4% → 14,7%; médias mensais de nov-dez/2024 e jul-set/2026), então a queda ocorre entre as respondidas. Em Gol, Nubank e Santander os casos N são ~0% nos dois períodos, então esse fator não explica nada nelas.
+ * **Tempo de resposta (P3), geral:** o tempo médio não subiu: 6,2 dias (out-dez/2024) → 5,5 (jul-set/2026), enquanto a taxa caía; a correlação entre meses é −0,01. Nos meses de prazo estendido ele sobe (7,3 em dez/2025; 6,7 em jun/2026), mas a taxa não muda de forma consistente com esses meses (ver "Qualidade dos dados"). O tempo não explica a queda geral.
+Gol, Nubank e Santander (python -m src.pergunta_05.empresas_causas; saídas em outputs/pergunta_05/causas_*):
+
+| Empresa | Taxa (início → fim) | Casos N (início → fim) | Tempo médio em dias (início → fim) | médio em dias (início → fim)	Por assunto: dentro / mix |
+| :--- | :---: | :---: | :---: | :---: |
+| Gol Linhas Aéreas | 80,4% → 49,1% (−31,4 pp) |0,0% → 0,0% | 5,8 → 6,1 | 	99% / 1%; 94% dos casos estão em um só assunto ("Aéreo"), então o nível não discrimina |
+| Nubank | 30,6% → 19,7% (−10,9 pp) | 0,1% → 0,0% | 4,3 → 2,2 | 95% / 5%; Cartão de Crédito/Débito/Loja concentra 77% da queda (30,5% → 17,8%) |
+| Banco Santander | 34,2% → 16,5% (−17,8 pp) | 0,3% → 0,0% | 7,8 → 2,5 | 	100% / 0%; queda de 12 a 44 pp em todos os 8 maiores assuntos; os 5 maiores respondem por 80% |
+
+* **Assunto:** a queda não vem de mudança do tipo de reclamação. Em Nubank e Santander ela ocorre dentro dos mesmos assuntos (95% a 100%); em Santander é generalizada e em Nubank se concentra em cartão.
+* **Tempo:** Nubank e Santander ficaram bem mais rápidas (4,3 → 2,2 e 7,8 → 2,5 dias) enquanto a taxa caía. Na série mensal as duas quedas andam juntas (Nubank, abr-set/2025: taxa de ~32% para ~11% e tempo de ~5,9 para ~2,4 dias). Isso combina com o sinal positivo do OR por dia dessas empresas na P3 (mais rápido, menos resolvido) e com a hipótese, não testada, de respostas rápidas e padronizadas. Na Gol o tempo quase não mudou (5,8 → 6,1) e, nos meses de menor taxa (mar-abr/2026, ~43% a 47%), foi o mais baixo da série (~3,3 dias), então o tempo não explica a queda da Gol.
+* **Cuidado com o tempo de início:** em Santander e Gol, out-dez/2024 pode estar inflado pela cauda longa de fim de 2024 (ver "Qualidade dos dados"). Em Santander a queda do tempo continua depois (de ~6,5 dias em fev-abr/2025 para ~2,5 em ago-set/2026), então a leitura se mantém.
+* **Limites:** são associações, não causa; o tempo médio mensal só considera casos respondidos e avaliados; a série mensal da Gol e a taxa por assunto das empresas pequenas têm ruído (ver bandas e leitura nos CSVs).
+* **Conclusão da pergunta 5:** a taxa de resolução percebida cai de ~55% (out/2024) para um piso de ~36% (abr/2026) e recupera parcialmente (~38% no fim). Cerca de dois terços da queda (62% a 76%, conforme o recorte) ocorrem dentro dos segmentos; o restante é mudança de composição. Dez segmentos explicam quase toda a queda (99% no recorte padrão) e, dentro deles, poucas empresas concentram o efeito (Gol no aéreo, Vivo e Tim no telecom, as seis maiores nos bancos). Os dados descrevem onde e quando a taxa caiu, não por quê. Nem "empresa respondeu" nem o tempo de resposta explicam a queda geral; nas três empresas que mais caíram ela ocorre dentro dos mesmos assuntos e, em Nubank e Santander, junto com respostas mais rápidas (hipótese de respostas padronizadas não testada).
 
 ## Qualidade dos dados
 
@@ -232,8 +246,8 @@ Entre as reclamações com `respondida = 'N'`:  190.732 não avaliadas,  49.310 
 Por que o tempo de resposta é maior nas resolvidas? Respondido na P3: a diferença bruta vem do segmento (Telecom é lento e tem taxa alta; correlação +0,39 entre segmentos), e não do mês (−0,01). Dentro do segmento o sinal muda de segmento para segmento.
 
 - As empresas do topo do ranking de respostas acima de 10 dias continuam lá quando se excluem os meses de pico?
-- Por que a taxa de resolução cai de ~55% para ~38% ao longo dos 24 meses? Testar composição por segmento.
-- Conferir o volume menor em 2025-11.
+- Por que a taxa de resolução cai de ~55% para ~38%? Testar composição por segmento. → Respondido na P5: cerca de dois terços da queda (62% a 76%, conforme o recorte) ocorrem
+- Conferir o volume menor em 2025-11. → Conferido: 192.038 finalizadas, igual ao CSV e ao banco.
 
 ## Anexo: índices
 

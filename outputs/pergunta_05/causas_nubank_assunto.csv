@@ -1,0 +1,9 @@
+item,status,avaliadas_inicio,avaliadas_fim,taxa_inicio,taxa_fim,contrib_dentro_pp,contrib_mix_pp,contrib_entrada_pp,contrib_saida_pp,contrib_total_pp,leitura
+Cartão de Crédito / Cartão de Débito / Cartão de Loja,estavel,2146,9338,0.3052,0.1781,-8.507,0.1451,0.0,0.0,-8.3619,queda clara
+Crédito Pessoal e Demais Empréstimos (exceto financiamento de imóveis e veículos),estavel,510,4373,0.2412,0.1909,-0.7988,-0.0721,0.0,0.0,-0.8709,queda clara
+Atendimento Bancário,estavel,200,747,0.4,0.3025,-0.6078,-0.1579,0.0,0.0,-0.7656,queda clara
+Conta corrente / Salário / Poupança /Conta Aposentadoria,estavel,157,532,0.4204,0.3402,-0.3924,-0.2176,0.0,0.0,-0.61,inconclusivo
+Crédito Consignado (para servidores públicos ou trabalhadores do setor privado),estavel,10,112,0.6,0.1964,-0.1258,-0.0002,0.0,0.0,-0.1261,volume baixo
+Serviço de pagamento online/ via celular/ maquininha,estavel,115,417,0.2696,0.2686,-0.0035,-0.0672,0.0,0.0,-0.0708,inconclusivo
+Crédito Consignado / Cartão de Crédito Consignado / RMC (para beneficiários do INSS),estavel,14,157,0.3571,0.2166,-0.0614,0.0109,0.0,0.0,-0.0504,volume baixo
+Investimentos / Aplicações / Câmbio / Previdência Privada,estavel,55,83,0.2545,0.3855,0.2247,-0.224,0.0,0.0,0.0006,inconclusivo

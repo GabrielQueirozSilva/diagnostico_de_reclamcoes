@@ -1,0 +1,5 @@
+item,status,avaliadas_inicio,avaliadas_fim,taxa_inicio,taxa_fim,contrib_dentro_pp,contrib_mix_pp,contrib_entrada_pp,contrib_saida_pp,contrib_total_pp,leitura
+Aéreo,estavel,1982,3782,0.8063,0.4934,-29.5005,0.0004,0.0,0.0,-29.5001,queda clara
+"Programas de Fidelidade / Benefícios (pontos, milhagem etc)",estavel,79,112,0.8354,0.5268,-1.16,-0.0346,0.0,0.0,-1.1947,queda clara
+Cargas e Encomendas,estavel,22,65,0.5,0.2769,-0.2335,-0.1233,0.0,0.0,-0.3568,volume baixo
+Seguro Viagem,estavel,19,45,0.8421,0.4889,-0.3193,-0.0004,0.0,0.0,-0.3197,volume baixo
