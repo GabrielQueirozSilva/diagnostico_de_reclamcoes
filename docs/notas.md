@@ -26,7 +26,7 @@
 
 ## Resultados
 
-### Pergunta 1: segmentos com maior e menor taxa de resolução (concluída)
+### Pergunta 01: segmentos com maior e menor taxa de resolução (concluída)
 - **Método:** taxa = resolvidas ÷ avaliadas por segmento (24 meses, 1.897.927 avaliadas), com intervalo
   de 95% de Wilson. Melhores ordenados pelo limite inferior e piores pelo superior [ver D-009](decisoes.md).
 - **Gráfico:** `outputs/pergunta_01/segmentos_ic_wilson.png`. **Tabela completa:** `outputs/pergunta_01/segmentos_wilson.csv`.
@@ -61,11 +61,9 @@
 
 ### Pergunta 02 – Quando a empresa responde, a resolução é maior? (concluída)  
 
-* **Método:** Comparação entre a taxa de resolução (resolvidas / avaliadas) entre respondida = 'S' e 'N'.
-
-* **Gráficos:** `outputs/pergunta_02/p02_dif_por_segmento.png` e `outputs/pergunta_02/p02_taxa_por_mes.png`. 
-
-* **Tabelas** `outputs/pergunta_02/p02_decomposicao.csv`, `outputs/pergunta_02/p02_meses.csv` e `outputs/pergunta_02/p02_segmentos.csv`
+- **Método:** Comparação entre a taxa de resolução (resolvidas / avaliadas) entre respondida = 'S' e 'N'.
+- **Gráficos:** `outputs/pergunta_02/p02_dif_por_segmento.png` e `outputs/pergunta_02/p02_taxa_por_mes.png`. 
+- **Tabelas** `outputs/pergunta_02/p02_decomposicao.csv`, `outputs/pergunta_02/p02_meses.csv` e `outputs/pergunta_02/p02_segmentos.csv`
 
 | Nível de controle | Diferença S − N | Odds ratio (MH) | Cobertura de N |
 | :--- | :---: | :---: | :---: |
@@ -81,23 +79,16 @@
 * **Cobertura:** o nível empresa cobre 87% dos casos N, porque exige no mínimo 30 casos em cada grupo. Vale dizer isso ao reportar os 18,5 pp.
 * **Heterogeneidade:** o p = 0 do Breslow-Day não surpreende com esse volume, e deve ser lido como p < 0,001. O que importa é que o efeito varia muito: de ~9 a ~52 pp por segmento. Em segmento × mês e em empresa, 68 e 54 estratos ficam inconclusivos, em sua maioria por pouco volume. Apenas 1 e 2 estratos têm N maior, o que reforça a consistência.
 Frase para o relatório: o odds ratio comum (~3) é uma média. Não deve ser lido como um efeito igual para todos.
-
-
 * **Resultado:** Entre as avaliadas, 41,7% dos casos respondidos foram resolvidos contra 17,7% dos não respondidos (+24,0 pp; IC 95% +23,7 a +24,3). Os casos N são 3,2% das avaliadas (59.931). Ao comparar dentro de estratos, a diferença se mantém: +23,2 pp por mês, +21,6 por segmento, +20,6 por segmento × mês e +18,5 por empresa (odds ratio de Mantel-Haenszel entre 2,75 e 3,24). Cerca de um quarto do gap bruto se deve à composição (N concentrado em empresas com resolução mais baixa). A diferença foi positiva em todos os 23 meses e em 38 dos 40 segmentos; as exceções foram Eletroeletrônicos (inconclusivo) e Químicos/Farmacêuticos (n pequeno). Há heterogeneidade importante (de ~9 a ~52 pp por segmento). 
-
 * **Limitação:** é uma associação, não um efeito causal, e o grupo N pode diferir em tipo de problema e perfil da empresa.
-
 * **OBS:** A queda geral da resolução (−13,7 pp no recorte padrão) não decorre do aumento do peso de N (de 1,3% para 3,5% das avaliadas): esse efeito explica ~4% da queda (1,5% a 4,4% nos 6 recortes), e ~95% ocorre dentro dos casos respondidos.
 
 
 ### Pergunta 03: O tempo de resposta se associa à resolução? (concluído)
 
 - **Método:** só avaliadas e respondidas com tempo válido (1.837.995; 1.837.076 nos 39 segmentos com pelo menos 500 avaliadas, que entram nos modelos). Taxa por faixa de tempo (0-2, 3-5, 6-10, 11-15, 16+ dias) com Wilson; regressão logística binomial com efeito fixo de segmento e de mês; sensibilidade ao prazo estendido (D-006); diagnóstico da inversão do sinal; OR por dia dentro de cada segmento, com teste de heterogeneidade (ver D-014). No termo linear o tempo tem teto de 15 dias.
-
 - **Scripts:** `src/pergunta_03/associacao.py`, `diagnostico.py`, `por_segmento.py` (código compartilhado em base.py) e `por_empresa`.
-
 - **Saídas:** `outputs/pergunta_03/p03_*.csv` e `p03_*.png.`
-
 - **Visão Geral (Bruta)**
 
 | Faixa (dias) | Avaliadas | Taxa de resolução (IC 95%) | OR ajustado por segmento e mês (ref. 0-2) |
@@ -123,19 +114,14 @@ Frase para o relatório: o odds ratio comum (~3) é uma média. Não deve ser li
 | Inconclusivo | 11 | 9% | Bancos de Dados 1,001; Vestuário 0,998 |
 
 * **Heterogeneidade:** interação segmento × tempo, χ² = 19.078 (38 gl), p < 0,001; Q de Cochran = 16.591, I² ≈ 100%, tau = 0,074. OR de efeitos aleatórios 0,972 (0,950 a 0,995). Intervalo de predição 0,840 a 1,125: o OR por dia de um segmento novo pode cair de uma queda de ~16% a uma alta de ~12% na chance de resolução, por dia de espera. O p-valor sozinho não informa com este volume; o I² e o intervalo de predição mostram que a diferença entre segmentos é grande na prática.
-
 * **O sinal "alta clara" pesa 50% só por causa de Bancos** (615.284 avaliadas, 33% da base, OR 1,033). Sem ele, os segmentos com queda clara dominam.
-
 * **Sensibilidade ao prazo estendido** (--sem-prazo-estendido, arquivos *_sem_estendido): 1.470.715 avaliadas em 38 segmentos (Entidades Sem Fins Lucrativos sai por ficar abaixo de 500). Contagem: 17 queda clara, 14 inconclusivos, 7 alta clara (36%, 17% e 47% das avaliadas). Heterogeneidade praticamente igual: tau = 0,077, I² ≈ 100%, OR de efeitos aleatórios 0,974 (0,950 a 0,998), intervalo de predição 0,835 a 1,135.
 
  * **Os maiores mantêm o sinal e a ordem de grandeza:** Energia 0,808, Telecom 0,882, Recuperação de Crédito 0,891, Aéreo 0,906; Bancos 1,033 (idêntico), Provedores 1,058, Eletroeletrônicos 1,076, Intermediação 1,033.
 
  * **Mudam de leitura os segmentos com efeito perto de zero:** Comércio Eletrônico (0,985 → 1,001), Serviços Postais (0,984 → 0,997), Pagamento Eletrônico (1,018 → 0,998) e Apostas (1,014 → 1,016, limite inferior 1,000) viram inconclusivos; Viagens (0,996 → 1,011) vira alta clara. Por isso a contagem exata (20/11/8 ou 17/14/7) não é estável e deve ser reportada como faixa. O que é robusto são os segmentos de efeito grande.
-
 * **Resultado:** a associação é pequena no agregado e muda de sinal conforme o segmento. Em 17 a 20 dos 38 a 39 segmentos (36% a 41% das avaliadas), cada dia a mais vem com menos chance de resolução (OR de 0,81 a 0,99); em 7 a 8 (47% a 50%, puxado por Bancos) com mais chance (1,01 a 1,08); no resto não há conclusão. A leitura vale para os segmentos grandes com efeito claro e não muda sem os dias de prazo estendido. Em Bancos, a alta vem em boa parte de composição entre empresas (teste por empresa abaixo); em Telecom e Aéreo a queda se mantém dentro da empresa. Nenhum valor único de "efeito do tempo" descreve a base; reportar por segmento.
-
 * **Limitações:** é associação, não causa. Tempos longos podem refletir reclamações mais complexas, e isso afetaria a resolução por outra via (hipótese não testada); respostas muito rápidas podem ser respostas padronizadas. Os ICs por segmento não consideram que reclamações da mesma empresa são parecidas entre si e estão otimistas (no teste por empresa, o IC robusto é de 4 a 16 vezes mais largo), principalmente para efeitos pequenos e segmentos pequenos (ex.: Entidades Sem Fins Lucrativos, n = 503, IC 0,84 a 0,98, e Apostas, IC 1,001 a 1,028, são limítrofes e não devem ser lidos isoladamente). O OR por dia é linear; em segmentos com curva em arco (ex.: Comércio Eletrônico) ele resume só a tendência média. O período de prazo estendido e a faixa 11-15 se confundem (ver acima).
-
 * **Teste por empresa (src/pergunta_03/por_empresa.py, outputs/pergunta_03/p03_emp_*):** Bancos tem sinal positivo, ao contrário de Telecom, Aéreo e Energia. Hipótese: composição entre empresas dentro do segmento (empresas mais lentas já teriam taxa maior). O script compara o OR por dia no nível do segmento com o OR dentro da empresa (efeito fixo de empresa, IC robusto a agrupamento por empresa), a correlação entre empresas (tempo médio x taxa) e o OR de cada empresa grande. Só entram empresas com pelo menos 500 avaliadas no segmento.
 
 | Segmento | Empresas no modelo (cobertura) | OR por dia no segmento | OR por dia dentro da empresa (IC robusto) | Correlação entre empresas | Empresas grandes: queda / inconclusivo / alta |
@@ -145,14 +131,11 @@ Frase para o relatório: o odds ratio comum (~3) é uma média. Não deve ser li
 | Transporte Aéreo | 12 de 42 (94,8%) | 0,890 (0,886 a 0,894) | 0,881 (0,860 a 0,903) | −0,24 | 3 / 0 / 0 (de 3) | 
 
 * **Bancos:** cerca de 80% do efeito (em escala de log-OR) some ao comparar dentro da empresa, e o IC robusto passa a incluir 1. O sinal positivo do segmento vem, em boa parte, de diferenças entre empresas: as mais lentas já têm taxa maior (correlação +0,50).
-
 * **Mas "perto de 1" não é "sem efeito":** a média mistura sinais opostos entre empresas. Das 29 empresas grandes, 16 têm queda clara (44% das avaliadas delas), 6 têm alta clara (41%) e 7 são inconclusivas. As seis empresas grandes de Bancos com alta clara (p03_emp_por_empresa.csv) são: Nubank (77.892 avaliadas; OR por dia 1,199), Banco do Brasil (51.860; 1,034), Banco Santander (50.660; 1,077), PicPay (8.029; 1,100), Midway/Riachuelo (7.458; 1,076) e Santander Financiamentos/Aymoré (5.754; 1,069).
-
 * **Telecom e Aéreo:** o sinal negativo se mantém dentro da empresa e todas as empresas grandes (7 e 3) têm queda clara. Em Telecom o efeito fica mais forte dentro da empresa (0,897 → 0,867), porque as empresas mais lentas também têm taxa maior (+0,44) e isso o atenuava no nível do segmento. Poucas empresas (14 e 12): o IC robusto é pouco confiável, mas exclui 1 com folga.
-
 * **IC e agrupamento por empresa:** em Bancos o IC do modelo é 1,005 a 1,009, e o robusto é 0,975 a 1,039. Nos três segmentos o IC do modelo é de 4 a 16 vezes mais estreito que o robusto. Os ICs por segmento (tabela acima) estão otimistas; a leitura "clara" de efeitos pequenos (|OR − 1| abaixo de ~0,03) é indicativa, e a de efeitos grandes (Energia, Telecom, Aéreo, Recuperação de Crédito) é a mais segura.
 
-### Pergunta 5: evolução da taxa (concluído)
+### Pergunta 05: evolução da taxa (concluído)
 - **Método:** recortes de 3 meses (out-dez/2024 e jul-set/2026), decomposição em dentro, mix, entrada e saída (ver D-010, D-011 e D-012). 
 - **Scripts:** `src/pergunta_05/evolucao.py` (segmentos), `src/pergunta_05/empresas.py` (empresas dentro dos segmentos) e `src/pergunta_05/mensal.py` (mês a mês).
 - **Taxa geral:** 51,9% (out-dez/2024) → 38,2% (jul-set/2026), queda de 13,7 pp.
